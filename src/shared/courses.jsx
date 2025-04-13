@@ -33,7 +33,7 @@ const courses = [
 
 const OurCourses = () => {
   return (
-    <section className="bg-[#f9fafb] py-20 px-6 lg:px-20 my-10">
+    <section className="bg-[#f9fafb] py-20 px-6 lg:px-20 my-10 rounded-lg">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-[#050a41] mb-10 flex flex-col items-center">
           Our Courses

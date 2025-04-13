@@ -40,8 +40,9 @@ const PricingSection = () => {
   return (
     <div className="py-20 px-4 bg-[#f9f9f9] rounded-lg">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#050a41] mb-4">
+        <h2 className="text-4xl font-bold text-[#050a41] mb-4 flex flex-col items-center">
           Our Pricing Plans
+          <div className="w-24 h-1 mt-4 bg-gradient-to-r from-black via-red-600 to-yellow-400 rounded" />
         </h2>
         <p className="text-gray-600 mb-12">
           Choose the plan that suits your needs. No hidden fees.

@@ -6,6 +6,7 @@ import SchoolStats from "./shared/statistics";
 import OurCourses from "./shared/courses";
 import ContactForm from "./shared/contactus";
 import PricingSection from "./shared/pricing";
+import CertifiedTeachers from "./shared/teachers";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Sliders />
         <WhatWeOffer />
         <SchoolStats />
+        <CertifiedTeachers />
         <OurCourses />
         <PricingSection />
         <ContactForm />

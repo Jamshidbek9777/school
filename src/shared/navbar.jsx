@@ -13,7 +13,7 @@ const Navbar = () => {
   const navLinks = [
     { name: t("nav1"), path: "/" },
     { name: "About", path: "/about" },
-    { name: "Teacher", path: "/teacher" },
+    { name: "Teacher", path: "/teachers" },
     { name: "Courses", path: "/courses" },
     { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
