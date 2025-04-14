@@ -1,22 +1,25 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./index.css";
+import App from "./App.jsx";
+
 import Navbar from "./shared/navbar.jsx";
 import Footer from "./shared/footer.jsx";
-
-import "./config/i18n.js";
 import About from "./pages/about.jsx";
 import Teachers from "./pages/teachers.jsx";
 import Courses from "./pages/courses.jsx";
 import Pricing from "./pages/pricing.jsx";
 import Contact from "./pages/contact.jsx";
+import Gallary from "./pages/gallery.jsx";
+
+import "./index.css";
+import "./config/i18n.js";
+import LessonSchedule from "./pages/schedule.jsx";
+import NewsPage from "./pages/news.jsx";
 
 const Root = () => {
   return (
     <>
-      {/* <Topbar /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
@@ -24,7 +27,10 @@ const Root = () => {
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/schedule" element={<LessonSchedule />} />
+        <Route path="/news" element={<NewsPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallary />} />
       </Routes>
       <Footer />
     </>

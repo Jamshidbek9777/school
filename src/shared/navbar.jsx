@@ -14,7 +14,10 @@ const Navbar = () => {
     { name: t("nav1"), path: "/" },
     { name: "About", path: "/about" },
     { name: "Teacher", path: "/teachers" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Schedule", path: "/schedule" },
     { name: "Courses", path: "/courses" },
+    { name: "News", path: "/news" },
     { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
   ];
@@ -39,9 +42,9 @@ const Navbar = () => {
             <div className="flex items-center h-full">
               <a href="/">
                 <img
-                  src="/img/logo.png"
+                  src="/img/logo.jpg"
                   alt="Kiddos Logo"
-                  className="h-12 w-auto object-contain"
+                  className="h-14 w-auto object-contain"
                 />
               </a>
             </div>
@@ -95,7 +98,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center px-6 py-6 border-b">
           <div className="flex items-center">
             <img
-              src="/img/logo.png"
+              src="/img/logo.jpg"
               alt="Kiddos Logo"
               className="h-8 w-auto object-contain"
             />

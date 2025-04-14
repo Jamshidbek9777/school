@@ -7,6 +7,7 @@ import OurCourses from "./shared/courses";
 import ContactForm from "./shared/contactus";
 import PricingSection from "./shared/pricing";
 import CertifiedTeachers from "./shared/teachers";
+import FaqSection from "./shared/faq";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <CertifiedTeachers />
         <OurCourses />
         <PricingSection />
+        <FaqSection />
         <ContactForm />
       </Wrapper>
     </>
