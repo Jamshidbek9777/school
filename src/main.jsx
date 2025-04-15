@@ -16,6 +16,8 @@ import "./index.css";
 import "./config/i18n.js";
 import LessonSchedule from "./pages/schedule.jsx";
 import NewsPage from "./pages/news.jsx";
+import Programs from "./pages/programs.jsx";
+import Admissions from "./pages/admission.jsx";
 
 const Root = () => {
   return (
@@ -31,6 +33,7 @@ const Root = () => {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallary />} />
+        <Route path="/admission" element={<Admissions />} />
       </Routes>
       <Footer />
     </>

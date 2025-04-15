@@ -13,13 +13,14 @@ const Navbar = () => {
   const navLinks = [
     { name: t("nav1"), path: "/" },
     { name: "About", path: "/about" },
-    { name: "Teacher", path: "/teachers" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Schedule", path: "/schedule" },
     { name: "Courses", path: "/courses" },
+    { name: "Admission", path: "/admission" },
     { name: "News", path: "/news" },
-    { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Teachers", path: "/teachers" },
+    { name: "Schedule", path: "/schedule" },
+    { name: "Pricing", path: "/pricing" },
   ];
 
   const languageOptions = [
