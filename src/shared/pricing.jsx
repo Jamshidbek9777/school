@@ -1,84 +1,75 @@
 import React from "react";
-import { CheckCircle } from "lucide-react";
 
-const plans = [
+const pricingPlans = [
   {
-    title: "Free",
-    price: "€0",
-    features: ["1 Course Access", "Community Support", "Limited Resources"],
-    bgColor: "bg-white",
-    borderColor: "border-gray-300",
+    name: "Basic",
+    price: "€49/mo",
+    features: [
+      "Access to 2 core courses",
+      "Monthly progress report",
+      "Support during school hours",
+    ],
+    bg: "bg-black",
+    text: "text-white",
+    button: "bg-white text-black",
   },
   {
-    title: "Standard",
-    price: "€29",
+    name: "Standard",
+    price: "€89/mo",
     features: [
-      "5 Courses Access",
-      "Dedicated Support",
-      "Download Materials",
-      "Certificate",
+      "Access to 4 courses",
+      "German language training (A1-A2)",
+      "Weekly live sessions",
+      "Email & phone support",
     ],
-    bgColor: "bg-yellow-100",
-    borderColor: "border-yellow-500",
-    highlight: true,
+    bg: "bg-red-600",
+    text: "text-white",
+    button: "bg-white text-red-600",
   },
   {
-    title: "Premium",
-    price: "€59",
+    name: "Premium",
+    price: "€129/mo",
     features: [
-      "Unlimited Courses",
-      "1-on-1 Mentorship",
-      "Exclusive Webinars",
-      "Priority Support",
+      "Full course access (incl. STEM & German B1-B2)",
+      "1-on-1 mentorship",
+      "Priority support",
+      "Certificate on completion",
     ],
-    bgColor: "bg-white",
-    borderColor: "border-red-500",
+    bg: "bg-yellow-400",
+    text: "text-black",
+    button: "bg-black text-white",
   },
 ];
 
 const PricingSection = () => {
   return (
-    <div className="py-20 px-4 bg-[#f9f9f9] rounded-lg">
+    <div className="py-20 my-10 px-4 bg-[#f8f8f8] rounded-lg">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-[#050a41] mb-4 flex flex-col items-center">
-          Our Pricing Plans
+          Tolov tariflari
           <div className="w-24 h-1 mt-4 bg-gradient-to-r from-black via-red-600 to-yellow-400 rounded" />
         </h2>
         <p className="text-gray-600 mb-12">
-          Choose the plan that suits your needs. No hidden fees.
+          Ehtiyojlaringizga mos rejani tanlang. Yashirin to'lovlar yo'q.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, index) => (
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`cursor-pointer rounded-2xl border ${plan.borderColor} shadow-md p-8 hover:scale-102 transition-transform duration-300 ${plan.bgColor}`}
+              className={`${plan.bg} ${plan.text} rounded-xl shadow-md p-8 text-center transition hover:scale-[1.03]`}
             >
-              <h3 className="text-2xl font-bold text-black mb-4">
-                {plan.title}
-              </h3>
-              <p className="text-4xl font-extrabold text-red-600 mb-6">
-                {plan.price}
-                <span className="text-lg text-gray-600 font-medium"> /mo</span>
-              </p>
-
-              <ul className="space-y-3 mb-8">
+              <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+              <p className="text-3xl font-extrabold mb-6">{plan.price}</p>
+              <ul className="mb-6 space-y-2">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-700">
-                    <CheckCircle className="text-yellow-500" size={20} />
-                    {feature}
-                  </li>
+                  <li key={i}>✅ {feature}</li>
                 ))}
               </ul>
-
               <button
-                className={`w-full py-3 rounded-xl font-semibold text-white transition-all duration-300 ${
-                  plan.highlight
-                    ? "bg-black hover:bg-yellow-600"
-                    : "bg-yellow-600 hover:bg-black"
-                }`}
+                className={`px-6 py-2 rounded-full font-medium ${plan.button} hover:opacity-90`}
               >
-                {plan.highlight ? "Most Popular" : "Choose Plan"}
+                Join Now
               </button>
             </div>
           ))}

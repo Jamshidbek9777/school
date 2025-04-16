@@ -5,26 +5,26 @@ import { GraduationCap, Users, Briefcase, Globe } from "lucide-react";
 const stats = [
   {
     icon: <GraduationCap size={36} />,
-    value: "2,500+",
-    label: "Students",
+    value: "2500+",
+    label: "O'quvchilar",
     bg: "bg-black",
   },
   {
     icon: <Users size={36} />,
     value: "120+",
-    label: "Teachers",
+    label: "O'qituvchilar",
     bg: "bg-red-600",
   },
   {
     icon: <Globe size={36} />,
     value: "15+",
-    label: "Partners",
+    label: "Hamkorlar",
     bg: "bg-yellow-400",
   },
   {
     icon: <Briefcase size={36} />,
     value: "10 Years",
-    label: "Experience",
+    label: "Tajriba",
     bg: "bg-black",
   },
 ];
@@ -32,10 +32,9 @@ const stats = [
 const SchoolStats = () => {
   const [animatedStats, setAnimatedStats] = useState(stats);
 
-  // Count up animation
   const countUp = (target, statIndex) => {
     let count = 0;
-    const increment = Math.ceil(parseInt(target) / 100); // Increment step
+    const increment = Math.ceil(parseInt(target) / 100);
     const interval = setInterval(() => {
       count += increment;
       if (count >= parseInt(target)) {
@@ -61,7 +60,7 @@ const SchoolStats = () => {
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-200 opacity-10 z-[-1]" />
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-[#050a41] mb-10 flex items-center flex-col">
-          Our Achievements
+          Bizning yutuqlarimiz
           <div className="w-24 h-1 mt-4 bg-gradient-to-r from-black via-red-600 to-yellow-400 rounded" />
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
