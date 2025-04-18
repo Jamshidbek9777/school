@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Wrapper from "./wrapper";
-import { Globe, Languages, X } from "lucide-react";
+import { Languages, X } from "lucide-react";
 import { Dropdown } from "antd";
 import { useTranslation } from "react-i18next";
 

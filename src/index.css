@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  background-color: #f4f6fa;
+}
+
 .burger {
   cursor: pointer;
   position: relative;

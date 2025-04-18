@@ -10,14 +10,12 @@ import FaqSection from "./shared/faq";
 function App() {
   return (
     <>
-      <Wrapper>
-        <Sliders />
-        <WhatWeOffer />
-        <SchoolStats />
-        <PricingSection />
-        <FaqSection />
-        <ContactForm />
-      </Wrapper>
+      <Sliders />
+      <WhatWeOffer />
+      <SchoolStats />
+      <PricingSection />
+      <FaqSection />
+      <ContactForm />
     </>
   );
 }

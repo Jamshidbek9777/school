@@ -16,7 +16,6 @@ import "./index.css";
 import "./config/i18n.js";
 import LessonSchedule from "./pages/schedule.jsx";
 import NewsPage from "./pages/news.jsx";
-import Programs from "./pages/programs.jsx";
 import Admissions from "./pages/admission.jsx";
 
 const Root = () => {

@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { GraduationCap, Users, Briefcase, Globe } from "lucide-react";
+import Wrapper from "./wrapper";
 
-// Stats data
 const stats = [
   {
     icon: <GraduationCap size={36} />,
     value: "2500+",
     label: "O'quvchilar",
-    bg: "bg-black",
+    bg: "bg-[#1e293b]",
   },
   {
     icon: <Users size={36} />,
     value: "120+",
     label: "O'qituvchilar",
-    bg: "bg-red-600",
+    bg: "bg-[#dc2626]",
   },
   {
     icon: <Globe size={36} />,
     value: "15+",
     label: "Hamkorlar",
-    bg: "bg-yellow-400",
+    bg: "bg-[#facc15]",
   },
   {
     icon: <Briefcase size={36} />,
-    value: "10 Years",
-    label: "Tajriba",
-    bg: "bg-black",
+    value: "10+",
+    label: "Yillik tajriba",
+    bg: "bg-[#1e293b]",
   },
 ];
 
@@ -56,31 +56,45 @@ const SchoolStats = () => {
   }, []);
 
   return (
-    <section className="bg-[#f9fafb] py-20 px-6 lg:px-20 relative rounded-lg">
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-200 opacity-10 z-[-1]" />
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-[#050a41] mb-10 flex items-center flex-col">
-          Bizning yutuqlarimiz
-          <div className="w-24 h-1 mt-4 bg-gradient-to-r from-black via-red-600 to-yellow-400 rounded" />
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-          {animatedStats.map((stat, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300"
-            >
-              <div
-                className={`w-16 h-16 ${stat.bg} text-white rounded-full flex items-center justify-center mb-4 shadow-xl hover:shadow-2xl transition-all`}
-              >
-                {stat.icon}
-              </div>
-              <h3 className="text-2xl font-bold text-[#050a41]">
-                {stat.animatedValue || stat.value}
-              </h3>
-              <p className="text-gray-600">{stat.label}</p>
+    <section
+      className="relative bg-cover bg-center bg-no-repeat text-white my-10"
+      style={{
+        backgroundImage:
+          "url('https://hadara-vschool.com/assets/img/stats-bg-2.jpg')",
+      }}
+    >
+      <div className="absolute inset-0  bg-opacity-70 z-0" />
+
+      <div className="relative z-10 py-24 px-6 lg:px-20 bg-gradient-to-t from-black/70 via-black/50 to-transparent">
+        <Wrapper>
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg">
+              Bizning yutuqlarimiz
+            </h2>
+            <div className="w-28 h-1 mx-auto mb-12 bg-gradient-to-r from-yellow-400 via-red-600 to-black rounded" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              {animatedStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-center bg-white/10 border border-white/20 backdrop-blur-lg rounded-2xl p-6 shadow-[0_4px_30px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300"
+                >
+                  <div
+                    className={`w-16 h-16 ${stat.bg} text-white rounded-full flex items-center justify-center mb-4 shadow-md`}
+                  >
+                    {stat.icon}
+                  </div>
+                  <h3 className="text-3xl font-bold text-white drop-shadow-lg">
+                    {stat.animatedValue || stat.value}
+                  </h3>
+                  <p className="text-sm text-gray-200 mt-1 drop-shadow-md">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        </Wrapper>
       </div>
     </section>
   );

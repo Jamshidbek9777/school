@@ -7,131 +7,116 @@ import {
   Paintbrush,
   Dumbbell,
 } from "lucide-react";
+import Wrapper from "./wrapper";
 
 const offerings = [
   {
-    icon: <ShieldCheck size={28} />,
+    icon: ShieldCheck,
     title: "Xavfsizlik – eng avvalo",
     description:
       "Yevropa standartlariga mos, ishonchli va qo‘llab-quvvatlovchi muhit.",
-    color: "bg-black",
+    bg: "bg-yellow-100 text-yellow-700",
   },
   {
-    icon: <BookOpenCheck size={28} />,
+    icon: BookOpenCheck,
     title: "Doimiy va tartibli darslar",
     description:
       "Germaniya tajribasiga asoslangan barqaror va tizimli ta’lim jarayoni.",
-    color: "bg-red-600",
+    bg: "bg-red-100 text-red-700",
   },
   {
-    icon: <Users size={28} />,
+    icon: Users,
     title: "Sertifikatlangan o‘qituvchilar",
     description:
       "Xalqaro tajribaga ega, malakali va zamonaviy metodikani qo‘llaydigan pedagoglar.",
-    color: "bg-yellow-400",
+    bg: "bg-green-100 text-green-700",
   },
   {
-    icon: <School size={28} />,
+    icon: School,
     title: "Yetarli sinfxonalar",
     description:
       "Qulay, keng va zamonaviy jihozlangan sinf xonalari – samarali o‘qish uchun.",
-    color: "bg-black",
+    bg: "bg-blue-100 text-blue-700",
   },
   {
-    icon: <Paintbrush size={28} />,
+    icon: Paintbrush,
     title: "Ijodiy darslar",
     description:
       "Amaliy mashg‘ulotlar, san’at va intellektual faoliyat orqali har tomonlama rivojlanish.",
-    color: "bg-red-600",
+    bg: "bg-pink-100 text-pink-700",
   },
   {
-    icon: <Dumbbell size={28} />,
+    icon: Dumbbell,
     title: "Sport inshootlari",
     description:
       "Germaniya sport madaniyatiga asoslangan jismoniy tarbiya va sog‘lom turmush uchun imkoniyatlar.",
-    color: "bg-yellow-400",
+    bg: "bg-purple-100 text-purple-700",
   },
 ];
 
 const WhatWeOffer = () => {
   return (
-    <div className="bg-white py-16 ">
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
-        {/* Left Side */}
-        <div>
-          <h2 className="text-3xl font-bold text-[#050a41] mb-4 flex flex-col items-center">
-            Biz nima taklif qilamiz
-            <div className="w-24 h-1 mt-4 bg-gradient-to-r from-black via-red-600 to-yellow-400 rounded" />
-          </h2>
-          <p className="text-gray-600 mb-10">
-            Biz bolalaringizga eng yaxshisini berish uchun Germaniyadagi
-            muassasalar bilan hamkorlik qilib, akademik mukammallik va xalqaro
-            standartlarning uyg'unligini keltiramiz.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {offerings.map((item, index) => (
-              <div key={index} className="flex gap-4">
-                <div
-                  className={`w-12 h-12 p-4 flex items-center justify-center rounded-full  text-white ${item.color}`}
-                >
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-[#050a41]">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-gray-600">{item.description}</p>
-                </div>
-              </div>
-            ))}
+    <Wrapper>
+      <div className="">
+        <div className="bg-white mt-20 mb-10 p-8 rounded-2xl shadow-lg grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h3 className="text-3xl font-bold text-[#0c1e45] mb-4">
+              Maktabimizga xush kelibsiz
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Bizning maktab – bu zamonaviy ta'lim, tarbiya va taraqqiyot sari
+              yo‘naltirilgan bilim maskani. Bu yerda har bir o‘quvchining
+              imkoniyatlari kashf etiladi va qo‘llab-quvvatlanadi.
+            </p>
+            <ul className="text-gray-700 space-y-2">
+              <li>✅ Yuqori malakali o‘qituvchilar jamoasi</li>
+              <li>✅ Xalqaro standartlarga mos o‘quv dasturlari</li>
+              <li>✅ Zamonaviy sinfxonalar va laboratoriyalar</li>
+              <li>✅ IT, tillar, san’at va sport yo‘nalishlari</li>
+              <li>✅ Mehribon, qulay va xavfsiz muhit</li>
+            </ul>
+            <p className="mt-6 text-gray-600">
+              Farzandingiz kelajagiga sarmoya kiritmoqchimisiz? Unda to‘g‘ri
+              manzildasiz. Sizni kutib qolamiz!
+            </p>
           </div>
+          <img
+            src="/img/offerimg.webp"
+            alt="Maktab muhit"
+            className="w-full rounded-xl shadow-md"
+          />
+        </div>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-[#0c1e45] mb-4">
+            🎓 Biz nima taklif qilamiz
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Germaniyadagi yetakchi ta’lim muassasalari bilan hamkorlik orqali
+            bolalaringizga xalqaro standartlarga mos, zamonaviy, sifatli
+            ta’limni taqdim etamiz.
+          </p>
         </div>
 
-        {/* Right Side */}
-        <div className="bg-[#f8f8f8] p-8 rounded-lg shadow-sm">
-          <h2 className="text-2xl font-bold text-[#050a41] mb-4">
-            Maktabimizga xush kelibsiz
-          </h2>
-          <h2 className="text-2xl font-bold text-[#050a41] mb-4">
-            Hurmatli ota-onalar, aziz o‘quvchilar!
-          </h2>
-          <p className="text-gray-600 mb-4">
-            Sizni maktabimizning rasmiy veb-saytida ko‘rib turganimizdan
-            mamnunmiz. Bizning maktab – bu zamonaviy ta'lim, tarbiya va
-            taraqqiyot sari yo‘naltirilgan bilim maskani. Bu yerda har bir
-            o‘quvchining individual imkoniyatlari kashf etiladi, bilim olishga
-            bo‘lgan ishtiyoqi qo‘llab-quvvatlanadi va kelajak sari mustahkam
-            zamin yaratiladi.
-          </p>
-          <p className="text-gray-600 mb-2">Maktabimizda:</p>
-          <p className="text-gray-600">
-            ✅ Yuqori malakali o‘qituvchilar jamoasi
-          </p>
-          <p className="text-gray-600">
-            ✅ Xalqaro standartlarga mos o‘quv dasturlari
-          </p>
-          <p className="text-gray-600">
-            ✅ Zamonaviy jihozlangan sinfxonalar va laboratoriyalar
-          </p>{" "}
-          <p className="text-gray-600">
-            ✅ IT, tillar, san’at va sport yo‘nalishlarida qo‘shimcha darslar
-          </p>{" "}
-          <p className="text-gray-600">✅ Mehribon va qulay muhit mavjud</p>{" "}
-          <p className="text-gray-600">
-            ✅ Yuqori malakali o‘qituvchilar jamoasi
-          </p>
-          <br />
-          <p className="text-gray-600 mb-4">
-            Bizning maqsadimiz – har bir farzandning iste’dodini ro‘yobga
-            chiqarish, ularni nafaqat bilimli, balki mustaqil fikrlovchi,
-            ijtimoiy faol, mehr-oqibatli shaxs sifatida tarbiyalashdir. Agar siz
-            farzandingiz uchun eng yaxshi ta’lim muhitini izlayotgan bo‘lsangiz
-            – to‘g‘ri manzildasiz. Maktabimiz eshiklari Siz uchun doimo ochiq!
-          </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {offerings.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+            >
+              <div
+                className={`w-12 h-12 flex items-center justify-center rounded-full mb-4 ${item.bg}`}
+              >
+                <item.icon size={26} />
+              </div>
+              <h4 className="text-lg font-semibold mb-2 text-[#0c1e45]">
+                {item.title}
+              </h4>
+              <p className="text-gray-600 text-sm">{item.description}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
