@@ -1,61 +1,67 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
 import Wrapper from "./wrapper";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-const slides = [
-  {
-    image: "/img/banner1.webp",
-    title: "DeutschSmart maktabi web sahifasiga xush kelishsiz",
-    desc: "Bizning maktab – bu zamonaviy ta'lim, tarbiya va taraqqiyot sari yo‘naltirilgan bilim maskani.",
-  },
-  {
-    image: "/img/banner2.jpg",
-    title: "Maktabimiz imkoniyatlari",
-    desc: "Bizning maktab – nafaqat ta’lim beruvchi, balki farzandingizning iste’dodi ochiladigan, qiziqishlari rivojlanadigan va hayotga tayyorlanadigan makon.",
-  },
-];
-
-const Sliders = () => {
+const HeroBanner = () => {
   return (
-    <Wrapper>
-      <div className="w-full pt-28">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-          loop={true}
-          className="h-[400px] lg:h-[500px] rounded-lg"
-        >
-          {slides.map((slide, idx) => (
-            <SwiperSlide key={idx}>
-              <div className="relative h-full w-full">
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent rounded-lg" />
-
-                <div className="absolute bottom-10 left-10 z-10 max-w-xl bg-white/10 backdrop-blur-md border border-white/30 rounded-xl p-6 shadow-lg">
-                  <h2 className="text-white text-2xl lg:text-3xl font-bold mb-3 drop-shadow-sm">
-                    {slide.title}
-                  </h2>
-                  <p className="text-white text-base lg:text-lg drop-shadow-sm">
-                    {slide.desc}
-                  </p>
-                  <div className="w-24 h-1 mt-4 bg-gradient-to-r from-yellow-400 via-red-600 to-black rounded" />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#0f1e35]">
+      {/* Fullscreen Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/img/bg.jpg"
+          alt="Background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        {/* SVG Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('/img/pattern.svg')] bg-repeat opacity-10" />
+        {/* Light gradient circle blur */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-br from-yellow-300 to-red-400 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tr from-cyan-400 to-purple-500 rounded-full blur-3xl opacity-20" />
       </div>
-    </Wrapper>
+
+      {/* Foreground Content */}
+      <Wrapper>
+        <div className="relative z-10 min-h-screen pt-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+          {/* Left side */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left max-w-2xl text-white"
+          >
+            <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight drop-shadow-md">
+              Ilm sari ilk qadamingizni <br /> biz bilan qo‘ying!
+            </h1>
+            <p className="text-lg md:text-xl text-gray-200 mb-6 drop-shadow">
+              DeutschSmart maktabi sizga Germaniyaga yo‘l ochuvchi sifatli
+              ta'lim, madaniyat va zamonaviy yondashuvlarni taklif etadi.
+            </p>
+            <div className="w-28 h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-black rounded mb-6 mx-auto lg:mx-0" />
+            <button className="group bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg transition shadow-md flex items-center gap-2 mx-auto lg:mx-0">
+              Batafsil ma'lumot
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+            </button>
+          </motion.div>
+
+          {/* Right side */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative w-full lg:w-[50%] flex justify-center items-center"
+          >
+            <img
+              src="/img/hero.png"
+              alt="Hero Illustration"
+              className="w-full max-w-md lg:max-w-lg h-auto object-contain"
+            />
+          </motion.div>
+        </div>
+      </Wrapper>
+    </div>
   );
 };
 
-export default Sliders;
+export default HeroBanner;

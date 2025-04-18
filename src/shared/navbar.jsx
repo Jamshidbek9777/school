@@ -27,7 +27,7 @@ const Navbar = () => {
     { key: "uz", label: "O'zbek" },
     { key: "ru", label: "Русский" },
     { key: "en", label: "English" },
-    { key: "de", label: "Deutch" },
+    { key: "de", label: "Deutsch" },
   ];
 
   const changeLanguage = (language) => {
@@ -37,31 +37,33 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+      {/* Navbar Background */}
+      <div className="fixed top-0 left-0 right-0 bg-black/50 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <Wrapper>
           <div className="flex items-center justify-between h-[70px]">
             <div className="flex items-center h-full">
               <a href="/">
                 <img
                   src="/img/logo.jpg"
-                  alt="Kiddos Logo"
-                  className="h-14 w-auto object-contain"
+                  alt="DeutschSmart Logo"
+                  className="h-14 w-auto object-contain rounded-lg"
                 />
               </a>
             </div>
-            <nav className="hidden lg:flex space-x-6 text-[#050a41] font-medium items-center">
+
+            {/* Desktop Menu */}
+            <nav className="hidden lg:flex space-x-6 text-white font-medium items-center">
               {navLinks.map((link) => (
-                <>
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className="hover:text-yellow-600 transition"
-                  >
-                    {link.name}
-                  </Link>
-                </>
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="hover:text-yellow-400 transition duration-200"
+                >
+                  {link.name}
+                </Link>
               ))}
 
+              {/* Language Dropdown */}
               <Dropdown
                 menu={{
                   items: languageOptions.map((lang) => ({
@@ -75,54 +77,51 @@ const Navbar = () => {
                 }}
                 trigger={["click"]}
               >
-                <div className="hidden md:flex items-center gap-[2px] cursor-pointer  p-2 rounded-[10px] transition-all ease-in-out select-none">
+                <div className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-lg hover:bg-white/10 transition">
                   <Languages size={18} />
-                  <h1 className="text-lg hidden xl:flex">{i18n.language}</h1>
+                  <span className="text-white text-sm hidden xl:inline">
+                    {i18n.language}
+                  </span>
                 </div>
               </Dropdown>
             </nav>
 
+            {/* Mobile Toggle */}
             <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>
-              <div className="w-[25px] h-[2px] bg-[#050a41] mb-[4px]"></div>
-              <div className="w-[25px] h-[2px] bg-[#050a41] mb-[4px]"></div>
-              <div className="w-[25px] h-[2px] bg-[#050a41]"></div>
+              <div className="w-[25px] h-[2px] bg-white mb-[4px]" />
+              <div className="w-[25px] h-[2px] bg-white mb-[4px]" />
+              <div className="w-[25px] h-[2px] bg-white" />
             </div>
           </div>
         </Wrapper>
       </div>
 
+      {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 bg-white z-[60] transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-black text-white z-[60] transition-all duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } lg:hidden`}
       >
-        <div className="flex justify-between items-center px-6 py-6 border-b">
-          <div className="flex items-center">
-            <img
-              src="/img/logo.jpg"
-              alt="Kiddos Logo"
-              className="h-8 w-auto object-contain"
-            />
-          </div>
-          <button
-            onClick={toggleMenu}
-            className="text-2xl text-[#050a41] font-bold"
-          >
-            <X className="cursor-pointer" />
+        <div className="flex justify-between items-center px-6 py-6 border-b border-white/10">
+          <img
+            src="/img/logo.jpg"
+            alt="Logo"
+            className="h-10 w-auto object-contain rounded-lg"
+          />
+          <button onClick={toggleMenu}>
+            <X className="text-white" size={28} />
           </button>
         </div>
-        <nav className="flex flex-col items-center justify-center h-full space-y-6 text-[#050a41] text-lg font-medium">
+        <nav className="flex flex-col items-center justify-center h-full space-y-6 text-xl font-medium">
           {navLinks.map((link) => (
-            <>
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={toggleMenu}
-                className="hover:text-blue-600 transition"
-              >
-                {link.name}
-              </Link>
-            </>
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={toggleMenu}
+              className="hover:text-yellow-400 transition"
+            >
+              {link.name}
+            </Link>
           ))}
         </nav>
       </div>

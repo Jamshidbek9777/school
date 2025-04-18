@@ -6,32 +6,23 @@ const About = () => {
   return (
     <Wrapper>
       <div className="pt-24">
-        <section className="relative bg-gradient-to-r from-[#E6B822] to-[#fdd835] text-white py-28 rounded-lg shadow-md mb-12 overflow-hidden">
-          <img
-            src="/img/line1.svg"
-            alt="Graduation Cap"
-            className="absolute top-[-20px] left-[-20px] w-32 opacity-70 rotate-[-15deg]"
-          />
+        <section
+          className="relative bg-cover bg-center text-white py-40 rounded-lg shadow-md mb-12"
+          style={{ backgroundImage: "url('/img/offerimg.webp')" }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
 
-          <img
-            src="/img/line2.svg"
-            alt="German Flag"
-            className="absolute bottom-[-20px] right-[-20px] w-32 opacity-80 rotate-[10deg]"
-          />
-
-          <div className="text-center relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-              About Our School
+          <div className="relative z-10 text-center px-4 md:px-8">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
+              Maktab haqida
             </h1>
-            <p className="text-lg text-black">
-              Empowering students through quality education and cultural
-              values.s are dedicated to shaping the future — one student at a
-              time.
+            <p className="text-lg md:text-xl text-white opacity-90">
+              Empowering students through quality education and cultural values.
+              We are dedicated to shaping the future — one student at a time.
             </p>
           </div>
         </section>
 
-        {/* Mission & Vision */}
         <section className="py-16 px-4 bg-[#f9f9f9] rounded-lg">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
             <div>
