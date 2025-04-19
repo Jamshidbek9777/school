@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ShieldCheck,
   BookOpenCheck,
@@ -8,6 +8,8 @@ import {
   Dumbbell,
 } from "lucide-react";
 import Wrapper from "./wrapper";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import the AOS CSS file
 
 const offerings = [
   {
@@ -55,42 +57,29 @@ const offerings = [
 ];
 
 const WhatWeOffer = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
+
   return (
     <Wrapper>
-      <div className="">
-        <div className="bg-white mt-20 mb-10 p-8 rounded-2xl shadow-lg grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h3 className="text-3xl font-bold text-[#0c1e45] mb-4">
-              Maktabimizga xush kelibsiz
-            </h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Bizning maktab – bu zamonaviy ta'lim, tarbiya va taraqqiyot sari
-              yo‘naltirilgan bilim maskani. Bu yerda har bir o‘quvchining
-              imkoniyatlari kashf etiladi va qo‘llab-quvvatlanadi.
-            </p>
-            <ul className="text-gray-700 space-y-2">
-              <li>✅ Yuqori malakali o‘qituvchilar jamoasi</li>
-              <li>✅ Xalqaro standartlarga mos o‘quv dasturlari</li>
-              <li>✅ Zamonaviy sinfxonalar va laboratoriyalar</li>
-              <li>✅ IT, tillar, san’at va sport yo‘nalishlari</li>
-              <li>✅ Mehribon, qulay va xavfsiz muhit</li>
-            </ul>
-            <p className="mt-6 text-gray-600">
-              Farzandingiz kelajagiga sarmoya kiritmoqchimisiz? Unda to‘g‘ri
-              manzildasiz. Sizni kutib qolamiz!
-            </p>
-          </div>
-          <img
-            src="/img/offerimg.webp"
-            alt="Maktab muhit"
-            className="w-full rounded-xl shadow-md"
-          />
-        </div>
+      <div className="mt-14">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#0c1e45] mb-4">
+          <h2
+            className="text-4xl font-bold text-[#0c1e45] mb-4"
+            data-aos="fade-up"
+          >
             🎓 Biz nima taklif qilamiz
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="text-gray-600 max-w-2xl mx-auto leading-relaxed"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Germaniyadagi yetakchi ta’lim muassasalari bilan hamkorlik orqali
             bolalaringizga xalqaro standartlarga mos, zamonaviy, sifatli
             ta’limni taqdim etamiz.
@@ -102,6 +91,8 @@ const WhatWeOffer = () => {
             <div
               key={idx}
               className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay={idx * 200}
             >
               <div
                 className={`w-12 h-12 flex items-center justify-center rounded-full mb-4 ${item.bg}`}

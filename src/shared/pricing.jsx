@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Wrapper from "./wrapper";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const pricingPlans = [
   {
@@ -43,23 +45,44 @@ const pricingPlans = [
 ];
 
 const PricingSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
+
   return (
     <Wrapper>
-      <div className="py-20 my-10  rounded-lg">
-        <div className=" text-center">
-          <h2 className="text-4xl font-bold text-[#050a41] mb-4 flex flex-col items-center">
+      <div className="py-20 my-10 rounded-lg">
+        <div className="text-center">
+          <h2
+            className="text-4xl font-bold text-[#050a41] mb-4 flex flex-col items-center"
+            data-aos="fade-up"
+          >
             Tolov tariflari
             <div className="w-24 h-1 mt-4 bg-gradient-to-r from-black via-red-600 to-yellow-400 rounded" />
           </h2>
-          <p className="text-gray-600 mb-12">
+          <p
+            className="text-gray-600 mb-12"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Ehtiyojlaringizga mos rejani tanlang. Yashirin to'lovlar yo'q.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div
+            className="grid md:grid-cols-3 gap-8"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`${plan.bg} ${plan.text} rounded-xl shadow-md p-8 text-center transition hover:scale-[1.03]`}
+                className={`${plan.bg} ${plan.text} rounded-xl shadow-md p-8 text-center transition `}
+                data-aos="zoom-in"
+                data-aos-delay={index * 300}
               >
                 <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
                 <p className="text-3xl font-extrabold mb-6">{plan.price}</p>
@@ -69,7 +92,9 @@ const PricingSection = () => {
                   ))}
                 </ul>
                 <button
-                  className={`px-6 py-2 rounded-full font-medium ${plan.button} hover:opacity-90`}
+                  className={`px-6 py-2 rounded-full font-medium ${plan.button} cursor-pointer`}
+                  data-aos="zoom-in"
+                  data-aos-delay="500"
                 >
                   Join Now
                 </button>

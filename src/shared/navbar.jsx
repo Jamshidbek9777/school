@@ -37,22 +37,20 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Navbar Background */}
-      <div className="fixed top-0 left-0 right-0 bg-black/50 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+      <div className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 transition-all duration-300">
         <Wrapper>
-          <div className="flex items-center justify-between h-[70px]">
+          <div className="flex items-center justify-between h-[80px]">
             <div className="flex items-center h-full">
               <a href="/">
                 <img
-                  src="/img/logo.jpg"
+                  src="/img/logo.png"
                   alt="DeutschSmart Logo"
-                  className="h-14 w-auto object-contain rounded-lg"
+                  className="h-[65px] w-auto object-contain rounded-lg"
                 />
               </a>
             </div>
 
-            {/* Desktop Menu */}
-            <nav className="hidden lg:flex space-x-6 text-white font-medium items-center">
+            <nav className="hidden lg:flex space-x-6 text-black font-medium items-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -63,7 +61,6 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* Language Dropdown */}
               <Dropdown
                 menu={{
                   items: languageOptions.map((lang) => ({
@@ -86,19 +83,17 @@ const Navbar = () => {
               </Dropdown>
             </nav>
 
-            {/* Mobile Toggle */}
             <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>
-              <div className="w-[25px] h-[2px] bg-white mb-[4px]" />
-              <div className="w-[25px] h-[2px] bg-white mb-[4px]" />
-              <div className="w-[25px] h-[2px] bg-white" />
+              <div className="w-[25px] h-[2px] bg-black mb-[4px]" />
+              <div className="w-[25px] h-[2px] bg-black mb-[4px]" />
+              <div className="w-[25px] h-[2px] bg-black" />
             </div>
           </div>
         </Wrapper>
       </div>
 
-      {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 bg-black text-white z-[60] transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-white text-black z-[60] transition-all duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } lg:hidden`}
       >
@@ -109,7 +104,7 @@ const Navbar = () => {
             className="h-10 w-auto object-contain rounded-lg"
           />
           <button onClick={toggleMenu}>
-            <X className="text-white" size={28} />
+            <X size={28} />
           </button>
         </div>
         <nav className="flex flex-col items-center justify-center h-full space-y-6 text-xl font-medium">

@@ -48,7 +48,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Why Choose Us */}
         <section className="py-16 px-4">
           <div className=" mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-[#050a41] mb-4">
