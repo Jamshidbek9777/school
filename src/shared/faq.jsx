@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Wrapper from "./wrapper";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
 
 const faqs = [
   {
@@ -26,10 +28,22 @@ const FaqSection = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true, // Animate only once
+    });
+  }, []);
+
   return (
     <Wrapper>
       <section className="py-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        <h2
+          className="text-3xl md:text-4xl font-bold text-center mb-10"
+          data-aos="fade-up"
+        >
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -37,10 +51,14 @@ const FaqSection = () => {
             <div
               key={index}
               className="border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all"
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
             >
               <button
                 onClick={() => toggle(index)}
                 className="w-full text-left px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition"
+                data-aos="fade-right"
+                data-aos-delay={`${index * 150}`}
               >
                 <span className="font-medium text-lg">{faq.question}</span>
                 <span className="text-2xl text-gray-400">

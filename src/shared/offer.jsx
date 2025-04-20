@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import Wrapper from "./wrapper";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import the AOS CSS file
+import "aos/dist/aos.css";
 
 const offerings = [
   {
@@ -31,28 +31,28 @@ const offerings = [
     title: "Sertifikatlangan o‘qituvchilar",
     description:
       "Xalqaro tajribaga ega, malakali va zamonaviy metodikani qo‘llaydigan pedagoglar.",
-    bg: "bg-green-100 text-green-700",
+    bg: "bg-gray-100 text-black",
   },
   {
     icon: School,
     title: "Yetarli sinfxonalar",
     description:
       "Qulay, keng va zamonaviy jihozlangan sinf xonalari – samarali o‘qish uchun.",
-    bg: "bg-blue-100 text-blue-700",
+    bg: "bg-red-100 text-red-700",
   },
   {
     icon: Paintbrush,
     title: "Ijodiy darslar",
     description:
       "Amaliy mashg‘ulotlar, san’at va intellektual faoliyat orqali har tomonlama rivojlanish.",
-    bg: "bg-pink-100 text-pink-700",
+    bg: "bg-gray-100 text-black",
   },
   {
     icon: Dumbbell,
     title: "Sport inshootlari",
     description:
       "Germaniya sport madaniyatiga asoslangan jismoniy tarbiya va sog‘lom turmush uchun imkoniyatlar.",
-    bg: "bg-purple-100 text-purple-700",
+    bg: "bg-yellow-100 text-yellow-700",
   },
 ];
 
@@ -67,12 +67,9 @@ const WhatWeOffer = () => {
 
   return (
     <Wrapper>
-      <div className="mt-14">
+      <div className="my-20">
         <div className="text-center mb-16">
-          <h2
-            className="text-4xl font-bold text-[#0c1e45] mb-4"
-            data-aos="fade-up"
-          >
+          <h2 className="text-4xl font-bold text-black mb-4" data-aos="fade-up">
             🎓 Biz nima taklif qilamiz
           </h2>
           <p
@@ -99,7 +96,7 @@ const WhatWeOffer = () => {
               >
                 <item.icon size={26} />
               </div>
-              <h4 className="text-lg font-semibold mb-2 text-[#0c1e45]">
+              <h4 className="text-lg font-semibold mb-2 text-black">
                 {item.title}
               </h4>
               <p className="text-gray-600 text-sm">{item.description}</p>

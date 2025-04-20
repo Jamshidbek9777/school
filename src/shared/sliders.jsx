@@ -24,9 +24,10 @@ const HeroBanner = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl text-white mx-auto flex flex-col items-center"
+            className="max-w-2xl mx-auto flex flex-col items-center
+             bg-white/10 backdrop-blur-md p-8 rounded-xl text-white shadow-lg"
           >
-            <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight drop-shadow-md">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight drop-shadow-md">
               Ilm sari ilk qadamingizni <br /> biz bilan qo‘ying!
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-6 drop-shadow">
@@ -34,7 +35,7 @@ const HeroBanner = () => {
               ta'lim, madaniyat va zamonaviy yondashuvlarni taklif etadi.
             </p>
             <div className="w-28 h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-black rounded mb-6" />
-            <button className="group bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg transition shadow-md flex items-center gap-2">
+            <button className="group cursor-pointer bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg transition shadow-md flex items-center gap-2">
               Batafsil ma'lumot
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
             </button>

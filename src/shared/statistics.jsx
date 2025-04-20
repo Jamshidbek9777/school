@@ -9,7 +9,7 @@ const stats = [
     icon: <GraduationCap size={36} />,
     value: "2500+",
     label: "O'quvchilar",
-    bg: "bg-[#1e293b]",
+    bg: "bg-black",
   },
   {
     icon: <Users size={36} />,
@@ -27,7 +27,7 @@ const stats = [
     icon: <Briefcase size={36} />,
     value: "10+",
     label: "Yillik tajriba",
-    bg: "bg-[#1e293b]",
+    bg: "bg-black",
   },
 ];
 
@@ -95,7 +95,7 @@ const SchoolStats = () => {
               {animatedStats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center text-center bg-white/10 border border-white/20 backdrop-blur-lg rounded-2xl p-6 shadow-[0_4px_30px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300"
+                  className="flex flex-col items-center text-center bg-white/10 border border-white/20 backdrop-blur-lg rounded-2xl p-6 shadow-[0_4px_30px_rgba(0,0,0,0.3)]  cursor-pointer transition-transform duration-300"
                   data-aos="zoom-in"
                   data-aos-delay={index * 200}
                   data-aos-duration="1000"

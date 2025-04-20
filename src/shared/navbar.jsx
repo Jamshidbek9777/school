@@ -11,7 +11,6 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const navLinks = [
-    { name: t("nav1"), path: "/" },
     { name: "Biz haqimizda", path: "/about" },
     { name: "Kurslar", path: "/courses" },
     { name: "Qabul", path: "/admission" },
@@ -76,9 +75,7 @@ const Navbar = () => {
               >
                 <div className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-lg hover:bg-white/10 transition">
                   <Languages size={18} />
-                  <span className="text-white text-sm hidden xl:inline">
-                    {i18n.language}
-                  </span>
+                  <span className="">{i18n.language}</span>
                 </div>
               </Dropdown>
             </nav>
