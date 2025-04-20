@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "./wrapper";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS CSS
+import "aos/dist/aos.css";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
@@ -29,24 +31,20 @@ const FaqSection = () => {
   };
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init({
-      duration: 1000,
+      duration: 800,
       easing: "ease-in-out",
-      once: true, // Animate only once
+      once: true,
     });
   }, []);
 
   return (
     <Wrapper>
-      <section className="py-10">
-        <h2
-          className="text-3xl md:text-4xl font-bold text-center mb-10"
-          data-aos="fade-up"
-        >
+      <section className="py-12">
+        <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">
           Frequently Asked Questions
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -57,19 +55,30 @@ const FaqSection = () => {
               <button
                 onClick={() => toggle(index)}
                 className="w-full text-left px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition"
-                data-aos="fade-right"
-                data-aos-delay={`${index * 150}`}
               >
                 <span className="font-medium text-lg">{faq.question}</span>
-                <span className="text-2xl text-gray-400">
-                  {activeIndex === index ? "−" : "+"}
-                </span>
+                {activeIndex === index ? (
+                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                )}
               </button>
-              {activeIndex === index && (
-                <div className="px-6 py-4 text-gray-700 bg-white border-t">
-                  {faq.answer}
-                </div>
-              )}
+
+              <AnimatePresence initial={false}>
+                {activeIndex === index && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <div className="px-6 py-4 text-gray-700 bg-white">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
