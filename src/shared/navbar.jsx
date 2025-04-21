@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Wrapper from "./wrapper";
-import { Languages, X } from "lucide-react";
+import { ChevronDown, Languages, X } from "lucide-react";
 import { Dropdown } from "antd";
 import { useTranslation } from "react-i18next";
 
@@ -15,11 +15,9 @@ const Navbar = () => {
     { name: "Kurslar", path: "/courses" },
     { name: "Qabul", path: "/admission" },
     { name: "Yangiliklar", path: "/news" },
-    { name: "Bog'lanish", path: "/contact" },
     { name: "Galareya", path: "/gallery" },
     { name: "O'qituvchilar", path: "/teachers" },
     { name: "Dars jadvallar", path: "/schedule" },
-    { name: "Narxlar", path: "/pricing" },
   ];
 
   const languageOptions = [
@@ -50,15 +48,47 @@ const Navbar = () => {
             </div>
 
             <nav className="hidden lg:flex space-x-6 text-black font-medium items-center">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className="hover:text-yellow-400 transition duration-200"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {/* Static Links */}
+              {navLinks
+                .filter(
+                  (link) =>
+                    !["/courses", "/teachers", "/schedule"].includes(link.path)
+                )
+                .map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className="hover:text-yellow-400 transition duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+              <Dropdown
+                menu={{
+                  items: [
+                    {
+                      key: "courses",
+                      label: <Link to="/courses">Kurslar</Link>,
+                    },
+
+                    {
+                      key: "teachers",
+                      label: <Link to="/teachers">O'qituvchilar</Link>,
+                    },
+                    {
+                      key: "schedule",
+                      label: <Link to="/schedule">Dars jadvallari</Link>,
+                    },
+                  ],
+                }}
+                trigger={["click"]}
+              >
+                <div className="cursor-pointer flex items-center hover:text-yellow-400 transition">
+                  <p>Maktab</p>
+                  <ChevronDown size={20} />
+                </div>
+              </Dropdown>
 
               <Dropdown
                 menu={{

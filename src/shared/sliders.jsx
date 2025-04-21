@@ -35,10 +35,6 @@ const HeroBanner = () => {
               ta'lim, madaniyat va zamonaviy yondashuvlarni taklif etadi.
             </p>
             <div className="w-28 h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-black rounded mb-6" />
-            <button className="group cursor-pointer bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg transition shadow-md flex items-center gap-2">
-              Batafsil ma'lumot
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
-            </button>
           </motion.div>
         </div>
       </Wrapper>

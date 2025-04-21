@@ -61,18 +61,15 @@ const ContactForm = () => {
           </div>
 
           <div className="md:w-1/2 p-8">
-            <h2 className="text-3xl font-bold text-[#050a41] mb-4">
-              Get in Touch
-            </h2>
+            <h2 className="text-3xl font-bold text-black mb-4">Aloqa qiling</h2>
             <p className="text-gray-600 mb-6">
-              We'd love to hear from you! Send us a message and we’ll respond
-              shortly.
+              Bizga xabar yuboring va tez orada biz siz bilan bog'lanamiz.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Ismingiz"
                 value={form.name}
                 onChange={handleChange}
                 required
@@ -81,7 +78,7 @@ const ContactForm = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="Email"
                 value={form.email}
                 onChange={handleChange}
                 required
@@ -90,7 +87,7 @@ const ContactForm = () => {
               <textarea
                 name="message"
                 rows="5"
-                placeholder="Your Message"
+                placeholder="Xabar"
                 value={form.message}
                 onChange={handleChange}
                 required
@@ -100,7 +97,7 @@ const ContactForm = () => {
                 type="submit"
                 className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300"
               >
-                Send Message
+                Yuborish
               </button>
               {status && <p className="text-sm mt-2 text-gray-700">{status}</p>}
             </form>

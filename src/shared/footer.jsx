@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
-                Our School
+                DeutschSmart
               </h3>
               <p className="text-sm text-gray-300">
                 We provide quality education with a global outlook and strong
@@ -28,7 +28,7 @@ const Footer = () => {
                     href="/"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    Home
+                    Bosh sahifa
                   </a>
                 </li>
                 <li>
@@ -36,7 +36,7 @@ const Footer = () => {
                     href="/about"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    About
+                    Biz haqimizda
                   </a>
                 </li>
                 <li>
@@ -44,7 +44,7 @@ const Footer = () => {
                     href="/courses"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    Courses
+                    Kurslar
                   </a>
                 </li>
                 <li>
@@ -52,7 +52,7 @@ const Footer = () => {
                     href="/contact"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    Contact
+                    Qabul
                   </a>
                 </li>
               </ul>
@@ -61,19 +61,19 @@ const Footer = () => {
             {/* Column 3 - Contact Info */}
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
-                Contact Us
+                Bog'lanish
               </h3>
               <ul className="space-y-3 text-gray-300">
-                <li>+49 123 456 789</li>
-                <li>info@ourschool.com</li>
-                <li>123 School Street, Berlin, Germany</li>
+                <li>+998 77 454 00 50</li>
+                <li>deutschsmartschool@gmail.com</li>
+                <li>Tashkent, Uzbekistan</li>
               </ul>
             </div>
 
             {/* Column 4 - Social Media */}
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
-                Follow Us
+                Ijtimoiy tarmoqlar
               </h3>
               <div className="flex space-x-6">
                 <a
@@ -101,7 +101,7 @@ const Footer = () => {
 
           <div className="border-t border-gray-600 mt-10 pt-6 text-center">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} Our School | All Rights Reserved
+              © {new Date().getFullYear()} DeutschSmart | All Rights Reserved
             </p>
           </div>
         </div>

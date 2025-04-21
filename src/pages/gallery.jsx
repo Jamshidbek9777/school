@@ -16,26 +16,33 @@ const Gallery = () => {
   return (
     <Wrapper>
       <div className="pt-24 pb-16">
-        {/* Hero Header */}
-        <section className="relative bg-gradient-to-r from-[#E6B822] to-[#fdd835] text-white py-28 rounded-lg shadow-md mb-12 overflow-hidden">
+        <section
+          className="relative bg-cover bg-center py-36 rounded-lg shadow-md mb-12 overflow-hidden"
+          style={{ backgroundImage: "url('/img/aboutBg.JPG')" }}
+        >
           <img
             src="/img/line1.svg"
             alt="Top Left Illustration"
             className="absolute top-[-20px] left-[-20px] w-32 opacity-70 rotate-[-15deg]"
           />
+
           <img
             src="/img/line2.svg"
             alt="Bottom Right Illustration"
             className="absolute bottom-[-20px] right-[-20px] w-32 opacity-80 rotate-[10deg]"
           />
-          <div className="text-center relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-              School Life
-            </h1>
-            <p className="text-lg text-black">
-              A visual glimpse into the vibrant life of our students — learning,
-              growing, and having fun together.
-            </p>
+
+          <div className="relative z-10 flex justify-center">
+            <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+                Maktab hayoti
+              </h1>
+              <p className="text-lg text-gray-800">
+                Farzandingiz qanday muhitda o‘qiydi? Quyidagi suratlarda bizning
+                maktab hayotining eng yorqin onlarini ko‘rishingiz mumkin –
+                darslar, mashg‘ulotlar va unutilmas lahzalar.
+              </p>
+            </div>
           </div>
         </section>
 

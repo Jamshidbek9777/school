@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.ttf") format("opentype");
+  font-style: normal;
+}
+
 body {
   background-color: #f4f6fa;
+  font-family: "Inter", sans-serif;
 }
 
 .burger {

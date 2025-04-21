@@ -17,10 +17,12 @@ import "./config/i18n.js";
 import LessonSchedule from "./pages/schedule.jsx";
 import NewsPage from "./pages/news.jsx";
 import Admissions from "./pages/admission.jsx";
+import ScrollToTop from "./shared/scrollToTop.jsx";
 
 const Root = () => {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<App />} />

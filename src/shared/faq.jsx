@@ -42,7 +42,7 @@ const FaqSection = () => {
     <Wrapper>
       <section className="py-12">
         <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">
-          Frequently Asked Questions
+          Ko'p so'raladigan savollar
         </h2>
         <div className="space-y-4 ">
           {faqs.map((faq, index) => (

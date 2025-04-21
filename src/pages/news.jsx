@@ -32,8 +32,10 @@ const NewsPage = () => {
   return (
     <Wrapper>
       <div className="pt-24 pb-16">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-[#E6B822] to-[#fdd835] text-white py-28 rounded-lg shadow-md mb-12 overflow-hidden">
+        <section
+          className="relative bg-cover bg-center py-36 rounded-lg shadow-md mb-16 overflow-hidden"
+          style={{ backgroundImage: "url('/img/header3.JPG')" }}
+        >
           <img
             src="/img/line1.svg"
             alt="Top Left Illustration"
@@ -44,37 +46,40 @@ const NewsPage = () => {
             alt="Bottom Right Illustration"
             className="absolute bottom-[-20px] right-[-20px] w-32 opacity-80 rotate-[10deg]"
           />
-          <div className="text-center relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-              School News
-            </h1>
-            <p className="text-lg text-black">
-              A visual glimpse into the vibrant life of our students — learning,
-              growing, and having fun together.
-            </p>
+
+          <div className="relative z-10 flex justify-center">
+            <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+                Yangiliklar
+              </h1>
+              <p className="text-lg text-gray-800">
+                Bizning maktabda bo‘layotgan eng so‘nggi voqealar va e’lonlar.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* News Articles */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {newsArticles.map((news) => (
             <div
               key={news.id}
-              className="bg-white rounded-xl border shadow hover:shadow-lg transition overflow-hidden"
+              className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
             >
               {news.image && (
-                <img
-                  src={news.image}
-                  alt={news.title}
-                  className="w-full h-52 object-cover"
-                />
+                <div className="w-full overflow-hidden">
+                  <img
+                    src={news.image}
+                    alt={news.title}
+                    className="w-full h-[200px] object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
               )}
               <div className="p-5">
-                <h2 className="text-xl font-bold text-blue-600 mb-1">
+                <h2 className="text-lg font-semibold text-[#1c1f52] mb-1">
                   {news.title}
                 </h2>
                 <p className="text-sm text-gray-500 mb-2">{news.date}</p>
-                <p className="text-gray-700 mb-3">{news.description}</p>
+                <p className="text-gray-700 text-sm">{news.description}</p>
               </div>
             </div>
           ))}
