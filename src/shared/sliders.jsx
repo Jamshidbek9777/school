@@ -11,6 +11,7 @@ const HeroBanner = () => {
           src="/img/bg.jpg"
           alt="Background"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 bg-[url('/img/pattern.svg')] bg-repeat opacity-10" />

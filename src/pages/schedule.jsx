@@ -40,16 +40,19 @@ const LessonSchedule = () => {
         <section
           className="relative bg-cover bg-center py-36 rounded-lg shadow-md mb-16 overflow-hidden"
           style={{ backgroundImage: "url('/img/aboutBg.JPG')" }}
+          loading="lazy"
         >
           <img
             src="/img/line1.svg"
             alt="Top Left Illustration"
             className="absolute top-[-20px] left-[-20px] w-32 opacity-70 rotate-[-15deg]"
+            loading="lazy"
           />
           <img
             src="/img/line2.svg"
             alt="Bottom Right Illustration"
             className="absolute bottom-[-20px] right-[-20px] w-32 opacity-80 rotate-[10deg]"
+            loading="lazy"
           />
 
           <div className="relative z-10 flex justify-center">

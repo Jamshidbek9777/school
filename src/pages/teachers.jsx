@@ -57,16 +57,19 @@ const Teachers = () => {
         <section
           className="relative bg-cover bg-center py-36 rounded-lg shadow-md mb-16 overflow-hidden"
           style={{ backgroundImage: "url('/img/aboutBg.JPG')" }}
+          loading="lazy"
         >
           <img
             src="/img/line1.svg"
             alt="Decor"
             className="absolute top-[-20px] left-[-20px] w-32 opacity-70 rotate-[-15deg]"
+            loading="lazy"
           />
           <img
             src="/img/line2.svg"
             alt="Decor"
             className="absolute bottom-[-20px] right-[-20px] w-32 opacity-80 rotate-[10deg]"
+            loading="lazy"
           />
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
