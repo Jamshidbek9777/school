@@ -1,9 +1,10 @@
 import React from "react";
 import Wrapper from "./wrapper";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const HeroBanner = () => {
+  const { t } = useTranslation();
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#0f1e35]">
       <div className="absolute inset-0 z-0">
@@ -29,11 +30,10 @@ const HeroBanner = () => {
              bg-white/10 backdrop-blur-md p-8 rounded-xl text-white shadow-lg"
           >
             <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight drop-shadow-md">
-              Ilm sari ilk qadamingizni <br /> biz bilan qo‘ying!
+              {t("hero1")}
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-6 drop-shadow">
-              DeutschSmart maktabi sizga Germaniyaga yo‘l ochuvchi sifatli
-              ta'lim, madaniyat va zamonaviy yondashuvlarni taklif etadi.
+              {t("hero2")}
             </p>
             <div className="w-28 h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-black rounded mb-6" />
           </motion.div>

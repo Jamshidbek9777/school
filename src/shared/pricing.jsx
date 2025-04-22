@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Wrapper from "./wrapper";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 
 const pricingPlans = [
   {
@@ -45,6 +46,7 @@ const pricingPlans = [
 ];
 
 const PricingSection = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     AOS.init({ duration: 600, easing: "ease-in-out", once: true });
   }, []);
@@ -54,11 +56,9 @@ const PricingSection = () => {
       <section className="py-20 my-10">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-black mb-3">
-            To'lov Tariflari
+            {t("pricing3")}
           </h2>
-          <p className="text-gray-600">
-            Sizga mos reja tanlang. Yashirin to‘lovlar yo‘q.
-          </p>
+          <p className="text-gray-600">{t("pricing4")}</p>
         </div>
 
         <div
@@ -85,11 +85,11 @@ const PricingSection = () => {
               <button
                 className={`w-full py-2 rounded-md font-medium mb-6 ${plan.buttonColor} hover:opacity-90 transition cursor-pointer`}
               >
-                Get started
+                {t("pricing1")}
               </button>
 
               <div className="text-sm text-gray-700">
-                <p className="font-semibold mb-2">What’s included:</p>
+                <p className="font-semibold mb-2">{t("pricing2")}:</p>
                 <ul className="space-y-2">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2">

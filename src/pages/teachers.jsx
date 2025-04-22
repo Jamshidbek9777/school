@@ -1,6 +1,7 @@
 import React from "react";
 import Wrapper from "../shared/wrapper";
 import { FaLinkedin, FaFacebookF, FaXTwitter } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const teachersData = [
   {
@@ -50,6 +51,7 @@ const teachersData = [
 ];
 
 const Teachers = () => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <div className="pt-24 pb-16">
@@ -74,12 +76,9 @@ const Teachers = () => {
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
               <h1 className="text-5xl font-bold text-black mb-4">
-                O'qituvchilar
+                {t("nav7")}
               </h1>
-              <p className="text-lg text-gray-800">
-                Germaniya, Buyuk Britaniya va O'zbekistondan kelgan
-                mutaxassislar sifatli ta'limga bag'ishlangan.
-              </p>
+              <p className="text-lg text-gray-800">{t("teach1")}</p>
             </div>
           </div>
         </section>

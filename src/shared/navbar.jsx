@@ -11,13 +11,10 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const navLinks = [
-    { name: "Biz haqimizda", path: "/about" },
-    { name: "Kurslar", path: "/courses" },
-    { name: "Qabul", path: "/admission" },
-    { name: "Yangiliklar", path: "/news" },
-    { name: "Galareya", path: "/gallery" },
-    { name: "O'qituvchilar", path: "/teachers" },
-    { name: "Dars jadvallar", path: "/schedule" },
+    { name: t("nav1"), path: "/about" },
+    { name: t("nav2"), path: "/admission" },
+    { name: t("nav3"), path: "/news" },
+    { name: t("nav4"), path: "/gallery" },
   ];
 
   const languageOptions = [
@@ -48,7 +45,6 @@ const Navbar = () => {
             </div>
 
             <nav className="hidden lg:flex space-x-6 text-black font-medium items-center">
-              {/* Static Links */}
               {navLinks
                 .filter(
                   (link) =>
@@ -69,23 +65,23 @@ const Navbar = () => {
                   items: [
                     {
                       key: "courses",
-                      label: <Link to="/courses">Kurslar</Link>,
+                      label: <Link to="/courses">{t("nav6")}</Link>,
                     },
 
                     {
                       key: "teachers",
-                      label: <Link to="/teachers">O'qituvchilar</Link>,
+                      label: <Link to="/teachers">{t("nav7")}</Link>,
                     },
                     {
                       key: "schedule",
-                      label: <Link to="/schedule">Dars jadvallari</Link>,
+                      label: <Link to="/schedule">{t("nav8")}</Link>,
                     },
                   ],
                 }}
                 trigger={["click"]}
               >
                 <div className="cursor-pointer flex items-center hover:text-yellow-400 transition">
-                  <p>Maktab</p>
+                  <p>{t("nav5")}</p>
                   <ChevronDown size={20} />
                 </div>
               </Dropdown>

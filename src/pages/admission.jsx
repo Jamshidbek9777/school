@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Wrapper from "../shared/wrapper";
+import { useTranslation } from "react-i18next";
 
 const Admissions = () => {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     fullName: "",
     phone: "",
@@ -41,12 +43,9 @@ const Admissions = () => {
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-                Qabul
+                {t("nav2")}
               </h1>
-              <p className="text-lg text-gray-800">
-                Bizning maktabga hujjat topshiring va kelajagingiz sari birinchi
-                qadamni qo‘ying.
-              </p>
+              <p className="text-lg text-gray-800">{t("adm1")}</p>
             </div>
           </div>
         </section>
@@ -54,7 +53,7 @@ const Admissions = () => {
         <section className="space-y-10 text-gray-800 mb-20">
           <div className="bg-white rounded-xl shadow p-6">
             <h2 className="text-xl font-semibold text-[#1c1f52] mb-3">
-              📅 Qabul Sanalari
+              📅 {t("adm2")}
             </h2>
             <p>
               <span className="font-semibold">1-may – 30-iyun 2025:</span>{" "}
@@ -66,7 +65,7 @@ const Admissions = () => {
 
           <div className="bg-white rounded-xl shadow p-6">
             <h2 className="text-xl font-semibold text-[#1c1f52] mb-3">
-              📋 Qoidalar va Talablar
+              📋 {t("adm3")}
             </h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>O‘quvchining tug‘ilganlik guvohnomasi nusxasi</li>
@@ -78,7 +77,7 @@ const Admissions = () => {
 
           <div className="bg-white rounded-xl shadow p-6">
             <h2 className="text-xl font-semibold text-[#1c1f52] mb-3">
-              📝 Qabul Bosqichlari
+              📝 {t("adm4")}
             </h2>
             <ol className="list-decimal pl-5 space-y-2">
               <li>Onlayn ariza topshirish</li>
@@ -91,7 +90,7 @@ const Admissions = () => {
 
         <div className="bg-gray-50 p-8 rounded-xl">
           <h2 className="text-2xl font-bold mb-6 text-[#1c1f52] text-center">
-            🖊 Onlayn Ariza Shakli
+            🖊 {t("adm5")}
           </h2>
 
           {submitted ? (
@@ -101,7 +100,7 @@ const Admissions = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-gray-700 mb-1">F.I.Sh</label>
+                <label className="block text-gray-700 mb-1">{t("adm6")}</label>
                 <input
                   type="text"
                   value={form.fullName}
@@ -114,9 +113,7 @@ const Admissions = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 mb-1">
-                  Telefon raqam
-                </label>
+                <label className="block text-gray-700 mb-1">{t("adm7")}</label>
                 <input
                   type="tel"
                   value={form.phone}
@@ -128,28 +125,24 @@ const Admissions = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 mb-1">
-                  Qaysi sinfga topshirmoqchisiz?
-                </label>
+                <label className="block text-gray-700 mb-1">{t("adm7")}</label>
                 <select
                   value={form.grade}
                   onChange={(e) => setForm({ ...form, grade: e.target.value })}
                   required
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1c1f52]/50"
                 >
-                  <option value="">Sinfni tanlang</option>
+                  <option value="">{t("adm8")}</option>
                   {[...Array(11)].map((_, i) => (
                     <option key={i + 1} value={`${i + 1}-sinf`}>
-                      {i + 1}-sinf
+                      {i + 1}-{t("adm9")}
                     </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block text-gray-700 mb-1">
-                  Qo‘shimcha izoh
-                </label>
+                <label className="block text-gray-700 mb-1">{t("adm10")}</label>
                 <textarea
                   value={form.note}
                   onChange={(e) => setForm({ ...form, note: e.target.value })}
@@ -163,7 +156,7 @@ const Admissions = () => {
                   type="submit"
                   className="bg-[#1c1f52] text-white px-8 py-2 rounded-lg font-semibold hover:bg-[#15173d] transition"
                 >
-                  Yuborish
+                  {t("adm11")}
                 </button>
               </div>
             </form>
@@ -171,10 +164,10 @@ const Admissions = () => {
         </div>
         <div className="mt-10 border-t pt-8">
           <h3 className="text-xl font-bold text-[#050a41] mb-4">
-            📞 Bog'lanish uchun ma'lumot
+            📞 {t("adm12")}
           </h3>
           <p className="text-gray-800 mb-2">
-            Telefon raqam:{" "}
+            {t("adm7")}:{" "}
             <a href="tel:+99877 454 00 50" className="text-blue-600">
               +998 77 454 00 50
             </a>
@@ -192,7 +185,7 @@ const Admissions = () => {
 
         <div className="mt-20 bg-white shadow-lg rounded-3xl p-8">
           <h3 className="text-2xl font-bold text-[#050a41] mb-3">
-            📍 Bizning manzil
+            📍 {t("adm13")}
           </h3>
           {/* <p className="text-gray-700 mb-6">
             aa, Mustaqillik ko‘chasi 45, Tashkent, Uzbekistan

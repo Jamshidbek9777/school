@@ -1,8 +1,10 @@
 import React from "react";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import Wrapper from "./wrapper";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-black text-white py-14">
       <Wrapper>
@@ -12,31 +14,20 @@ const Footer = () => {
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
                 DeutschSmart
               </h3>
-              <p className="text-sm text-gray-300">
-                We provide quality education with a global outlook and strong
-                partnerships with institutions worldwide.
-              </p>
+              <p className="text-sm text-gray-300">{t("footer1")}</p>
             </div>
 
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
-                Quick Links
+                {t("footer2")}
               </h3>
               <ul className="space-y-3">
-                <li>
-                  <a
-                    href="/"
-                    className="text-gray-300 hover:text-red-600 transition-all"
-                  >
-                    Bosh sahifa
-                  </a>
-                </li>
                 <li>
                   <a
                     href="/about"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    Biz haqimizda
+                    {t("nav1")}
                   </a>
                 </li>
                 <li>
@@ -44,7 +35,7 @@ const Footer = () => {
                     href="/courses"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    Kurslar
+                    {t("nav2")}
                   </a>
                 </li>
                 <li>
@@ -52,7 +43,7 @@ const Footer = () => {
                     href="/contact"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
-                    Qabul
+                    {t("nav3")}
                   </a>
                 </li>
               </ul>
@@ -61,7 +52,7 @@ const Footer = () => {
             {/* Column 3 - Contact Info */}
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
-                Bog'lanish
+                {t("footer3")}
               </h3>
               <ul className="space-y-3 text-gray-300">
                 <li>+998 77 454 00 50</li>
@@ -73,7 +64,7 @@ const Footer = () => {
             {/* Column 4 - Social Media */}
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
-                Ijtimoiy tarmoqlar
+                {t("footer4")}
               </h3>
               <div className="flex space-x-6">
                 <a

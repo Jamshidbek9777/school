@@ -3,35 +3,37 @@ import { GraduationCap, Users, Briefcase, Globe } from "lucide-react";
 import Wrapper from "./wrapper";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-const stats = [
-  {
-    icon: <GraduationCap size={36} />,
-    value: "2500+",
-    label: "O'quvchilar",
-    bg: "bg-black",
-  },
-  {
-    icon: <Users size={36} />,
-    value: "120+",
-    label: "O'qituvchilar",
-    bg: "bg-[#dc2626]",
-  },
-  {
-    icon: <Globe size={36} />,
-    value: "15+",
-    label: "Hamkorlar",
-    bg: "bg-[#facc15]",
-  },
-  {
-    icon: <Briefcase size={36} />,
-    value: "10+",
-    label: "Yillik tajriba",
-    bg: "bg-black",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const SchoolStats = () => {
+  const { t } = useTranslation();
+  const stats = [
+    {
+      icon: <GraduationCap size={36} />,
+      value: "2500+",
+      label: t("ach2"),
+      bg: "bg-black",
+    },
+    {
+      icon: <Users size={36} />,
+      value: "120+",
+      label: t("ach3"),
+      bg: "bg-[#dc2626]",
+    },
+    {
+      icon: <Globe size={36} />,
+      value: "15+",
+      label: t("ach4"),
+      bg: "bg-[#facc15]",
+    },
+    {
+      icon: <Briefcase size={36} />,
+      value: "10+",
+      label: t("ach5"),
+      bg: "bg-black",
+    },
+  ];
+
   const [animatedStats, setAnimatedStats] = useState(stats);
 
   const countUp = (target, statIndex) => {
@@ -79,7 +81,7 @@ const SchoolStats = () => {
               className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg"
               data-aos="fade-up"
             >
-              Bizning yutuqlarimiz
+              {t("ach1")}
             </h2>
             <div
               className="w-28 h-1 mx-auto mb-12 bg-gradient-to-r from-yellow-400 via-red-600 to-black rounded"

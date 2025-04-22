@@ -1,8 +1,10 @@
 import React from "react";
 import ContactUs from "../shared/contactus";
 import Wrapper from "../shared/wrapper";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Wrapper>
@@ -29,12 +31,9 @@ const About = () => {
             <div className="relative z-10 flex justify-center">
               <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-                  Biz haqimizda
+                  {t("nav1")}
                 </h1>
-                <p className="text-lg text-gray-800">
-                  Ta’lim va ilhom manbai bo‘lgan o‘quv dasturlarimiz orqali
-                  farzandingizga yorqin kelajak sari yo‘l ochamiz.
-                </p>
+                <p className="text-lg text-gray-800">{t("about1")}</p>
               </div>
             </div>
           </section>
@@ -42,7 +41,7 @@ const About = () => {
           <section className="py-20 bg-[#f4f4fc]">
             <div className="">
               <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-black">
-                Nima uchun biz?
+                {t("about2")}
               </h2>
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition-all">
@@ -53,13 +52,8 @@ const About = () => {
                       alt="Teacher Icon"
                     />
                   </div>
-                  <h4 className="text-xl font-bold mb-2">
-                    Tajribali o'qituvchilar
-                  </h4>
-                  <p className="text-gray-600">
-                    Nemis tili va zamonaviy texnologiyalar bo‘yicha puxta
-                    bilimga ega, fidokor pedagoglar jamoasi.
-                  </p>
+                  <h4 className="text-xl font-bold mb-2">{t("about3")}</h4>
+                  <p className="text-gray-600">{t("about4")}</p>
                 </div>
 
                 <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition-all">
@@ -70,11 +64,8 @@ const About = () => {
                       alt="Teacher Icon"
                     />
                   </div>
-                  <h4 className="text-xl font-bold mb-2">Shinam xonalar</h4>
-                  <p className="text-gray-600">
-                    O‘qishga qulay muhit yaratadigan, yorug‘ va zamonaviy tarzda
-                    jihozlangan sinf xonalari.
-                  </p>
+                  <h4 className="text-xl font-bold mb-2">{t("about5")}</h4>
+                  <p className="text-gray-600">{t("about6")}</p>
                 </div>
 
                 <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition-all">
@@ -85,11 +76,8 @@ const About = () => {
                       alt="Teacher Icon"
                     />
                   </div>
-                  <h4 className="text-xl font-bold mb-2">Ijodiy darslar</h4>
-                  <p className="text-gray-600">
-                    Bolalarning tafakkurini kengaytiruvchi, san’at va amaliy
-                    faoliyatga asoslangan mashg‘ulotlar.
-                  </p>
+                  <h4 className="text-xl font-bold mb-2">{t("about7")}</h4>
+                  <p className="text-gray-600">{t("about8")}</p>
                 </div>
               </div>
             </div>

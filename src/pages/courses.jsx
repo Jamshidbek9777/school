@@ -1,6 +1,7 @@
 import React from "react";
 import Wrapper from "../shared/wrapper";
 import ContactForm from "../shared/contactus";
+import { useTranslation } from "react-i18next";
 
 const coursesData = [
   {
@@ -48,6 +49,7 @@ const coursesData = [
 ];
 
 const Courses = () => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <div className="pt-24">
@@ -73,13 +75,9 @@ const Courses = () => {
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-                O'quv kurslari
+                {t("nav6")}
               </h1>
-              <p className="text-lg text-gray-800">
-                Ta'lim berish va ilhomlantirish uchun yaratilgan keng doiradagi
-                kurslarni kashf eting. Nemis tilidan tortib kelajakka tayyor
-                bo'lgan texnologik ko'nikmalargacha, bizda hammasi bor.
-              </p>
+              <p className="text-lg text-gray-800">{t("course1")}</p>
             </div>
           </div>
         </section>
@@ -87,12 +85,9 @@ const Courses = () => {
         <section className="py-16 px-4">
           <div className="mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-4">
-              Bizning o'quv kurslari
+              {t("course2")}
             </h2>
-            <p className="text-gray-600">
-              Bizning dasturlarimiz xalqaro hamkorlik va mahalliy mukammallik
-              asosida ishlab chiqilgan.
-            </p>
+            <p className="text-gray-600">{t("course3")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">

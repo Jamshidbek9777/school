@@ -1,5 +1,6 @@
 import React from "react";
 import Wrapper from "../shared/wrapper";
+import { useTranslation } from "react-i18next";
 
 const newsArticles = [
   {
@@ -29,6 +30,7 @@ const newsArticles = [
 ];
 
 const NewsPage = () => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <div className="pt-24 pb-16">
@@ -53,11 +55,9 @@ const NewsPage = () => {
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-                Yangiliklar
+                {t("nav3")}
               </h1>
-              <p className="text-lg text-gray-800">
-                Bizning maktabda bo‘layotgan eng so‘nggi voqealar va e’lonlar.
-              </p>
+              <p className="text-lg text-gray-800">{t("news1")}</p>
             </div>
           </div>
         </section>

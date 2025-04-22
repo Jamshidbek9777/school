@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   ShieldCheck,
   BookOpenCheck,
@@ -11,52 +12,46 @@ import Wrapper from "./wrapper";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const offerings = [
-  {
-    icon: ShieldCheck,
-    title: "Xavfsizlik – eng avvalo",
-    description:
-      "Yevropa standartlariga mos, ishonchli va qo‘llab-quvvatlovchi muhit.",
-    bg: "bg-yellow-100 text-yellow-700",
-  },
-  {
-    icon: BookOpenCheck,
-    title: "Doimiy va tartibli darslar",
-    description:
-      "Germaniya tajribasiga asoslangan barqaror va tizimli ta’lim jarayoni.",
-    bg: "bg-red-100 text-red-700",
-  },
-  {
-    icon: Users,
-    title: "Sertifikatlangan o‘qituvchilar",
-    description:
-      "Xalqaro tajribaga ega, malakali va zamonaviy metodikani qo‘llaydigan pedagoglar.",
-    bg: "bg-gray-100 text-black",
-  },
-  {
-    icon: School,
-    title: "Yetarli sinfxonalar",
-    description:
-      "Qulay, keng va zamonaviy jihozlangan sinf xonalari – samarali o‘qish uchun.",
-    bg: "bg-red-100 text-red-700",
-  },
-  {
-    icon: Paintbrush,
-    title: "Ijodiy darslar",
-    description:
-      "Amaliy mashg‘ulotlar, san’at va intellektual faoliyat orqali har tomonlama rivojlanish.",
-    bg: "bg-gray-100 text-black",
-  },
-  {
-    icon: Dumbbell,
-    title: "Sport inshootlari",
-    description:
-      "Germaniya sport madaniyatiga asoslangan jismoniy tarbiya va sog‘lom turmush uchun imkoniyatlar.",
-    bg: "bg-yellow-100 text-yellow-700",
-  },
-];
-
 const WhatWeOffer = () => {
+  const { t } = useTranslation();
+  const offerings = [
+    {
+      icon: ShieldCheck,
+      title: t("offer3"),
+      description: t("offer4"),
+      bg: "bg-yellow-100 text-yellow-700",
+    },
+    {
+      icon: BookOpenCheck,
+      title: t("offer5"),
+      description: t("offer6"),
+      bg: "bg-red-100 text-red-700",
+    },
+    {
+      icon: Users,
+      title: t("offer7"),
+      description: t("offer8"),
+      bg: "bg-gray-100 text-black",
+    },
+    {
+      icon: School,
+      title: t("offer9"),
+      description: t("offer10"),
+      bg: "bg-red-100 text-red-700",
+    },
+    {
+      icon: Paintbrush,
+      title: t("offer11"),
+      description: t("offer12"),
+      bg: "bg-gray-100 text-black",
+    },
+    {
+      icon: Dumbbell,
+      title: t("offer13"),
+      description: t("offer14"),
+      bg: "bg-yellow-100 text-yellow-700",
+    },
+  ];
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -70,16 +65,14 @@ const WhatWeOffer = () => {
       <div className="my-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-black mb-4" data-aos="fade-up">
-            🎓 Biz nima taklif qilamiz
+            🎓 {t("offer1")}
           </h2>
           <p
             className="text-gray-600 max-w-2xl mx-auto leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Germaniyadagi yetakchi ta’lim muassasalari bilan hamkorlik orqali
-            bolalaringizga xalqaro standartlarga mos, zamonaviy, sifatli
-            ta’limni taqdim etamiz.
+            {t("offer2")}
           </p>
         </div>
 

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Wrapper from "./wrapper";
+import { useTranslation } from "react-i18next";
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -61,15 +63,15 @@ const ContactForm = () => {
           </div>
 
           <div className="md:w-1/2 p-8">
-            <h2 className="text-3xl font-bold text-black mb-4">Aloqa qiling</h2>
-            <p className="text-gray-600 mb-6">
-              Bizga xabar yuboring va tez orada biz siz bilan bog'lanamiz.
-            </p>
+            <h2 className="text-3xl font-bold text-black mb-4">
+              {t("getin1")}
+            </h2>
+            <p className="text-gray-600 mb-6">{t("getin1")}</p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 name="name"
-                placeholder="Ismingiz"
+                placeholder={t("getin3")}
                 value={form.name}
                 onChange={handleChange}
                 required
@@ -78,7 +80,7 @@ const ContactForm = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder={t("getin4")}
                 value={form.email}
                 onChange={handleChange}
                 required
@@ -87,7 +89,7 @@ const ContactForm = () => {
               <textarea
                 name="message"
                 rows="5"
-                placeholder="Xabar"
+                placeholder={t("getin5")}
                 value={form.message}
                 onChange={handleChange}
                 required
@@ -97,7 +99,7 @@ const ContactForm = () => {
                 type="submit"
                 className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300"
               >
-                Yuborish
+                {t("getin6")}
               </button>
               {status && <p className="text-sm mt-2 text-gray-700">{status}</p>}
             </form>

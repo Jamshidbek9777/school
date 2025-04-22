@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Wrapper from "../shared/wrapper";
+import { useTranslation } from "react-i18next";
 
 const grades = Array.from({ length: 11 }, (_, i) => `${i + 1}-grade`);
 
@@ -32,6 +33,7 @@ const schedules = {
 };
 
 const LessonSchedule = () => {
+  const { t } = useTranslation();
   const [selectedGrade, setSelectedGrade] = useState("1-grade");
 
   return (
@@ -58,12 +60,9 @@ const LessonSchedule = () => {
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-                Dars jadvallari
+                {t("nav8")}
               </h1>
-              <p className="text-lg text-gray-800">
-                Har bir sinf uchun aniq va tartibli dars jadvallari.
-                Farzandingizning ta’lim jarayonini kuzatish yanada oson.
-              </p>
+              <p className="text-lg text-gray-800">{t("tt1")}</p>
             </div>
           </div>
         </section>
@@ -93,11 +92,11 @@ const LessonSchedule = () => {
           <table className="min-w-full border border-gray-300">
             <thead>
               <tr className="bg-black text-yellow-400 text-sm uppercase tracking-wider">
-                <th className="py-3 px-4 border">Day</th>
-                <th className="py-3 px-4 border">Lesson 1</th>
-                <th className="py-3 px-4 border">Lesson 2</th>
-                <th className="py-3 px-4 border">Lesson 3</th>
-                <th className="py-3 px-4 border">Lesson 4</th>
+                <th className="py-3 px-4 border">{t("tt2")}</th>
+                <th className="py-3 px-4 border">{t("tt3")} 1</th>
+                <th className="py-3 px-4 border">{t("tt3")} 2</th>
+                <th className="py-3 px-4 border">{t("tt3")} 3</th>
+                <th className="py-3 px-4 border">{t("tt3")} 4</th>
               </tr>
             </thead>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Wrapper from "../shared/wrapper";
+import { useTranslation } from "react-i18next";
 
 const galleryImages = [
   "/img/life2.jpg",
@@ -13,6 +14,7 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <div className="pt-24 pb-16">
@@ -38,13 +40,9 @@ const Gallery = () => {
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-10 py-8 rounded-xl max-w-3xl text-center shadow-lg">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-                Maktab hayoti
+                {t("nav4")}
               </h1>
-              <p className="text-lg text-gray-800">
-                Farzandingiz qanday muhitda o‘qiydi? Quyidagi suratlarda bizning
-                maktab hayotining eng yorqin onlarini ko‘rishingiz mumkin –
-                darslar, mashg‘ulotlar va unutilmas lahzalar.
-              </p>
+              <p className="text-lg text-gray-800">{t("gallery1")}</p>
             </div>
           </div>
         </section>
