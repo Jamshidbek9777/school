@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const faqs = [
   {
@@ -24,6 +25,7 @@ const faqs = [
 ];
 
 const FaqSection = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
@@ -42,7 +44,7 @@ const FaqSection = () => {
     <Wrapper>
       <section className="py-12">
         <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">
-          Ko'p so'raladigan savollar
+          {t("faq1")}
         </h2>
         <div className="space-y-4 ">
           {faqs.map((faq, index) => (
