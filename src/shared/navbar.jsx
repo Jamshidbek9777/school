@@ -13,8 +13,11 @@ const Navbar = () => {
   const navLinks = [
     { name: t("nav1"), path: "/about" },
     { name: t("nav2"), path: "/admission" },
-    { name: t("nav3"), path: "/news" },
     { name: t("nav4"), path: "/gallery" },
+    { name: t("nav3"), path: "/news" },
+    { name: t("nav6"), path: "/courses" },
+    { name: t("nav7"), path: "/teachers" },
+    { name: t("nav8"), path: "/schedule" },
   ];
 
   const languageOptions = [
@@ -34,12 +37,18 @@ const Navbar = () => {
       <div className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 transition-all duration-300">
         <Wrapper>
           <div className="flex items-center justify-between h-[80px]">
-            <div className="flex items-center h-full">
+            <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>
+              <div className="w-[25px] h-[2px] bg-black mb-[4px]" />
+              <div className="w-[25px] h-[2px] bg-black mb-[4px]" />
+              <div className="w-[25px] h-[2px] bg-black" />
+            </div>
+
+            <div className="flex-1 flex justify-center lg:justify-start">
               <a href="/">
                 <img
                   src="/img/logo.png"
                   alt="DeutschSmart Logo"
-                  className="h-[65px] w-auto object-contain rounded-lg"
+                  className="h-[55px] w-auto object-contain rounded-lg"
                 />
               </a>
             </div>
@@ -85,32 +94,25 @@ const Navbar = () => {
                   <ChevronDown size={20} />
                 </div>
               </Dropdown>
-
-              <Dropdown
-                menu={{
-                  items: languageOptions.map((lang) => ({
-                    key: lang.key,
-                    label: (
-                      <div onClick={() => changeLanguage(lang.key)}>
-                        {lang.label}
-                      </div>
-                    ),
-                  })),
-                }}
-                trigger={["click"]}
-              >
-                <div className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-lg hover:bg-white/10 transition">
-                  <Languages size={18} />
-                  <span className="">{i18n.language}</span>
-                </div>
-              </Dropdown>
             </nav>
-
-            <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>
-              <div className="w-[25px] h-[2px] bg-black mb-[4px]" />
-              <div className="w-[25px] h-[2px] bg-black mb-[4px]" />
-              <div className="w-[25px] h-[2px] bg-black" />
-            </div>
+            <Dropdown
+              menu={{
+                items: languageOptions.map((lang) => ({
+                  key: lang.key,
+                  label: (
+                    <div onClick={() => changeLanguage(lang.key)}>
+                      {lang.label}
+                    </div>
+                  ),
+                })),
+              }}
+              trigger={["click"]}
+            >
+              <div className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-lg hover:bg-white/10 transition">
+                <Languages size={18} />
+                <span className="">{i18n.language}</span>
+              </div>
+            </Dropdown>
           </div>
         </Wrapper>
       </div>
@@ -122,7 +124,7 @@ const Navbar = () => {
       >
         <div className="flex justify-between items-center px-6 py-6 border-b border-white/10">
           <img
-            src="/img/logo.jpg"
+            src="/img/logo.png"
             alt="Logo"
             className="h-10 w-auto object-contain rounded-lg"
           />
