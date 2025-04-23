@@ -39,7 +39,6 @@ const Admissions = () => {
             loading="lazy"
           />
 
-          {/* Text Box */}
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-6 sm:px-10 py-6 sm:py-8 rounded-xl max-w-2xl text-center shadow-lg">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-black">
@@ -97,7 +96,7 @@ const Admissions = () => {
 
           {submitted ? (
             <p className="text-green-600 text-lg text-center">
-              ✅ Arizangiz muvaffaqiyatli yuborildi!
+              Arizangiz muvaffaqiyatli yuborildi!
             </p>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">

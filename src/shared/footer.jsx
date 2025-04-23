@@ -49,7 +49,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Column 3 - Contact Info */}
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
                 {t("footer3")}
@@ -61,7 +60,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Column 4 - Social Media */}
             <div>
               <h3 className="text-3xl font-extrabold text-yellow-400 mb-4">
                 {t("footer4")}

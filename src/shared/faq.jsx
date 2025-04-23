@@ -5,27 +5,11 @@ import "aos/dist/aos.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-const faqs = [
-  {
-    question: "How can I apply to the school?",
-    answer:
-      "You can apply by filling out the online application form on our website or visiting the admissions office directly.",
-  },
-  {
-    question: "What curriculum do you follow?",
-    answer:
-      "We follow a modern curriculum aligned with international standards, integrating local and German educational elements.",
-  },
-  {
-    question: "Are there extracurricular activities?",
-    answer:
-      "Yes, we offer a variety of clubs, sports, arts, and language programs to support student growth outside the classroom.",
-  },
-];
+import axios from "axios";
 
 const FaqSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [faqs, setFaqs] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
@@ -39,6 +23,27 @@ const FaqSection = () => {
       once: true,
     });
   }, []);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const res = await axios.get("http://178.128.105.37:8000/api/faqs/");
+        const lang = i18n.language;
+
+        const localizedFaqs = res.data.map((item) => ({
+          question: item[`question_${lang}`],
+          answer: item[`answer_${lang}`],
+        }));
+        console.log(res);
+
+        setFaqs(localizedFaqs);
+      } catch (error) {
+        console.error("Failed to fetch FAQs", error);
+      }
+    };
+
+    fetchFaqs();
+  }, [i18n.language]);
 
   return (
     <Wrapper>

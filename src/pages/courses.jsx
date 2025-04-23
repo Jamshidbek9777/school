@@ -57,7 +57,6 @@ const Courses = () => {
           className="relative bg-cover bg-center py-20 sm:py-28 md:py-36 rounded-lg shadow-md mb-12 overflow-hidden px-4"
           style={{ backgroundImage: "url('/img/aboutBg.JPG')" }}
         >
-          {/* Decorative SVGs */}
           <img
             src="/img/line1.svg"
             alt="Top Left Illustration"
@@ -71,7 +70,6 @@ const Courses = () => {
             loading="lazy"
           />
 
-          {/* Text Content */}
           <div className="relative z-10 flex justify-center">
             <div className="backdrop-blur-md bg-white/30 px-6 sm:px-10 py-6 sm:py-8 rounded-xl max-w-2xl text-center shadow-lg">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-black">

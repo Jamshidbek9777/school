@@ -12,8 +12,8 @@ const ContactForm = () => {
 
   const [status, setStatus] = useState("");
 
-  const BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";
-  const CHAT_ID = "YOUR_CHAT_ID_HERE";
+  const BOT_TOKEN = "";
+  const CHAT_ID = "";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,14 +39,14 @@ const ContactForm = () => {
       );
 
       if (response.ok) {
-        setStatus("✅ Message sent successfully!");
+        setStatus("Message sent successfully!");
         setForm({ name: "", email: "", message: "" });
       } else {
-        setStatus("❌ Failed to send message. Try again later.");
+        setStatus("Failed to send message. Try again later.");
       }
     } catch (error) {
       console.error("Error:", error);
-      setStatus("⚠️ Something went wrong.");
+      setStatus("Something went wrong.");
     }
   };
 

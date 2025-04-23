@@ -77,7 +77,6 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Pricing Cards */}
         <section className="py-16 px-4 bg-[#f9f9f9]">
           <div className="mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-[#050a41] mb-4">
@@ -112,7 +111,6 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Final Note */}
         <section className="py-16 bg-white text-center">
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Choose what suits your child best — excellence starts here.

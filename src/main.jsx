@@ -9,15 +9,14 @@ import About from "./pages/about.jsx";
 import Teachers from "./pages/teachers.jsx";
 import Courses from "./pages/courses.jsx";
 import Pricing from "./pages/pricing.jsx";
-import Contact from "./pages/contact.jsx";
 import Gallary from "./pages/gallery.jsx";
-
-import "./index.css";
-import "./config/i18n.js";
 import LessonSchedule from "./pages/schedule.jsx";
 import NewsPage from "./pages/news.jsx";
 import Admissions from "./pages/admission.jsx";
 import ScrollToTop from "./shared/scrollToTop.jsx";
+
+import "./index.css";
+import "./config/i18n.js";
 
 const Root = () => {
   return (
@@ -32,7 +31,6 @@ const Root = () => {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/schedule" element={<LessonSchedule />} />
         <Route path="/news" element={<NewsPage />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallary />} />
         <Route path="/admission" element={<Admissions />} />
       </Routes>

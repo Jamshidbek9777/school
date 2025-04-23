@@ -55,7 +55,6 @@ const Teachers = () => {
   return (
     <Wrapper>
       <div className="pt-24 pb-16">
-        {/* Hero */}
         <section
           className="relative bg-cover bg-center py-20 sm:py-28 md:py-36 rounded-lg shadow-md mb-16 overflow-hidden px-4"
           style={{ backgroundImage: "url('/img/aboutBg.JPG')" }}
@@ -89,7 +88,6 @@ const Teachers = () => {
           </div>
         </section>
 
-        {/* Teachers */}
         <section>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {teachersData.map((teacher, index) => (

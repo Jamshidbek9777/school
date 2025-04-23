@@ -21,7 +21,6 @@ const schedules = {
     ["Saturday", "Math", "PE", "Writing", "Something"],
     ["Sunday", "Math", "PE", "Writing", "Something"],
   ],
-  // Add other grades similarly...
   "11-grade": [
     ["Monday", "Math", "Reading", "Drawing", "Something"],
     ["Wednesday", "Math", "PE", "Writing", "Something"],
