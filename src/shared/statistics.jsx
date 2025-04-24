@@ -1,128 +1,160 @@
 import React, { useEffect, useState } from "react";
 import { GraduationCap, Users, Briefcase, Globe } from "lucide-react";
 import Wrapper from "./wrapper";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 
 const SchoolStats = () => {
   const { t } = useTranslation();
   const stats = [
     {
-      icon: <GraduationCap size={36} />,
-      value: "2500+",
+      icon: <GraduationCap size={32} />, 
+      value: "2500+", 
       label: t("ach2"),
-      bg: "bg-black",
+      color: "indigo",
     },
     {
-      icon: <Users size={36} />,
-      value: "120+",
+      icon: <Users size={32} />, 
+      value: "120+", 
       label: t("ach3"),
-      bg: "bg-[#dc2626]",
+      color: "sky",
     },
     {
-      icon: <Globe size={36} />,
-      value: "15+",
+      icon: <Globe size={32} />, 
+      value: "15+", 
       label: t("ach4"),
-      bg: "bg-[#facc15]",
+      color: "violet",
     },
     {
-      icon: <Briefcase size={36} />,
-      value: "10+",
+      icon: <Briefcase size={32} />, 
+      value: "10+", 
       label: t("ach5"),
-      bg: "bg-black",
+      color: "teal",
     },
   ];
 
-  const [animatedStats, setAnimatedStats] = useState(stats);
-
-  const countUp = (target, statIndex) => {
-    let count = 0;
-    const increment = Math.ceil(parseInt(target) / 100);
-    const interval = setInterval(() => {
-      count += increment;
-      if (count >= parseInt(target)) {
-        count = parseInt(target);
-        clearInterval(interval);
-      }
-      setAnimatedStats((prevStats) => {
-        const newStats = [...prevStats];
-        newStats[statIndex].animatedValue = count + "+";
-        return newStats;
-      });
-    }, 10);
-  };
+  const [animatedStats, setAnimatedStats] = useState(
+    stats.map(stat => ({ ...stat, animatedValue: "0+" }))
+  );
 
   useEffect(() => {
-    stats.forEach((stat, index) => {
-      countUp(stat.value.replace("+", ""), index);
-    });
+    const animateStats = () => {
+      stats.forEach((stat, index) => {
+        const target = parseInt(stat.value.replace("+", ""));
+        let current = 0;
+        const steps = 50;
+        const increment = Math.ceil(target / steps);
+        
+        const interval = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(interval);
+          }
+          
+          setAnimatedStats(prevStats => {
+            const newStats = [...prevStats];
+            newStats[index] = {
+              ...newStats[index],
+              animatedValue: `${current}+`
+            };
+            return newStats;
+          });
+        }, 30);
+      });
+    };
 
-    AOS.init({
-      duration: 500,
-      easing: "ease-in-out",
-      once: false,
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          animateStats();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    const statsSection = document.getElementById("stats-section");
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+    
+    return () => observer.disconnect();
   }, []);
 
+  
+
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat text-white my-10"
-      style={{
-        backgroundImage: "url('/img/bg_offer.jpg')",
-      }}
+    <section 
+      id="stats-section"
+      className="py-20 bg-gradient-to-t from-blue-50 via-indigo-50 to-purple-50"
     >
-      <div className="absolute inset-0 bg-opacity-50 z-0" />
-
-      <div className="relative z-10 py-36 px-6 lg:px-20 bg-gradient-to-t from-black/20 via-black/30 to-transparent">
-        <Wrapper>
-          <div className="text-center">
-            <h2
-              className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg"
-              data-aos="fade-up"
-            >
-              {t("ach1")}
-            </h2>
+      <Wrapper>
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium mb-4">
+            {t("Our Progress")}
+          </span>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            {t("ach1")}
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            {t("Explore our accomplishments and milestones")}
+          </p>
+        </div>
+        
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {animatedStats.map((stat, index) => (
             <div
-              className="w-28 h-1 mx-auto mb-12 bg-gradient-to-r from-yellow-400 via-red-600 to-black rounded"
-              data-aos="scale-x"
-              data-aos-delay="100"
-            />
-
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
-              data-aos="fade-up"
-              data-aos-delay="200"
+              key={index}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 p-6"
+              style={{ 
+                opacity: 0,
+                animation: 'fade-in-up 0.7s ease-out forwards',
+                animationDelay: `${200 + index * 100}ms`
+              }}
             >
-              {animatedStats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center bg-white/10 border border-white/20 backdrop-blur-lg rounded-2xl p-6 shadow-[0_4px_30px_rgba(0,0,0,0.3)]  cursor-pointer transition-transform duration-300"
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 200}
-                  data-aos-duration="1000"
-                >
-                  <div
-                    className={`w-16 h-16 ${stat.bg} text-white rounded-full flex items-center justify-center mb-4 shadow-md`}
-                  >
-                    {stat.icon}
-                  </div>
-                  <h3
-                    className="text-3xl font-bold text-white drop-shadow-lg"
-                    data-aos="fade-up"
-                    data-aos-delay="300"
-                  >
+              <div className={`absolute top-0 left-0 w-full h-1 bg-${stat.color}-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}></div>
+              
+              <div className="flex items-start mb-4">
+                <div className={`flex-shrink-0 w-14 h-14 rounded-lg bg-${stat.color}-100 flex items-center justify-center`}>
+                  <span className={`text-${stat.color}-500`}>{stat.icon}</span>
+                </div>
+                <div className="ml-4 flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900">
                     {stat.animatedValue || stat.value}
                   </h3>
-                  <p className="text-sm text-gray-200 mt-1 drop-shadow-md">
+                  <p className="text-gray-500 mt-1">
                     {stat.label}
                   </p>
                 </div>
-              ))}
+              </div>
+              
+              <div className={`h-1 w-full bg-${stat.color}-100 rounded-full mt-4 overflow-hidden`}>
+                <div 
+                  className={`h-full bg-${stat.color}-500 rounded-full`} 
+                  style={{ 
+                    width: stat.animatedValue ? 
+                      `${Math.min(100, parseInt(stat.animatedValue) / parseInt(stat.value.replace('+', '')) * 100)}%` : '0%',
+                    transition: 'width 1.5s ease-out'
+                  }}
+                ></div>
+              </div>
             </div>
-          </div>
-        </Wrapper>
-      </div>
+          ))}
+        </div>
+      </Wrapper>
+      
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };

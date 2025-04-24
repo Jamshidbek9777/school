@@ -14,6 +14,7 @@ import "aos/dist/aos.css";
 
 const WhatWeOffer = () => {
   const { t } = useTranslation();
+
   const offerings = [
     {
       icon: ShieldCheck,
@@ -52,52 +53,60 @@ const WhatWeOffer = () => {
       bg: "bg-yellow-100 text-yellow-700",
     },
   ];
+
   useEffect(() => {
     AOS.init({
-      duration: 500,
+      duration: 700,
       easing: "ease-in-out",
-      once: false,
+      once: true,
     });
   }, []);
 
   return (
-    <Wrapper>
-      <div className="my-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-4" data-aos="fade-up">
-            🎓 {t("offer1")}
-          </h2>
-          <p
-            className="text-gray-600 max-w-2xl mx-auto leading-relaxed"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            {t("offer2")}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {offerings.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+    <div className="bg-gray-50 w-full">
+      <Wrapper>
+        <section className="py-20 px-4 sm:px-6 lg:px-8 w-full">
+          <div className="text-center mb-12 max-w-5xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+              🎓 {t("offer1")}
+            </h2>
+            <p
+              className="text-gray-600 text-base sm:text-lg"
               data-aos="fade-up"
-              data-aos-delay={idx * 200}
+              data-aos-delay="100"
             >
+              {t("offer2")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
+            {offerings.map((item, idx) => (
               <div
-                className={`w-12 h-12 flex items-center justify-center rounded-full mb-4 ${item.bg}`}
+                key={idx}
+                className="cursor-pointer group bg-white rounded-3xl p-6 sm:p-8 border border-transparent shadow-sm
+                           hover:shadow-xl hover:border-yellow-400 transition-transform duration-300 ease-in-out transform hover:-translate-y-1"
+                data-aos="fade-up"
+                data-aos-delay={idx * 100}
               >
-                <item.icon size={26} />
+                <div
+                  className={`w-14 h-14 flex items-center justify-center rounded-full mb-4 ${item.bg}
+                              transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-3`}
+                >
+                  <item.icon size={26} />
+                </div>
+                <h4 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900
+                               transition-colors duration-300 ease-in-out group-hover:text-yellow-600">
+                  {item.title}
+                </h4>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-              <h4 className="text-lg font-semibold mb-2 text-black">
-                {item.title}
-              </h4>
-              <p className="text-gray-600 text-sm">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Wrapper>
+            ))}
+          </div>
+        </section>
+      </Wrapper>
+    </div>
   );
 };
 
