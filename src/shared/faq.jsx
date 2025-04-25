@@ -3,7 +3,7 @@ import Wrapper from "./wrapper";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, Plus, Minus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
@@ -19,7 +19,7 @@ const FaqSection = () => {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      easing: "ease-in-out",
+      easing: "ease-out",
       once: true,
     });
   }, []);
@@ -34,7 +34,6 @@ const FaqSection = () => {
           question: item[`question_${lang}`],
           answer: item[`answer_${lang}`],
         }));
-        console.log(res);
 
         setFaqs(localizedFaqs);
       } catch (error) {
@@ -47,28 +46,45 @@ const FaqSection = () => {
 
   return (
     <Wrapper>
-      <section className="py-12">
-        <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">
-          {t("faq1")}
-        </h2>
-        <div className="space-y-4 ">
+      <div className="py-20">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
+            FAQ
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            {t("faq1")}
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Find answers to common questions about our educational programs and enrollment process
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all"
+              className="mb-4 overflow-hidden"
               data-aos="fade-up"
-              data-aos-delay={`${index * 100}`}
+              data-aos-delay={index * 50}
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full text-left px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition"
+                className={`w-full text-left p-6 flex justify-between items-center rounded-xl transition-all duration-300
+                  ${activeIndex === index
+                    ? 'bg-gradient-to-r from-indigo-50 to-blue-50 shadow-md'
+                    : 'bg-white hover:bg-gray-50 border border-gray-100'
+                  }`}
+                aria-expanded={activeIndex === index}
               >
-                <span className="font-medium text-lg">{faq.question}</span>
-                {activeIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
-                )}
+                <span className="font-semibold text-lg mr-4 text-gray-900">{faq.question}</span>
+                <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-300 ${activeIndex === index ? 'bg-indigo-500 text-white' : 'bg-gray-100 text-gray-500'
+                  }`}>
+                  {activeIndex === index ? (
+                    <Minus size={18} />
+                  ) : (
+                    <Plus size={18} />
+                  )}
+                </div>
               </button>
 
               <AnimatePresence initial={false}>
@@ -80,7 +96,7 @@ const FaqSection = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 py-4 text-gray-700 bg-white">
+                    <div className="px-6 py-5 bg-white border-l border-r border-b border-gray-100 text-gray-700 rounded-b-xl leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -89,7 +105,18 @@ const FaqSection = () => {
             </div>
           ))}
         </div>
-      </section>
+
+        <div className="text-center mt-12 pt-6 border-t border-gray-100" data-aos="fade-up">
+          <p className="text-gray-600 mb-4">Still have questions?</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-5 py-3 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
+          >
+            Contact us
+            <ChevronDown size={16} className="ml-2 rotate-270" />
+          </a>
+        </div>
+      </div>
     </Wrapper>
   );
 };
