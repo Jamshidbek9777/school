@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Facebook, Twitter } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const teachers = [
   {
@@ -13,7 +14,7 @@ const teachers = [
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
       twitter: "https://twitter.com",
-    }
+    },
   },
   {
     name: "Lukas Schmidt",
@@ -25,7 +26,7 @@ const teachers = [
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
       twitter: "https://twitter.com",
-    }
+    },
   },
   {
     name: "Sophie Becker",
@@ -37,7 +38,7 @@ const teachers = [
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
       twitter: "https://twitter.com",
-    }
+    },
   },
   {
     name: "Klaus Weber",
@@ -48,22 +49,23 @@ const teachers = [
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
       twitter: "https://twitter.com",
-    }
+    },
   },
 ];
 
 const CertifiedTeachers = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-20">
       <div className="text-center mb-16">
         <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
-          Our Team
+          {t("teachers1")}
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          Certified Teachers
+          {t("teachers2")}
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Learn from the best — qualified professionals with years of experience in education.
+          {t("teachers3")}
         </p>
       </div>
 
@@ -123,9 +125,7 @@ const CertifiedTeachers = () => {
               <div className="inline-block px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-medium rounded-full mb-3">
                 {teacher.subject}
               </div>
-              <p className="text-gray-600 text-sm">
-                {teacher.description}
-              </p>
+              <p className="text-gray-600 text-sm">{teacher.description}</p>
             </div>
           </motion.div>
         ))}
@@ -136,9 +136,19 @@ const CertifiedTeachers = () => {
           href="/teachers"
           className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
         >
-          View all teachers
-          <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          {t("teachers4")}
+          <svg
+            className="w-4 h-4 ml-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
           </svg>
         </a>
       </div>

@@ -11,6 +11,10 @@
   "hero1": "Ilm sari ilk qadamingizni biz bilan qo‘ying!",
   "hero2": "DeutschSmart maktabi sizga Germaniyaga yo‘l ochuvchi sifatli ta'lim, madaniyat va zamonaviy yondashuvlarni taklif etadi.",
   "hero3": "Boshlash",
+  "hero4": "Sertifikatlangan o‘qituvchilar",
+  "hero5": "Germaniya standartlari",
+  "hero6": "Pastga aylantiring",
+  "hero7": "Dasturlar bilan tanishing",
 
   "offer1": " Biz nima taklif qilamiz",
   "offer2": "Germaniyadagi yetakchi ta’lim muassasalari bilan hamkorlik orqali bolalaringizga xalqaro standartlarga mos, zamonaviy, sifatli ta’limni taqdim etamiz.",
@@ -26,12 +30,19 @@
   "offer12": "Amaliy mashg‘ulotlar, san’at va intellektual faoliyat orqali har tomonlama rivojlanish.",
   "offer13": "Sport inshootlari",
   "offer14": "Germaniya sport madaniyatiga asoslangan jismoniy tarbiya va sog‘lom turmush uchun imkoniyatlar.",
+  "offer15": "Bizni boshqalardan ajratib turadigan jihatlar",
 
   "ach1": "Bizning yutuqlarimiz",
   "ach2": "O'quvchilar",
   "ach3": "O'qituvchilar",
   "ach4": "Hamkorlar",
   "ach5": "Yillik tajriba",
+  "ach6": "Bizning yutuqlarimiz",
+
+  "teachers1": "Bizning jamoa",
+  "teachers2": "Sertifikatlangan o‘qituvchilar",
+  "teachers3": "Eng yaxshilardan o‘rganing — yillik tajribaga ega, malakali mutaxassislar.",
+  "teachers4": "Barcha o‘qituvchilarni ko‘rish",
 
   "pricing1": "Olish",
   "pricing2": "O'z ichiga oladi",
@@ -39,6 +50,9 @@
   "pricing4": "Sizga mos reja tanlang. Yashirin to‘lovlar yo‘q.",
 
   "faq1": "Ko'p so'raladigan savollar",
+  "faq2": "Ta’lim dasturlarimiz va qabul jarayoni haqidagi eng ko‘p beriladigan savollarga javob toping",
+  "faq3": "Hali ham savollaringiz bormi?",
+  "faq4": "Biz bilan bog‘laning",
 
   "getin1": "Aloqa qiling",
   "getin2": "Bizga xabar yuboring va tez orada biz siz bilan bog'lanamiz.",

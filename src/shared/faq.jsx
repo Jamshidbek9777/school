@@ -54,9 +54,7 @@ const FaqSection = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             {t("faq1")}
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Find answers to common questions about our educational programs and enrollment process
-          </p>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("faq2")}</p>
         </div>
 
         <div className="max-w-3xl mx-auto">
@@ -70,15 +68,23 @@ const FaqSection = () => {
               <button
                 onClick={() => toggle(index)}
                 className={`w-full text-left p-6 flex justify-between items-center rounded-xl transition-all duration-300
-                  ${activeIndex === index
-                    ? 'bg-gradient-to-r from-indigo-50 to-blue-50 shadow-md'
-                    : 'bg-white hover:bg-gray-50 border border-gray-100'
+                  ${
+                    activeIndex === index
+                      ? "bg-gradient-to-r from-indigo-50 to-blue-50 shadow-md"
+                      : "bg-white hover:bg-gray-50 border border-gray-100"
                   }`}
                 aria-expanded={activeIndex === index}
               >
-                <span className="font-semibold text-lg mr-4 text-gray-900">{faq.question}</span>
-                <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-300 ${activeIndex === index ? 'bg-indigo-500 text-white' : 'bg-gray-100 text-gray-500'
-                  }`}>
+                <span className="font-semibold text-lg mr-4 text-gray-900">
+                  {faq.question}
+                </span>
+                <div
+                  className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-300 ${
+                    activeIndex === index
+                      ? "bg-indigo-500 text-white"
+                      : "bg-gray-100 text-gray-500"
+                  }`}
+                >
                   {activeIndex === index ? (
                     <Minus size={18} />
                   ) : (
@@ -106,13 +112,16 @@ const FaqSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12 pt-6 border-t border-gray-100" data-aos="fade-up">
-          <p className="text-gray-600 mb-4">Still have questions?</p>
+        <div
+          className="text-center mt-12 pt-6 border-t border-gray-100"
+          data-aos="fade-up"
+        >
+          <p className="text-gray-600 mb-4"> {t("faq3")}</p>
           <a
             href="#contact"
             className="inline-flex items-center px-5 py-3 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
           >
-            Contact us
+            {t("faq4")}
             <ChevronDown size={16} className="ml-2 rotate-270" />
           </a>
         </div>

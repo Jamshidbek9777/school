@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import Wrapper from "./wrapper";
 import { useTranslation } from "react-i18next";
-import { Send, Check, AlertCircle, Mail, User, MessageSquare } from "lucide-react";
+import {
+  Send,
+  Check,
+  AlertCircle,
+  Mail,
+  User,
+  MessageSquare,
+} from "lucide-react";
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -85,21 +92,35 @@ const ContactForm = () => {
                   className="mx-auto mb-10 max-w-full h-auto drop-shadow-xl w-64"
                 />
 
-                <h3 className="text-2xl font-bold mb-6">We'd love to hear from you</h3>
+                <h3 className="text-2xl font-bold mb-6">
+                  We'd love to hear from you
+                </h3>
 
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4">
                       <Mail size={18} />
                     </div>
-                    <a href="mailto:deutschsmartschool@gmail.com" className="hover:underline">
+                    <a
+                      href="mailto:deutschsmartschool@gmail.com"
+                      className="hover:underline"
+                    >
                       deutschsmartschool@gmail.com
                     </a>
                   </div>
 
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                       </svg>
                     </div>
@@ -118,9 +139,12 @@ const ContactForm = () => {
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6">
                     <Check size={36} className="text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Message Sent!
+                  </h3>
                   <p className="text-gray-600 text-center mb-8">
-                    Thank you for reaching out. We'll get back to you as soon as possible.
+                    Thank you for reaching out. We'll get back to you as soon as
+                    possible.
                   </p>
                   <button
                     onClick={() => setStatus(null)}
@@ -133,13 +157,19 @@ const ContactForm = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {status === "error" && (
                     <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 flex items-start mb-6">
-                      <AlertCircle size={20} className="mr-3 mt-0.5 flex-shrink-0" />
+                      <AlertCircle
+                        size={20}
+                        className="mr-3 mt-0.5 flex-shrink-0"
+                      />
                       <p>{error}</p>
                     </div>
                   )}
 
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="name"
+                    >
                       {t("getin3")}
                     </label>
                     <div className="relative">
@@ -160,7 +190,10 @@ const ContactForm = () => {
                   </div>
 
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="email"
+                    >
                       {t("getin4")}
                     </label>
                     <div className="relative">
@@ -181,7 +214,10 @@ const ContactForm = () => {
                   </div>
 
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="message"
+                    >
                       {t("getin5")}
                     </label>
                     <div className="relative">
@@ -204,14 +240,33 @@ const ContactForm = () => {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className={`w-full bg-gray-900 hover:bg-black text-white py-3.5 rounded-xl font-medium flex items-center justify-center transition-all duration-300 ${status === "sending" ? "opacity-70 cursor-not-allowed" : ""
-                      }`}
+                    className={`w-full bg-gray-900 hover:bg-black text-white py-3.5 rounded-xl font-medium flex items-center justify-center transition-all duration-300 ${
+                      status === "sending"
+                        ? "opacity-70 cursor-not-allowed"
+                        : ""
+                    }`}
                   >
                     {status === "sending" ? (
                       <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
                         </svg>
                         {t("Sending...")}
                       </>

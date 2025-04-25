@@ -49,10 +49,7 @@ const SchoolStats = () => {
   };
 
   return (
-    <section
-      ref={ref}
-      className="py-24 relative overflow-hidden"
-    >
+    <section ref={ref} className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-yellow-50 opacity-70"></div>
 
       {/* Decorative elements */}
@@ -63,7 +60,7 @@ const SchoolStats = () => {
         <div className="relative">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
-              {t("Our Progress")}
+              {t("ach6")}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               {t("ach1")}
@@ -83,10 +80,14 @@ const SchoolStats = () => {
                 className="relative group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 p-6"
               >
                 {/* Top gradient border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 ${stat.color}`}></div>
+                <div
+                  className={`absolute top-0 left-0 right-0 h-1 ${stat.color}`}
+                ></div>
 
                 <div className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 rounded-xl bg-gray-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`w-16 h-16 rounded-xl bg-gray-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <span className={`text-gray-700`}>{stat.icon}</span>
                   </div>
 
@@ -99,16 +100,13 @@ const SchoolStats = () => {
                     </span>
                   </div>
 
-                  <p className="text-gray-500 font-medium">
-                    {stat.label}
-                  </p>
+                  <p className="text-gray-500 font-medium">{stat.label}</p>
 
-                  {/* Progress bar */}
                   <div className="mt-4 relative w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                     <div
                       className={`absolute top-0 left-0 h-full ${stat.color} rounded-full`}
                       style={{
-                        width: "100%"
+                        width: "100%",
                       }}
                     />
                   </div>

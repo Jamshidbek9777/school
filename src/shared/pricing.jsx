@@ -78,14 +78,14 @@ const PricingSection = () => {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-2xl shadow-xl overflow-hidden transition-all duration-500 ${plan.highlight
+              className={`relative rounded-2xl shadow-xl overflow-hidden transition-all duration-500 ${
+                plan.highlight
                   ? "md:-translate-y-4 md:scale-105 z-10"
                   : "hover:-translate-y-2"
-                }`}
+              } flex flex-col`} // Add flex and flex-col to the card
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              {/* Header with gradient */}
               <div className={`bg-gradient-to-br ${plan.color} text-white p-8`}>
                 {plan.highlight && (
                   <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -100,12 +100,13 @@ const PricingSection = () => {
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="bg-white p-8">
+              <div className="bg-white p-8 flex flex-col flex-grow">
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className={`flex-shrink-0 rounded-full p-1 text-${plan.accent}-500 bg-${plan.accent}-50`}>
+                      <div
+                        className={`flex-shrink-0 rounded-full p-1 text-${plan.accent}-500 bg-${plan.accent}-50`}
+                      >
                         <Check size={16} className="text-current" />
                       </div>
                       <span className="text-gray-700">{feature}</span>
@@ -114,10 +115,11 @@ const PricingSection = () => {
                 </ul>
 
                 <button
-                  className={`w-full py-3.5 rounded-xl font-medium text-base transition transform 
-                    ${plan.highlight
-                      ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-lg hover:shadow-${plan.accent}-500/30`
-                      : `border-2 border-${plan.accent}-500 text-${plan.accent}-700 hover:bg-${plan.accent}-50`
+                  className={`w-full py-3.5 rounded-xl font-medium text-base transition transform mt-auto 
+                    ${
+                      plan.highlight
+                        ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-lg hover:shadow-${plan.accent}-500/30`
+                        : `border-2 border-${plan.accent}-500 text-${plan.accent}-700 hover:bg-${plan.accent}-50`
                     }`}
                 >
                   {t("pricing1")}
@@ -125,10 +127,6 @@ const PricingSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12 text-gray-500 text-sm" data-aos="fade-up" data-aos-delay="300">
-          All plans include access to our online learning platform and student community
         </div>
       </div>
     </Wrapper>
