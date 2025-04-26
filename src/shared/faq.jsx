@@ -68,6 +68,7 @@ const FaqSection = () => {
               <button
                 onClick={() => toggle(index)}
                 className={`w-full text-left p-6 flex justify-between items-center rounded-xl transition-all duration-300
+                  
                   ${
                     activeIndex === index
                       ? "bg-gradient-to-r from-indigo-50 to-blue-50 shadow-md"
