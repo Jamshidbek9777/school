@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App.jsx";
 
 import Navbar from "./shared/navbar.jsx";
@@ -19,22 +20,26 @@ import "./index.css";
 import "./config/i18n.js";
 
 const Root = () => {
+  const queryClient = new QueryClient();
+
   return (
     <>
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/teachers" element={<Teachers />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/schedule" element={<LessonSchedule />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/gallery" element={<Gallary />} />
-        <Route path="/admission" element={<Admissions />} />
-      </Routes>
-      <Footer />
+      <QueryClientProvider client={queryClient}>
+        <ScrollToTop />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/teachers" element={<Teachers />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/schedule" element={<LessonSchedule />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/gallery" element={<Gallary />} />
+          <Route path="/admission" element={<Admissions />} />
+        </Routes>
+        <Footer />
+      </QueryClientProvider>
     </>
   );
 };

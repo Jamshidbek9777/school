@@ -2,16 +2,28 @@ import React, { useState } from "react";
 import Wrapper from "../shared/wrapper";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Calendar, Clipboard, CheckCircle, FileText, Map, Phone, Mail, User, School, MessageSquare } from "lucide-react";
+import {
+  Calendar,
+  Clipboard,
+  CheckCircle,
+  FileText,
+  Map,
+  Phone,
+  Mail,
+  User,
+  School,
+  MessageSquare,
+} from "lucide-react";
 import HeroSection from "../shared/hero";
+import { useAdmissions, useInfo } from "../queries/useQueries";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", duration: 0.6 }
-  }
+    transition: { type: "spring", duration: 0.6 },
+  },
 };
 
 const staggerContainer = {
@@ -19,13 +31,13 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const Admissions = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [form, setForm] = useState({
     fullName: "",
     phone: "",
@@ -40,7 +52,6 @@ const Admissions = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate API call
     setTimeout(() => {
       console.log("Submitted: ", form);
       setSubmitted(true);
@@ -49,31 +60,42 @@ const Admissions = () => {
     }, 1500);
   };
 
+  const { data: datesData = [] } = useAdmissions(i18n.language);
+  const { data: info = [] } = useInfo(i18n.language);
+
   const admissionSteps = [
     {
       title: t("adm4") + " - " + t("Step 1"),
       icon: <FileText className="w-6 h-6" />,
-      description: t("Fill out the online application form with your personal information and contact details"),
-      active: currentStep >= 1
+      description: t(
+        "Fill out the online application form with your personal information and contact details"
+      ),
+      active: currentStep >= 1,
     },
     {
       title: t("Document Verification"),
       icon: <Clipboard className="w-6 h-6" />,
-      description: t("Submit all required documents for verification by the admissions team"),
-      active: currentStep >= 2
+      description: t(
+        "Submit all required documents for verification by the admissions team"
+      ),
+      active: currentStep >= 2,
     },
     {
       title: t("Entrance Examination"),
       icon: <School className="w-6 h-6" />,
-      description: t("Take the entrance examination to assess your academic readiness"),
-      active: currentStep >= 3
+      description: t(
+        "Take the entrance examination to assess your academic readiness"
+      ),
+      active: currentStep >= 3,
     },
     {
       title: t("Final Decision"),
       icon: <CheckCircle className="w-6 h-6" />,
-      description: t("Receive the final decision on your application and complete enrollment if accepted"),
-      active: currentStep >= 4
-    }
+      description: t(
+        "Receive the final decision on your application and complete enrollment if accepted"
+      ),
+      active: currentStep >= 4,
+    },
   ];
 
   return (
@@ -91,7 +113,6 @@ const Admissions = () => {
           variants={staggerContainer}
           className="max-w-4xl mx-auto my-12"
         >
-          {/* Admission Timeline */}
           <motion.div variants={fadeIn} className="relative mb-16">
             <div className="flex items-center justify-center mb-8">
               <Calendar className="w-6 h-6 text-yellow-500 mr-2" />
@@ -108,8 +129,12 @@ const Admissions = () => {
                     <Calendar className="w-5 h-5 text-yellow-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">1-may – 30-iyun 2025</h3>
-                    <p className="text-gray-600">Hujjatlar topshirish muddati</p>
+                    <h3 className="font-semibold text-gray-800 mb-1">
+                      {datesData[0]?.dates}
+                    </h3>
+                    <p className="text-gray-600">
+                      Hujjatlar topshirish muddati
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -123,15 +148,18 @@ const Admissions = () => {
                     <Calendar className="w-5 h-5 text-yellow-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Iyul oyi</h3>
-                    <p className="text-gray-600">Kirish imtihonlari o'tkaziladi</p>
+                    <h3 className="font-semibold text-gray-800 mb-1">
+                      {datesData[0]?.exam}
+                    </h3>
+                    <p className="text-gray-600">
+                      Kirish imtihonlari o'tkaziladi
+                    </p>
                   </div>
                 </div>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Required Documents */}
           <motion.div variants={fadeIn} className="mb-16">
             <div className="flex items-center justify-center mb-8">
               <Clipboard className="w-6 h-6 text-yellow-500 mr-2" />
@@ -143,12 +171,7 @@ const Admissions = () => {
               whileHover={{ boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
             >
               <ul className="space-y-4">
-                {[
-                  "O'quvchining tug'ilganlik guvohnomasi nusxasi",
-                  "So'nggi yillik baholar (agar mavjud bo'lsa)",
-                  "Ota-onaning pasport nusxasi",
-                  "Onlayn ariza shaklini to'ldirish"
-                ].map((item, index) => (
+                {datesData.map((item, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -10 }}
@@ -156,18 +179,25 @@ const Admissions = () => {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center"
                   >
-                    <div className="bg-yellow-100 rounded-full p-1.5 mr-3">
-                      <CheckCircle className="w-4 h-4 text-yellow-600" />
-                    </div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700">
+                      {item.req.split(/\r?\n/).map((line, i) => (
+                        <div className="flex gap-2 my-2">
+                          <div className="bg-yellow-100 rounded-full p-1.5 mr-3">
+                            <CheckCircle className="w-4 h-4 text-yellow-600" />
+                          </div>
+                          <p key={i} className="text-gray-700">
+                            {line}
+                          </p>
+                        </div>
+                      ))}
+                    </span>
                   </motion.li>
                 ))}
               </ul>
             </motion.div>
           </motion.div>
 
-          {/* Admission Process */}
-          <motion.div variants={fadeIn} className="mb-16">
+          {/* <motion.div variants={fadeIn} className="mb-16">
             <div className="flex items-center justify-center mb-8">
               <FileText className="w-6 h-6 text-yellow-500 mr-2" />
               <h2 className="text-2xl font-bold text-gray-800">{t("adm4")}</h2>
@@ -188,24 +218,33 @@ const Admissions = () => {
                     <motion.div
                       animate={{
                         scale: [1, 1.2, 1],
-                        backgroundColor: step.active ? "#facc15" : "#e5e7eb"
+                        backgroundColor: step.active ? "#facc15" : "#e5e7eb",
                       }}
                       transition={{
                         duration: 0.5,
-                        repeat: step.active ? 0 : 0
+                        repeat: step.active ? 0 : 0,
                       }}
-                      className={`z-10 flex items-center justify-center w-[70px] h-[70px] rounded-full ${step.active ? "bg-yellow-400 text-white" : "bg-gray-200 text-gray-500"
-                        }`}
+                      className={`z-10 flex items-center justify-center w-[70px] h-[70px] rounded-full ${
+                        step.active
+                          ? "bg-yellow-400 text-white"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
                     >
                       {step.icon}
                     </motion.div>
                     <div className="ml-6 pt-3">
-                      <h3 className={`font-semibold text-lg ${step.active ? "text-gray-800" : "text-gray-500"
-                        }`}>
+                      <h3
+                        className={`font-semibold text-lg ${
+                          step.active ? "text-gray-800" : "text-gray-500"
+                        }`}
+                      >
                         {step.title}
                       </h3>
-                      <p className={`mt-1 ${step.active ? "text-gray-600" : "text-gray-400"
-                        }`}>
+                      <p
+                        className={`mt-1 ${
+                          step.active ? "text-gray-600" : "text-gray-400"
+                        }`}
+                      >
                         {step.description}
                       </p>
                     </div>
@@ -213,7 +252,7 @@ const Admissions = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Application Form */}
           <motion.div
@@ -239,7 +278,7 @@ const Admissions = () => {
                   <motion.div
                     animate={{
                       scale: [0.8, 1.2, 1],
-                      rotate: [0, 10, 0]
+                      rotate: [0, 10, 0],
                     }}
                     transition={{ duration: 0.5 }}
                     className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
@@ -250,7 +289,9 @@ const Admissions = () => {
                     {t("Application Submitted!")}
                   </h3>
                   <p className="text-gray-600 max-w-md mx-auto">
-                    {t("Your application has been successfully submitted. Our admissions team will contact you soon.")}
+                    {t(
+                      "Your application has been successfully submitted. Our admissions team will contact you soon."
+                    )}
                   </p>
                 </motion.div>
               ) : (
@@ -280,7 +321,9 @@ const Admissions = () => {
                     <input
                       type="tel"
                       value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, phone: e.target.value })
+                      }
                       required
                       placeholder="+998 90 123 45 67"
                       className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
@@ -294,7 +337,9 @@ const Admissions = () => {
                     </label>
                     <select
                       value={form.grade}
-                      onChange={(e) => setForm({ ...form, grade: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, grade: e.target.value })
+                      }
                       required
                       className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                     >
@@ -314,10 +359,14 @@ const Admissions = () => {
                     </label>
                     <textarea
                       value={form.note}
-                      onChange={(e) => setForm({ ...form, note: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, note: e.target.value })
+                      }
                       className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                       rows={4}
-                      placeholder={t("Any additional information you'd like to share")}
+                      placeholder={t(
+                        "Any additional information you'd like to share"
+                      )}
                     ></textarea>
                   </div>
 
@@ -332,9 +381,25 @@ const Admissions = () => {
                     >
                       {loading ? (
                         <span className="flex items-center justify-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          <svg
+                            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
                           </svg>
                           {t("Processing...")}
                         </span>
@@ -361,13 +426,18 @@ const Admissions = () => {
                 <div className="bg-yellow-100 p-3 rounded-full mr-4">
                   <Phone className="w-5 h-5 text-yellow-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">{t("adm12")}</h3>
+                <h3 className="text-xl font-bold text-gray-800">
+                  {t("adm12")}
+                </h3>
               </div>
               <div className="space-y-3 ml-16">
                 <p className="flex items-center text-gray-700">
                   <Phone className="w-4 h-4 mr-2 text-gray-500" />
-                  <a href="tel:+99877 454 00 50" className="hover:text-yellow-600 transition-colors">
-                    +998 77 454 00 50
+                  <a
+                    href="tel:+99877 454 00 50"
+                    className="hover:text-yellow-600 transition-colors"
+                  >
+                    {info[0]?.phone}
                   </a>
                 </p>
                 <p className="flex items-center text-gray-700">
@@ -376,7 +446,7 @@ const Admissions = () => {
                     href="mailto:deutschsmartschool@gmail.com"
                     className="hover:text-yellow-600 transition-colors"
                   >
-                    deutschsmartschool@gmail.com
+                    {info[0]?.email}
                   </a>
                 </p>
               </div>
@@ -390,24 +460,23 @@ const Admissions = () => {
                 <div className="bg-yellow-100 p-3 rounded-full mr-4">
                   <Map className="w-5 h-5 text-yellow-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">{t("adm13")}</h3>
+                <h3 className="text-xl font-bold text-gray-800">
+                  {t("adm13")}
+                </h3>
               </div>
               <div className="space-y-3 ml-16">
-                <p className="text-gray-700">
-                  Mustaqillik ko'chasi 45, Tashkent, Uzbekistan
-                </p>
+                <p className="text-gray-700">{info[0]?.address}</p>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Map */}
           <motion.div
             variants={fadeIn}
             className="mt-8 bg-white shadow-lg rounded-xl overflow-hidden"
           >
             <div className="w-full h-[400px] rounded-xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2997.6565364313738!2d69.326168!3d41.294579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDE3JzQwLjUiTiA2OcKwMTknMzQuMiJF!5e0!3m2!1sen!2s!4v1745252920306!5m2!1sen!2s"
+                src={`https://maps.google.com/maps?q=${info[0]?.long},${info[0]?.lat}&z=15&output=embed`}
                 width="100%"
                 height="100%"
                 allowFullScreen

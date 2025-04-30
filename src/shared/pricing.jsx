@@ -4,56 +4,61 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
-
-const pricingPlans = [
-  {
-    name: "Basic",
-    price: "€49",
-    period: "/mo",
-    description: "Perfect for starting your learning journey",
-    features: [
-      "Access to 2 core courses",
-      "Monthly progress report",
-      "Support during school hours",
-    ],
-    color: "from-gray-800 to-black",
-    accent: "gray",
-    highlight: false,
-  },
-  {
-    name: "Standard",
-    price: "€89",
-    period: "/mo",
-    description: "Includes German training & live support",
-    features: [
-      "Access to 4 courses",
-      "German language training (A1-A2)",
-      "Weekly live sessions",
-      "Email & phone support",
-    ],
-    color: "from-red-500 to-red-600",
-    accent: "red",
-    highlight: true,
-  },
-  {
-    name: "Premium",
-    price: "€129",
-    period: "/mo",
-    description: "Full access with mentorship & certificate",
-    features: [
-      "Full course access (STEM + German B1-B2)",
-      "1-on-1 mentorship",
-      "Priority support",
-      "Certificate on completion",
-    ],
-    color: "from-amber-400 to-yellow-500",
-    accent: "yellow",
-    highlight: false,
-  },
-];
+import { useTariffs } from "../queries/useQueries";
 
 const PricingSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { data = [], loading } = useTariffs(i18n.language);
+  console.log("data", data);
+
+  const pricingPlans = data.length
+    ? [
+        {
+          name: data[0]?.subType,
+          price: `$ ${data[0].moprice}`,
+          period: "/mo",
+          description: data[0].description,
+          features: [
+            "Access to 2 core courses",
+            "Monthly progress report",
+            "Support during school hours",
+          ],
+          color: "from-gray-800 to-black",
+          accent: "gray",
+          highlight: false,
+        },
+        {
+          name: data[1]?.subType,
+          price: `$ ${data[1].moprice}`,
+          period: "/mo",
+          description: data[1].description,
+          features: [
+            "Access to 4 courses",
+            "German language training (A1-A2)",
+            "Weekly live sessions",
+            "Email & phone support",
+          ],
+          color: "from-red-500 to-red-600",
+          accent: "red",
+          highlight: true,
+        },
+        {
+          name: data[2]?.subType,
+          price: `$ ${data[2].moprice}`,
+          period: "/mo",
+          description: data[2].description,
+          features: [
+            "Full course access (STEM + German B1-B2)",
+            "1-on-1 mentorship",
+            "Priority support",
+            "Certificate on completion",
+          ],
+          color: "from-amber-400 to-yellow-500",
+          accent: "yellow",
+          highlight: false,
+        },
+      ]
+    : [];
 
   useEffect(() => {
     AOS.init({ duration: 800, easing: "ease-in-out", once: true });
@@ -82,7 +87,7 @@ const PricingSection = () => {
                 plan.highlight
                   ? "md:-translate-y-4 md:scale-105 z-10"
                   : "hover:-translate-y-2"
-              } flex flex-col`} // Add flex and flex-col to the card
+              } flex flex-col`}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
@@ -102,7 +107,7 @@ const PricingSection = () => {
 
               <div className="bg-white p-8 flex flex-col flex-grow">
                 <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, i) => (
+                  {plan?.features?.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div
                         className={`flex-shrink-0 rounded-full p-1 text-${plan.accent}-500 bg-${plan.accent}-50`}

@@ -53,20 +53,23 @@ const newsArticles = [
   },
 ];
 
-const categories = ["All", ...new Set(newsArticles.map(news => news.category))];
+const categories = [
+  "All",
+  ...new Set(newsArticles.map((news) => news.category)),
+];
 
 const cardVariants = {
   hidden: { y: 50, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 15 }
+    transition: { type: "spring", stiffness: 100, damping: 15 },
   },
   hover: {
     y: -5,
     boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
-    transition: { type: "spring", stiffness: 400, damping: 10 }
-  }
+    transition: { type: "spring", stiffness: 400, damping: 10 },
+  },
 };
 
 const containerVariants = {
@@ -74,9 +77,9 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const NewsPage = () => {
@@ -84,9 +87,10 @@ const NewsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  const filteredNews = selectedCategory === "All"
-    ? newsArticles
-    : newsArticles.filter(news => news.category === selectedCategory);
+  const filteredNews =
+    selectedCategory === "All"
+      ? newsArticles
+      : newsArticles.filter((news) => news.category === selectedCategory);
 
   return (
     <Wrapper>
@@ -110,9 +114,11 @@ const NewsPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all
-                  ${selectedCategory === category
-                    ? "bg-yellow-400 text-white shadow-md"
-                    : "bg-white text-gray-700 border border-gray-200 hover:border-yellow-400"}`}
+                  ${
+                    selectedCategory === category
+                      ? "bg-yellow-400 text-white shadow-md"
+                      : "bg-white text-gray-700 border border-gray-200 hover:border-yellow-400"
+                  }`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category}
@@ -142,7 +148,7 @@ const NewsPage = () => {
                       alt={news.title}
                       className="w-full h-full object-cover"
                       animate={{
-                        scale: hoveredCard === news.id ? 1.05 : 1
+                        scale: hoveredCard === news.id ? 1.05 : 1,
                       }}
                       transition={{ duration: 0.4 }}
                     />
@@ -180,7 +186,9 @@ const NewsPage = () => {
               animate={{ opacity: 1 }}
               className="text-center py-12"
             >
-              <p className="text-gray-500 text-lg">No news found in this category.</p>
+              <p className="text-gray-500 text-lg">
+                No news found in this category.
+              </p>
             </motion.div>
           )}
         </motion.div>

@@ -15,10 +15,9 @@ import {
   Sparkles,
   GraduationCap,
   School,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
-// Enhanced course data with more details
 const coursesData = [
   {
     title: "German Language A1-B2",
@@ -33,12 +32,12 @@ const coursesData = [
       "Progressive learning from beginner to upper intermediate",
       "Focus on conversation, reading, writing, and listening",
       "Regular assessments aligned with European standards",
-      "Cultural elements integrated into language learning"
+      "Cultural elements integrated into language learning",
     ],
     duration: "4 semesters",
     level: "Beginner to Upper Intermediate",
     students: "15-20 per class",
-    featured: true
+    featured: true,
   },
   {
     title: "Mathematics (STEM)",
@@ -53,12 +52,12 @@ const coursesData = [
       "Algebra, geometry, calculus and statistics",
       "Problem-solving approach to mathematical concepts",
       "Integration with other STEM subjects",
-      "Preparation for international mathematics competitions"
+      "Preparation for international mathematics competitions",
     ],
     duration: "Year-round",
     level: "All levels",
     students: "12-18 per class",
-    featured: false
+    featured: false,
   },
   {
     title: "Science & Experiments",
@@ -73,12 +72,12 @@ const coursesData = [
       "Physics, chemistry, and biology integrated approach",
       "Hands-on laboratory experiments every week",
       "Field trips to scientific institutions",
-      "Science fair projects and competitions"
+      "Science fair projects and competitions",
     ],
     duration: "Year-round",
     level: "All levels",
     students: "15 per class",
-    featured: false
+    featured: false,
   },
   {
     title: "Cultural Exchange Program",
@@ -93,12 +92,12 @@ const coursesData = [
       "Virtual exchanges with German students",
       "Cultural presentations and projects",
       "Annual exchange opportunities",
-      "Learning about German and European culture"
+      "Learning about German and European culture",
     ],
     duration: "Semester-based",
     level: "Intermediate and above",
     students: "Variable",
-    featured: false
+    featured: false,
   },
   {
     title: "Art & Creativity",
@@ -113,12 +112,12 @@ const coursesData = [
       "Drawing, painting, and mixed media",
       "Digital art and design basics",
       "German and European art history",
-      "Regular art exhibitions and contests"
+      "Regular art exhibitions and contests",
     ],
     duration: "Semester-based",
     level: "All levels",
     students: "12-15 per class",
-    featured: false
+    featured: false,
   },
   {
     title: "Robotics & Coding",
@@ -133,12 +132,12 @@ const coursesData = [
       "Block-based and text-based programming",
       "Robot design, construction and programming",
       "Engineering and computational thinking",
-      "Team-based robotics competitions"
+      "Team-based robotics competitions",
     ],
     duration: "Year-round",
     level: "Beginner to Advanced",
     students: "10-12 per class",
-    featured: true
+    featured: true,
   },
 ];
 
@@ -160,7 +159,7 @@ const Courses = () => {
       "Beginning Science",
       "Art & Creative Expression",
       "Physical Education",
-      "Cultural Studies"
+      "Cultural Studies",
     ],
     middle: [
       "German Language (A2-B1)",
@@ -168,7 +167,7 @@ const Courses = () => {
       "Advanced Science & Experiments",
       "Digital Skills & Coding Basics",
       "Cultural Exchange Projects",
-      "Physical Education & Teamwork"
+      "Physical Education & Teamwork",
     ],
     high: [
       "German Language (B1-B2)",
@@ -176,8 +175,8 @@ const Courses = () => {
       "Specialized Science Courses",
       "Robotics & Programming",
       "German Cultural Studies",
-      "Career Preparation"
-    ]
+      "Career Preparation",
+    ],
   };
 
   return (
@@ -255,8 +254,9 @@ const Courses = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 group ${course.featured ? "ring-2 ring-yellow-400" : ""
-                  }`}
+                className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 group ${
+                  course.featured ? "ring-2 ring-yellow-400" : ""
+                }`}
               >
                 {/* Course Header */}
                 <div className={`bg-gradient-to-r ${course.color} p-6`}>
@@ -267,7 +267,9 @@ const Courses = () => {
                     </div>
                   )}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-14 h-14 rounded-xl ${course.iconBg} flex items-center justify-center shadow-sm`}>
+                    <div
+                      className={`w-14 h-14 rounded-xl ${course.iconBg} flex items-center justify-center shadow-sm`}
+                    >
                       <course.icon size={28} className="text-gray-700" />
                     </div>
                     <div>
@@ -329,7 +331,10 @@ const Courses = () => {
                     <ul className="space-y-3">
                       {course.details.map((detail, i) => (
                         <li key={i} className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
+                          <CheckCircle
+                            size={18}
+                            className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                          />
                           <span className="text-gray-700">{detail}</span>
                         </li>
                       ))}
@@ -360,7 +365,8 @@ const Courses = () => {
               Our Curriculum
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Our curriculum is designed to provide a comprehensive education from elementary to high school
+              Our curriculum is designed to provide a comprehensive education
+              from elementary to high school
             </p>
           </div>
 
@@ -368,10 +374,11 @@ const Courses = () => {
           <div className="flex flex-wrap justify-center mb-10 border-b border-gray-200">
             <button
               onClick={() => setActiveTab("elementary")}
-              className={`px-5 py-3 font-medium text-sm transition-colors relative ${activeTab === "elementary"
+              className={`px-5 py-3 font-medium text-sm transition-colors relative ${
+                activeTab === "elementary"
                   ? "text-indigo-600"
                   : "text-gray-600 hover:text-gray-900"
-                }`}
+              }`}
             >
               <div className="flex items-center">
                 <School size={18} className="mr-2" />
@@ -386,10 +393,11 @@ const Courses = () => {
             </button>
             <button
               onClick={() => setActiveTab("middle")}
-              className={`px-5 py-3 font-medium text-sm transition-colors relative ${activeTab === "middle"
+              className={`px-5 py-3 font-medium text-sm transition-colors relative ${
+                activeTab === "middle"
                   ? "text-indigo-600"
                   : "text-gray-600 hover:text-gray-900"
-                }`}
+              }`}
             >
               <div className="flex items-center">
                 <Book size={18} className="mr-2" />
@@ -404,10 +412,11 @@ const Courses = () => {
             </button>
             <button
               onClick={() => setActiveTab("high")}
-              className={`px-5 py-3 font-medium text-sm transition-colors relative ${activeTab === "high"
+              className={`px-5 py-3 font-medium text-sm transition-colors relative ${
+                activeTab === "high"
                   ? "text-indigo-600"
                   : "text-gray-600 hover:text-gray-900"
-                }`}
+              }`}
             >
               <div className="flex items-center">
                 <GraduationCap size={18} className="mr-2" />
@@ -473,16 +482,31 @@ const Courses = () => {
                   </p>
                   <div className="flex flex-col space-y-2.5">
                     <div className="flex items-center">
-                      <CheckCircle size={16} className="text-green-500 mr-2.5" />
-                      <span className="text-gray-700">Small class sizes (15-20 students)</span>
+                      <CheckCircle
+                        size={16}
+                        className="text-green-500 mr-2.5"
+                      />
+                      <span className="text-gray-700">
+                        Small class sizes (15-20 students)
+                      </span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle size={16} className="text-green-500 mr-2.5" />
-                      <span className="text-gray-700">Bilingual instruction (German & English)</span>
+                      <CheckCircle
+                        size={16}
+                        className="text-green-500 mr-2.5"
+                      />
+                      <span className="text-gray-700">
+                        Bilingual instruction (German & English)
+                      </span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle size={16} className="text-green-500 mr-2.5" />
-                      <span className="text-gray-700">Project-based learning approach</span>
+                      <CheckCircle
+                        size={16}
+                        className="text-green-500 mr-2.5"
+                      />
+                      <span className="text-gray-700">
+                        Project-based learning approach
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -503,7 +527,8 @@ const Courses = () => {
               Benefits of Our Education
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Discover why DeutschSmart provides an exceptional educational experience
+              Discover why DeutschSmart provides an exceptional educational
+              experience
             </p>
           </div>
 
@@ -522,20 +547,37 @@ const Courses = () => {
                 German Educational Standards
               </h3>
               <p className="text-gray-600 mb-6">
-                Our curriculum is based on the renowned German educational system, known for its thoroughness, high standards, and systematic approach to learning.
+                Our curriculum is based on the renowned German educational
+                system, known for its thoroughness, high standards, and
+                systematic approach to learning.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Structured learning progression</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Structured learning progression
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Balance of theory and practical application</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Balance of theory and practical application
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Regular assessments and feedback</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Regular assessments and feedback
+                  </span>
                 </li>
               </ul>
             </motion.div>
@@ -554,20 +596,37 @@ const Courses = () => {
                 Certified Teachers & Small Classes
               </h3>
               <p className="text-gray-600 mb-6">
-                Our international team of educators combines German teaching methodologies with individualized attention in small class environments.
+                Our international team of educators combines German teaching
+                methodologies with individualized attention in small class
+                environments.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">German and international teaching certifications</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    German and international teaching certifications
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Small class sizes for personalized attention</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Small class sizes for personalized attention
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Continuous professional development</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Continuous professional development
+                  </span>
                 </li>
               </ul>
             </motion.div>
@@ -586,20 +645,37 @@ const Courses = () => {
                 Language Immersion
               </h3>
               <p className="text-gray-600 mb-6">
-                Students develop strong German language skills through our immersive approach, creating a foundation for global opportunities.
+                Students develop strong German language skills through our
+                immersive approach, creating a foundation for global
+                opportunities.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Bilingual instruction across subjects</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Bilingual instruction across subjects
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">German culture integration in daily activities</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    German culture integration in daily activities
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Preparation for international Goethe examinations</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Preparation for international Goethe examinations
+                  </span>
                 </li>
               </ul>
             </motion.div>
@@ -618,20 +694,36 @@ const Courses = () => {
                 Modern Facilities & Technology
               </h3>
               <p className="text-gray-600 mb-6">
-                Our campus features state-of-the-art facilities that enhance the learning experience across all subjects.
+                Our campus features state-of-the-art facilities that enhance the
+                learning experience across all subjects.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Digital classrooms with interactive technology</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Digital classrooms with interactive technology
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Science and computer laboratories</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Science and computer laboratories
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle size={18} className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Modern library and resource center</span>
+                  <CheckCircle
+                    size={18}
+                    className="text-green-500 mr-2.5 flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700">
+                    Modern library and resource center
+                  </span>
                 </li>
               </ul>
             </motion.div>

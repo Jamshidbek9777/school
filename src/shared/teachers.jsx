@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Facebook, Twitter } from "lucide-react";
+import { Linkedin, Facebook, Twitter, Instagram } from "lucide-react";
+import { FaTelegram } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useTeachers } from "../queries/useQueries";
 
 const teachers = [
   {
@@ -54,7 +56,9 @@ const teachers = [
 ];
 
 const CertifiedTeachers = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { data = [] } = useTeachers(i18n.language);
+
   return (
     <section className="py-20">
       <div className="text-center mb-16">
@@ -70,7 +74,7 @@ const CertifiedTeachers = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {teachers.map((teacher, idx) => (
+        {data.map((teacher, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 20 }}
@@ -79,48 +83,91 @@ const CertifiedTeachers = () => {
             viewport={{ once: true }}
             className="group relative bg-white rounded-2xl shadow-lg overflow-hidden"
           >
-            {/* Image with overlay */}
             <div className="relative overflow-hidden">
               <img
                 src={teacher.image}
-                alt={teacher.name}
+                alt={teacher.first}
                 className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {/* Social media links */}
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                  <a
-                    href={teacher.socials.linkedin}
-                    className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                  <a
-                    href={teacher.socials.facebook}
-                    className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Facebook size={18} />
-                  </a>
-                  <a
-                    href={teacher.socials.twitter}
-                    className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Twitter size={18} />
-                  </a>
+                  {teacher.tg !== null ? (
+                    <>
+                      <a
+                        href={teacher?.tg}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                      >
+                        <FaTelegram size={16} />
+                      </a>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  {teacher.linkedin !== null ? (
+                    <>
+                      <a
+                        href={teacher?.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                      >
+                        <Linkedin size={16} />
+                      </a>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  {teacher.insta !== null ? (
+                    <>
+                      <a
+                        href={teacher?.insta}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                      >
+                        <Instagram size={16} />
+                      </a>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  {teacher.face !== null ? (
+                    <>
+                      <a
+                        href={teacher?.face}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                      >
+                        <Facebook size={16} />
+                      </a>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  {teacher.x !== null ? (
+                    <>
+                      <a
+                        href={teacher?.x}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                      >
+                        <Twitter size={16} />
+                      </a>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             </div>
 
-            {/* Content */}
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-gray-900 mb-1">
-                {teacher.name}
+                {teacher.first}
               </h3>
               <div className="inline-block px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-medium rounded-full mb-3">
                 {teacher.subject}

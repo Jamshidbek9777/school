@@ -67,9 +67,6 @@ const ContactForm = () => {
     <Wrapper>
       <div id="contact" className="py-20">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-rose-100 text-rose-700 rounded-full text-sm font-medium mb-4">
-            {t("Contact Us")}
-          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             {t("getin1")}
           </h2>

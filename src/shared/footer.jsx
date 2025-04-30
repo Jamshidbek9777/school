@@ -2,6 +2,7 @@ import React from "react";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import Wrapper from "./wrapper";
 import { useTranslation } from "react-i18next";
+import { FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -56,7 +57,7 @@ const Footer = () => {
               <ul className="space-y-3 text-gray-300">
                 <li>+998 77 454 00 50</li>
                 <li>deutschsmartschool@gmail.com</li>
-                <li>Tashkent, Uzbekistan</li>
+                <li>Yashnobod tumani Qadriyat MFY, Elbek ko'chasi, 22/1-uy</li>
               </ul>
             </div>
 
@@ -66,20 +67,14 @@ const Footer = () => {
               </h3>
               <div className="flex space-x-6">
                 <a
-                  href="#"
-                  className="text-gray-300 hover:text-yellow-400 transition-all transform hover:scale-110"
+                  href="https://t.me/deutschsmart_school"
+                  className="text-gray-300 hover:text-blue-400 transition-all transform hover:scale-110"
                 >
-                  <Facebook size={28} />
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-yellow-400 transition-all transform hover:scale-110"
-                >
-                  <Twitter size={28} />
+                  <FaTelegram size={28} />
                 </a>
 
                 <a
-                  href="#"
+                  href="https://www.instagram.com/deutschsmart_school/"
                   className="text-gray-300 hover:text-yellow-400 transition-all transform hover:scale-110"
                 >
                   <Instagram size={28} />
