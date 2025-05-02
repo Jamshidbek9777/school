@@ -18,6 +18,7 @@ import ScrollToTop from "./shared/scrollToTop.jsx";
 
 import "./index.css";
 import "./config/i18n.js";
+import NewsDetail from "./pages/detailNews.jsx";
 
 const Root = () => {
   const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const Root = () => {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/gallery" element={<Gallary />} />
           <Route path="/admission" element={<Admissions />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
         </Routes>
         <Footer />
       </QueryClientProvider>

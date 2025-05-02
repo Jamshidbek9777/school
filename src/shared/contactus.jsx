@@ -18,7 +18,7 @@ const ContactForm = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState(null); // null, 'sending', 'success', 'error'
+  const [status, setStatus] = useState(null);
   const [error, setError] = useState("");
 
   const BOT_TOKEN = "";
@@ -77,7 +77,6 @@ const ContactForm = () => {
 
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-xl overflow-hidden">
-            {/* Left: Illustration */}
             <div className="lg:w-5/12 bg-gradient-to-br from-indigo-500 to-blue-600 p-12 flex items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-56 h-56 bg-white/10 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute bottom-0 left-0 w-56 h-56 bg-white/10 rounded-full blur-xl transform -translate-x-1/2 translate-y-1/2"></div>
@@ -89,9 +88,7 @@ const ContactForm = () => {
                   className="mx-auto mb-10 max-w-full h-auto drop-shadow-xl w-64"
                 />
 
-                <h3 className="text-2xl font-bold mb-6">
-                  We'd love to hear from you
-                </h3>
+                <h3 className="text-2xl font-bold mb-6">{t("getin7")}</h3>
 
                 <div className="space-y-4">
                   <div className="flex items-center">
@@ -129,7 +126,6 @@ const ContactForm = () => {
               </div>
             </div>
 
-            {/* Right: Form */}
             <div className="lg:w-7/12 p-8 md:p-12">
               {status === "success" ? (
                 <div className="h-full flex flex-col items-center justify-center">
@@ -225,7 +221,7 @@ const ContactForm = () => {
                         id="message"
                         name="message"
                         rows="5"
-                        placeholder="How can we help you?"
+                        placeholder={t("getin8")}
                         value={form.message}
                         onChange={handleChange}
                         required

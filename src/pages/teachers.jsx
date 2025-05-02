@@ -140,7 +140,7 @@ const Teachers = () => {
                       {teacher.insta !== null ? (
                         <>
                           <a
-                            href={teacher?.tg}
+                            href={teacher?.insta}
                             target="_blank"
                             rel="noreferrer"
                             className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
@@ -154,7 +154,7 @@ const Teachers = () => {
                       {teacher.face !== null ? (
                         <>
                           <a
-                            href={teacher?.tg}
+                            href={teacher?.face}
                             target="_blank"
                             rel="noreferrer"
                             className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
@@ -168,7 +168,7 @@ const Teachers = () => {
                       {teacher.x !== null ? (
                         <>
                           <a
-                            href={teacher?.tg}
+                            href={teacher?.x}
                             target="_blank"
                             rel="noreferrer"
                             className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"

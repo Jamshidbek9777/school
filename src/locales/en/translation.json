@@ -15,6 +15,7 @@
   "hero5": "German Standards",
   "hero6": "Scroll down",
   "hero7": "Explore programs",
+  "hero8": "Welcome to DeutschSmart",
 
   "offer1": "What we offer",
   "offer2": "Through cooperation with leading educational institutions in Germany, we provide your children with modern, quality education that meets international standards.",
@@ -44,10 +45,27 @@
   "teachers3": "Learn from the best — qualified professionals with years of experience in education.",
   "teachers4": "View all teachers",
 
-  "pricing1": "Get started",
-  "pricing2": "Includes",
-  "pricing3": "Pricing Plans",
+  "prHeader1": "Price List (2025–2026)",
+  "prHeader2": "Below are the monthly tuition fees by grade and language of instruction.",
+  "prHeader3": "The first 50 students who register and make the initial payment will receive a monthly discount of 520,000 UZS. Discounts are valid only for the 2025–2026 academic year.",
+  "prHeader4": "If more than one child from the same family studies at DeutschSmart, a permanent 5% discount applies to the monthly fee for each additional child.",
+  "prHeader5": "If the tuition is paid in full for one academic year, a permanent 10% discount applies; for payments covering 2 or 3 years, a 15% discount applies.",
+  "pricing1": "Submit",
+  "pricing2": "For Uzbek-medium classes",
+  "pricing3": "Tuition Plans",
   "pricing4": "Choose a plan that suits you. No hidden fees.",
+  "pricing5": "UZS / month",
+  "pricing6": "Grades 1–4 (Uzbek)",
+  "pricing7": "Grades 1–4 (Russian)",
+  "pricing8": "Grades 1–4 (German)",
+  "pricing9": "Grades 4–9 (Uzbek)",
+  "pricing10": "Grades 4–9 (Russian)",
+  "pricing11": "Grades 10–11 (Uzbek)",
+  "pricing12": "Grades 10–11 (Russian)",
+  "pricing13": "For Russian-medium classes",
+  "pricing14": "For German-medium classes",
+  "more": "Show more",
+  "less": "Show less",
 
   "faq1": "Frequently Asked Questions",
   "faq2": "Find answers to common questions about our educational programs and enrollment process",
@@ -60,6 +78,8 @@
   "getin4": "Email",
   "getin5": "Message",
   "getin6": "Send",
+  "getin7": "We'd love to hear from you",
+  "getin8": "How can we help you ?",
 
   "footer1": "We provide quality education through a global perspective and strong partnerships with schools around the world.",
   "footer2": "Quick Links",
@@ -101,6 +121,8 @@
   "adm13": "Our Address",
 
   "news1": "The latest events and announcements happening at our school.",
+  "news2": "Read more",
+  "news3": "Go back",
 
   "gallery1": "What kind of environment does your child study in? In the photos below, you can see the brightest moments of our school life – lessons, activities, and unforgettable memories.",
 

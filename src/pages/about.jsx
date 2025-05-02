@@ -77,9 +77,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Hero Section */}
       <div className="relative pt-20 pb-32 bg-gradient-to-r from-indigo-900 to-blue-800 overflow-hidden">
-        {/* Background decorations */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-400 rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/3"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl translate-y-1/2 -translate-x-1/3"></div>
         <div className="absolute inset-0 bg-[url('/img/pattern.svg')] bg-repeat opacity-5"></div>

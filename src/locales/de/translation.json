@@ -15,6 +15,7 @@
   "hero5": "Deutsche Standards",
   "hero6": "Nach unten scrollen",
   "hero7": "Programme entdecken",
+  "hero8": "Willkommen bei DeutschSmart",
 
   "offer1": "Was wir anbieten",
   "offer2": "Durch die Zusammenarbeit mit führenden Bildungseinrichtungen in Deutschland bieten wir Ihren Kindern moderne, qualitativ hochwertige Bildung, die internationalen Standards entspricht.",
@@ -47,10 +48,27 @@
   "faq3": "Haben Sie noch Fragen?",
   "faq4": "Kontaktieren Sie uns",
 
-  "pricing1": "Erhalten",
-  "pricing2": "Enthält",
-  "pricing3": "Preistarife",
-  "pricing4": "Wählen Sie den passenden Tarif. Keine versteckten Kosten.",
+  "prHeader1": "Preisliste (2025–2026)",
+  "prHeader2": "Unten finden Sie die monatlichen Gebühren nach Klassenstufe und Unterrichtssprache.",
+  "prHeader3": "Die ersten 50 Kinder, die sich registrieren und die Anmeldegebühr bezahlen, erhalten einen monatlichen Rabatt von 520.000 UZS. Rabatte gelten nur für das Schuljahr 2025–2026.",
+  "prHeader4": "Wenn mehr als ein Kind einer Familie bei DeutschSmart lernt, erhalten die weiteren Kinder einen dauerhaften Rabatt von 5 % auf die monatliche Zahlung.",
+  "prHeader5": "Bei vollständiger Zahlung der Jahresgebühr auf einmal gilt ein dauerhafter Rabatt von 10 %; bei Vorauszahlung für 2 oder 3 Jahre gilt ein Rabatt von 15 %.",
+  "pricing1": "Einreichen",
+  "pricing2": "Für usbekischsprachige Klassen",
+  "pricing3": "Gebührentarife",
+  "pricing4": "Wählen Sie den passenden Tarif. Keine versteckten Gebühren.",
+  "pricing5": "UZS / Monat",
+  "pricing6": "Klassen 1–4 (Usbekisch)",
+  "pricing7": "Klassen 1–4 (Russisch)",
+  "pricing8": "Klassen 1–4 (Deutsch)",
+  "pricing9": "Klassen 4–9 (Usbekisch)",
+  "pricing10": "Klassen 4–9 (Russisch)",
+  "pricing11": "Klassen 10–11 (Usbekisch)",
+  "pricing12": "Klassen 10–11 (Russisch)",
+  "pricing13": "Für russischsprachige Klassen",
+  "pricing14": "Für deutschsprachige Klassen",
+  "more": "Mehr anzeigen",
+  "less": "Weniger anzeigen",
 
   "faq1": "Häufig gestellte Fragen",
 
@@ -60,6 +78,8 @@
   "getin4": "E-Mail",
   "getin5": "Nachricht",
   "getin6": "Senden",
+  "getin7": "Wir würden gerne von Ihnen hören",
+  "getin8": "Wie können wir Ihnen helfen?",
 
   "footer1": "Wir bieten hochwertige Bildung durch eine globale Perspektive und enge Partnerschaften mit Schulen weltweit.",
   "footer2": "Schnellzugriffe",
@@ -101,6 +121,8 @@
   "adm13": "Unsere Adresse",
 
   "news1": "Die neuesten Ereignisse und Ankündigungen an unserer Schule.",
+  "news2": "Mehr lesen",
+  "news3": "Zurück",
 
   "gallery1": "In welcher Umgebung lernt Ihr Kind? Auf den folgenden Bildern sehen Sie die schönsten Momente aus unserem Schulleben – Unterricht, Aktivitäten und unvergessliche Erlebnisse.",
 

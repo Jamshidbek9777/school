@@ -31,7 +31,7 @@ const HeroBanner = () => {
             className="mb-8"
           >
             <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
-              {t("Welcome to DeutschSmart")}
+              {t("hero8")}
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
               {t("hero1")}

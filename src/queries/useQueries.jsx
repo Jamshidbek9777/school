@@ -100,6 +100,7 @@ const getTariffs = async (lang) => {
   const res = await api.get("/subscriptions/");
   return res.data.map((item) => ({
     subType: item[`sub_type_${lang}`],
+    feature: item[`features_${lang}`],
     moprice: item[`monthly_price`],
     year: item[`yearly_price`],
     description: item[`description_${lang}`],
@@ -173,6 +174,7 @@ export const useInfo = (lang) => {
   });
 };
 
+//gallery
 const getGallery = async (lang) => {
   const res = await api.get("/gallery/");
   return res.data.map((item) => ({
@@ -186,6 +188,44 @@ export const useGallery = (lang) => {
   return useQuery({
     queryKey: ["gallery", lang],
     queryFn: () => getGallery(lang),
+    staleTime: 1000 * 60 * 5,
+  });
+};
+
+//news
+const getNews = async (lang) => {
+  const res = await api.get("/news/");
+  return res.data.map((item) => ({
+    image: item[`image`],
+    title: item[`title_${lang}`],
+    desc: item[`description_${lang}`],
+    date: item[`created_at`],
+    titleUz: item[`title_uz`],
+  }));
+};
+
+export const useNews = (lang) => {
+  return useQuery({
+    queryKey: ["news", lang],
+    queryFn: () => getNews(lang),
+    staleTime: 1000 * 60 * 5,
+  });
+};
+
+//timeTable
+const getTable = async (lang) => {
+  const res = await api.get(`/timetabel/`);
+  return res.data.map((item) => ({
+    image: item[`image`],
+    title: item[`title_${lang}`],
+    desc: item[`description_${lang}`],
+  }));
+};
+
+export const useTable = (lang) => {
+  return useQuery({
+    queryKey: ["news", lang],
+    queryFn: () => getTable(lang),
     staleTime: 1000 * 60 * 5,
   });
 };

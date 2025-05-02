@@ -77,7 +77,9 @@ const Navbar = () => {
                     key={link.name}
                     to={link.path}
                     className={`transition hover:text-yellow-400 ${
-                      location.pathname === link.path ? "text-yellow-400 font-semibold" : ""
+                      location.pathname === link.path
+                        ? "text-yellow-400 font-semibold"
+                        : ""
                     }`}
                   >
                     {link.name}
@@ -121,7 +123,7 @@ const Navbar = () => {
               </Dropdown>
             </nav>
 
-            <div className="hidden lg:flex items-center gap-2 px-4 border-l border-gray-200">
+            <div className="flex items-center gap-2 px-4 lg:border-l border-gray-200">
               <Dropdown
                 menu={{
                   items: languageOptions.map((lang) => ({
@@ -130,7 +132,9 @@ const Navbar = () => {
                       <div
                         onClick={() => changeLanguage(lang.key)}
                         className={`px-2 py-1 ${
-                          i18n.language === lang.key ? "font-bold text-yellow-500" : ""
+                          i18n.language === lang.key
+                            ? "font-bold text-yellow-500"
+                            : ""
                         }`}
                       >
                         {lang.label}
@@ -173,7 +177,9 @@ const Navbar = () => {
               to={link.path}
               onClick={toggleMenu}
               className={`transition hover:text-yellow-400 ${
-                location.pathname === link.path ? "text-yellow-400 font-semibold" : ""
+                location.pathname === link.path
+                  ? "text-yellow-400 font-semibold"
+                  : ""
               }`}
             >
               {link.name}

@@ -70,7 +70,7 @@ const WhatWeOffer = () => {
 
   return (
     <Wrapper>
-      <section id="offerings" className="py-20">
+      <section id="offerings" className="py-10 md:py-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
             className="inline-block px-4 py-1.5 rounded-full bg-yellow-100 text-yellow-700 font-medium text-sm mb-4"
