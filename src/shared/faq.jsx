@@ -29,7 +29,7 @@ const FaqSection = () => {
     <Wrapper>
       <div className="py-20">
         <div className="text-center mb-16" data-aos="fade-up">
-          <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium mb-4">
             FAQ
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -56,8 +56,8 @@ const FaqSection = () => {
                   className={`w-full text-left p-6 flex justify-between items-center rounded-xl transition-all duration-300
                     ${
                       activeIndex === index
-                        ? "bg-gradient-to-r from-indigo-50 to-blue-50 shadow-md"
-                        : "bg-white hover:bg-gray-50 border border-gray-100"
+                        ? "bg-gradient-to-r from-red-50 to-yellow-50 shadow-md"
+                        : "bg-white hover:bg-red-100 border border-yellow-100"
                     }`}
                   aria-expanded={activeIndex === index}
                 >
@@ -67,7 +67,7 @@ const FaqSection = () => {
                   <div
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-300 ${
                       activeIndex === index
-                        ? "bg-indigo-500 text-white"
+                        ? "bg-yellow-500 text-white"
                         : "bg-gray-100 text-gray-500"
                     }`}
                   >
@@ -106,7 +106,7 @@ const FaqSection = () => {
           <p className="text-gray-600 mb-4">{t("faq3")}</p>
           <a
             href="#contact"
-            className="inline-flex items-center px-5 py-3 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
+            className="inline-flex items-center px-5 py-3 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
           >
             {t("faq4")}
             <ChevronDown size={16} className="ml-2 rotate-270" />

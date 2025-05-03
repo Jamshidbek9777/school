@@ -434,10 +434,10 @@ const Admissions = () => {
                 <p className="flex items-center text-gray-700">
                   <Phone className="w-4 h-4 mr-2 text-gray-500" />
                   <a
-                    href="tel:+99877 454 00 50"
+                    href="tel:+998 77 454 00 50"
                     className="hover:text-yellow-600 transition-colors"
                   >
-                    {info[0]?.phone}
+                    +998 77 454 00 50
                   </a>
                 </p>
                 <p className="flex items-center text-gray-700">
@@ -446,7 +446,7 @@ const Admissions = () => {
                     href="mailto:deutschsmartschool@gmail.com"
                     className="hover:text-yellow-600 transition-colors"
                   >
-                    {info[0]?.email}
+                    deutschsmartschool@gmail.com
                   </a>
                 </p>
               </div>

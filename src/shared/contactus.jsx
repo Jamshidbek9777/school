@@ -8,6 +8,7 @@ import {
   Mail,
   User,
   MessageSquare,
+  Phone,
 } from "lucide-react";
 
 const ContactForm = () => {
@@ -15,14 +16,15 @@ const ContactForm = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
   const [status, setStatus] = useState(null);
   const [error, setError] = useState("");
 
-  const BOT_TOKEN = "";
-  const CHAT_ID = "";
+  const BOT_TOKEN = "7690519327:AAGcoDZanYRMjpYtDza7P-1S2iWqFkVrc6g";
+  const CHAT_ID = "7669544839";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -32,7 +34,7 @@ const ContactForm = () => {
     e.preventDefault();
     setStatus("sending");
 
-    const text = `📬 New Message from School Website\n\n👤 Name: ${form.name}\n📧 Email: ${form.email}\n📝 Message: ${form.message}`;
+    const text = `📬  Websitedan yangi xabar \n\n👤 Ismi: ${form.name}\n 📞 Raqam: ${form.phone}\n 📧 Email: ${form.email}\n📝 Xabar: ${form.message}`;
 
     try {
       const response = await fetch(
@@ -77,7 +79,7 @@ const ContactForm = () => {
 
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-xl overflow-hidden">
-            <div className="lg:w-5/12 bg-gradient-to-br from-indigo-500 to-blue-600 p-12 flex items-center justify-center relative overflow-hidden">
+            <div className="lg:w-5/12 bg-gradient-to-br from-yellow-500 to-yellow-600 p-12 flex items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-56 h-56 bg-white/10 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute bottom-0 left-0 w-56 h-56 bg-white/10 rounded-full blur-xl transform -translate-x-1/2 translate-y-1/2"></div>
 
@@ -199,6 +201,30 @@ const ContactForm = () => {
                         name="email"
                         placeholder="your.email@example.com"
                         value={form.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="phone"
+                    >
+                      {t("adm7")}
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <Phone size={18} className="text-gray-400" />
+                      </div>
+                      <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        placeholder="+998 91 234 56 78"
+                        value={form.phone}
                         onChange={handleChange}
                         required
                         className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"

@@ -32,46 +32,19 @@ const About = () => {
       icon: <BookOpen className="w-6 h-6" />,
       title: t("about3"),
       description: t("about4"),
-      color: "bg-amber-100 text-amber-600",
+      color: "bg-gray-100 text-black",
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: t("about5"),
       description: t("about6"),
-      color: "bg-blue-100 text-blue-600",
+      color: "bg-red-100 text-red-500",
     },
     {
       icon: <Sparkles className="w-6 h-6" />,
       title: t("about7"),
       description: t("about8"),
-      color: "bg-purple-100 text-purple-600",
-    },
-  ];
-
-  const timeline = [
-    {
-      year: "2015",
-      title: "School Foundation",
-      description:
-        "DeutschSmart was established with a vision to bring German educational standards to Uzbekistan",
-    },
-    {
-      year: "2018",
-      title: "German Certification",
-      description:
-        "Received official certification from the German Education Ministry",
-    },
-    {
-      year: "2020",
-      title: "STEM Program Launch",
-      description:
-        "Expanded our curriculum to include comprehensive STEM programs",
-    },
-    {
-      year: "2023",
-      title: "Digital Transformation",
-      description:
-        "Introduced advanced digital learning tools and expanded our online presence",
+      color: "bg-yellow-100 text-yellow-600",
     },
   ];
 
@@ -83,7 +56,7 @@ const About = () => {
         <div className="absolute inset-0 bg-[url('/img/pattern.svg')] bg-repeat opacity-5"></div>
 
         <Wrapper>
-          <div className="relative z-10 pt-20">
+          <div className="relative z-10 py-10 md:py-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,7 +71,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 1 }}
@@ -116,7 +89,7 @@ const About = () => {
                 <Target className="mr-2 text-yellow-400" />
                 <span>{t("about9")}</span>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </Wrapper>
       </div>
@@ -130,6 +103,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              zx
               className="lg:w-1/2 order-2 lg:order-1"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -231,7 +205,7 @@ const About = () => {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-indigo-500 to-blue-600"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-yellow-500 to-red-600"></div>
 
             <div className="space-y-12">
               {journeys.map((item, idx) => (
@@ -247,7 +221,7 @@ const About = () => {
                     className={`w-1/2 ${idx % 2 === 0 ? "pr-16 text-right" : "pl-16"}`}
                   >
                     <div className="bg-white rounded-xl shadow-lg p-6">
-                      <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium mb-2">
+                      <span className="inline-block px-4 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-medium mb-2">
                         {item.year}
                       </span>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -257,7 +231,7 @@ const About = () => {
                     </div>
                   </div>
 
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-indigo-500 z-10"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-yellow-500 z-10"></div>
 
                   <div className="w-1/2"></div>
                 </motion.div>

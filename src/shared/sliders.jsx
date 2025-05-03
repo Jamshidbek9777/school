@@ -48,7 +48,7 @@ const HeroBanner = () => {
             className="flex flex-wrap gap-4"
           >
             <a
-              href="#admission"
+              href="/admission"
               className="inline-flex items-center px-6 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-medium rounded-xl transition duration-300 shadow-lg shadow-yellow-500/20 transform hover:translate-y-[-2px]"
             >
               {t("hero3")}

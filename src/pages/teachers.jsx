@@ -10,6 +10,7 @@ import {
   Instagram,
   X,
 } from "lucide-react";
+import { MdDriveFileRenameOutline } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import ContactForm from "../shared/contactus";
@@ -75,7 +76,7 @@ const Teachers = () => {
                         {teacher.last}
                       </h3>
                     </div>
-                    <div className="inline-block px-3 py-1 bg-indigo-600 text-white text-sm font-medium rounded-full mb-2">
+                    <div className="inline-block px-3 py-1 bg-yellow-600 text-white text-sm font-medium rounded-full mb-2">
                       {teacher.subject}
                     </div>
                   </div>
@@ -96,14 +97,18 @@ const Teachers = () => {
                     <></>
                   )}
 
-                  <div className="flex items-center text-gray-700 mb-4">
+                  {/* <div className="flex items-center text-gray-700 mb-4">
                     <Award size={18} className="mr-2 flex-shrink-0" />
                     <span>{teacher.exp} years experience</span>
-                  </div>
+                  </div> */}
 
                   <div className="flex items-center text-gray-700 mb-6">
-                    <Languages size={18} className="mr-2 flex-shrink-0" />
-                    <span>{teacher.langs}</span>
+                    <MdDriveFileRenameOutline
+                      size={18}
+                      className="mr-2
+                    flex-shrink-0"
+                    />
+                    <span>{teacher.first}</span>
                   </div>
 
                   <div className="border-t border-gray-100 pt-4 flex justify-between items-center">
@@ -143,7 +148,7 @@ const Teachers = () => {
                             href={teacher?.insta}
                             target="_blank"
                             rel="noreferrer"
-                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-red-600 transition-colors"
                           >
                             <Instagram size={16} />
                           </a>
@@ -182,7 +187,10 @@ const Teachers = () => {
                     </div>
                     {teacher.phone !== null ? (
                       <>
-                        <p>Tel: {teacher.phone}</p>
+                        <p>
+                          Tel:{" "}
+                          <a href={`tel:${teacher.phone}`}>{teacher.phone}</a>
+                        </p>
                       </>
                     ) : (
                       <></>
@@ -195,7 +203,7 @@ const Teachers = () => {
         </div>
       </Wrapper>
 
-      <section className="bg-gray-50 py-24">
+      {/* <section className="bg-gray-50 py-24">
         <Wrapper>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -308,7 +316,7 @@ const Teachers = () => {
             </div>
           </div>
         </Wrapper>
-      </section>
+      </section> */}
 
       <ContactForm />
     </div>

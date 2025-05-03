@@ -23,29 +23,29 @@ const SchoolStats = () => {
           value: data[0].number_of_students,
           label: t("ach2"),
           suffix: "+",
-          color: "bg-indigo-500",
+          color: "bg-red-500",
         },
         {
           icon: <Users strokeWidth={1.5} />,
           value: data[0].number_of_teachers,
           label: t("ach3"),
           suffix: "+",
-          color: "bg-sky-500",
+          color: "bg-yellow-500",
         },
-        {
-          icon: <Globe strokeWidth={1.5} />,
-          value: data[0].number_0f_partners,
-          label: t("ach4"),
-          suffix: "+",
-          color: "bg-amber-500",
-        },
-        {
-          icon: <Briefcase strokeWidth={1.5} />,
-          value: data[0].years_of_experience,
-          label: t("ach5"),
-          suffix: "+",
-          color: "bg-emerald-500",
-        },
+        // {
+        //   icon: <Globe strokeWidth={1.5} />,
+        //   value: data[0].number_0f_partners,
+        //   label: t("ach4"),
+        //   suffix: "+",
+        //   color: "bg-amber-500",
+        // },
+        // {
+        //   icon: <Briefcase strokeWidth={1.5} />,
+        //   value: data[0].years_of_experience,
+        //   label: t("ach5"),
+        //   suffix: "+",
+        //   color: "bg-emerald-500",
+        // },
       ]
     : [];
 
@@ -61,15 +61,15 @@ const SchoolStats = () => {
       <Wrapper>
         <div className="relative">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
+            {/* <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
               {t("ach6")}
-            </span>
+            </span> */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               {t("ach1")}
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}

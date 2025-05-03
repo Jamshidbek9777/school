@@ -71,9 +71,8 @@ export const useAchievements = (lang) => {
 const getTeachers = async (lang) => {
   const res = await api.get("/teachers/");
   return res.data.map((item) => ({
-    first: item[`first_name_${lang}`],
+    first: item[`full_name_${lang}`],
     image: item[`image`],
-    last: item[`last_name_${lang}`],
     subject: item[`subject_${lang}`],
     edu: item[`edu_level_${lang}`],
     exp: item["num_of_experience"],

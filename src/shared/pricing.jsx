@@ -4,99 +4,110 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
+import { useTariffs } from "../queries/useQueries";
 
 const PricingSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800, easing: "ease-in-out", once: true });
   }, []);
 
-  const pricingPlans = [
-    {
-      name: t("pricing6"),
-      price: "4 950 000",
-      period: t("pricing5"),
-      description: t("pricing2"),
-      features: ["Chegirma", "Sifatli ta'lim", "Interaktiv darslar"],
-      color: "from-gray-800 to-black",
-      accent: "gray",
-      highlight: false,
-    },
-    {
-      name: t("pricing7"),
-      price: "5 290 000",
-      period: t("pricing5"),
-      description: "Rus tilidagi sinflar uchun",
-      features: [
-        "Tajribali o‘qituvchilar",
-        "Interaktiv darslar",
-        "Kichik guruhlar",
-      ],
-      color: "from-red-500 to-red-600",
-      accent: "red",
-      highlight: true,
-    },
-    {
-      name: t("pricing8"),
-      price: "6 290 000",
-      period: t("pricing5"),
-      description: t("pricing14"),
-      features: [
-        "Germaniya standartlari",
-        "Zamonaviy metodika",
-        "Kichik guruhlarda ta’lim",
-      ],
-      color: "from-amber-400 to-yellow-500",
-      accent: "yellow",
-      highlight: false,
-    },
-    {
-      name: t("pricing9"),
-      price: "5 390 000",
-      period: t("pricing5"),
-      description: t("pricing2"),
-      features: ["Yangi fanlar", "Davlat standartlari", "Ta’lim va tarbiya"],
-      color: "from-indigo-500 to-indigo-700",
-      accent: "indigo",
-      highlight: false,
-    },
-    {
-      name: t("pricing10"),
-      price: "5 950 000",
-      period: t("pricing5"),
-      description: t("pricing13"),
-      features: ["Fanlarga chuqur yondashuv", "Pedagoglar nazorati"],
-      color: "from-pink-500 to-pink-600",
-      accent: "pink",
-      highlight: false,
-    },
-    {
-      name: t("pricing11"),
-      price: "5 490 000",
-      period: t("pricing5"),
-      description: t("pricing2"),
-      features: [
-        "Yo‘nalishlar bo‘yicha",
-        "Abituriyent dasturi",
-        "Test tayyorgarligi",
-      ],
-      color: "from-green-500 to-green-700",
-      accent: "green",
-      highlight: false,
-    },
-    {
-      name: t("pricing12"),
-      price: "5 950 000",
-      period: t("pricing5"),
-      description: t("pricing13"),
-      features: ["Sertifikatlar"],
-      color: "from-blue-500 to-blue-700",
-      accent: "blue",
-      highlight: false,
-    },
-  ];
+  const { data = [] } = useTariffs(i18n.language);
+  console.log("Price data", data);
+
+  const pricingPlans = data.length
+    ? [
+        {
+          name: data[0].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[0].moprice),
+          period: t("pricing5"),
+          description: data[0].description,
+          features: ["Chegirma", "Sifatli ta'lim", "Interaktiv darslar"],
+          color: "from-gray-800 to-black",
+          accent: "gray",
+          highlight: false,
+        },
+        {
+          name: data[1].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[1].moprice),
+          period: t("pricing5"),
+          description: data[1].description,
+          features: [
+            "Tajribali o‘qituvchilar",
+            "Interaktiv darslar",
+            "Kichik guruhlar",
+          ],
+          color: "from-red-500 to-red-600",
+          accent: "red",
+          highlight: true,
+        },
+        {
+          name: data[2].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[2].moprice),
+          period: t("pricing5"),
+          description: data[2].description,
+          features: [
+            "Germaniya standartlari",
+            "Zamonaviy metodika",
+            "Kichik guruhlarda ta’lim",
+          ],
+          color: "from-amber-400 to-yellow-500",
+          accent: "yellow",
+          highlight: false,
+        },
+        {
+          name: data[3].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[3].moprice),
+          period: t("pricing5"),
+          description: data[3].description,
+          features: [
+            "Yangi fanlar",
+            "Davlat standartlari",
+            "Ta’lim va tarbiya",
+          ],
+          color: "from-gray-800 to-black",
+          accent: "gray",
+          highlight: false,
+        },
+        {
+          name: data[4].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[4].moprice),
+          period: t("pricing5"),
+          description: data[4].description,
+          features: ["Fanlarga chuqur yondashuv", "Pedagoglar nazorati"],
+          color: "from-red-500 to-red-600",
+          accent: "red",
+          highlight: false,
+        },
+        {
+          name: data[5].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[5].moprice),
+          period: t("pricing5"),
+          description: data[5].description,
+          features: [
+            "Yo‘nalishlar bo‘yicha",
+            "Abituriyent dasturi",
+            "Test tayyorgarligi",
+          ],
+          color: "from-amber-400 to-yellow-500",
+          accent: "yellow",
+          highlight: false,
+        },
+        {
+          name: data[6].subType,
+          price: new Intl.NumberFormat("ru-RU").format(data[6].moprice),
+          period: t("pricing5"),
+          description: data[6].description,
+          features: ["Sertifikatlar"],
+          color: "from-gray-800 to-black",
+          accent: "gray",
+          highlight: false,
+        },
+      ]
+    : [];
+
   const accentClasses = {
     gray: {
       checkBg: "bg-gray-50 text-gray-500",
@@ -139,7 +150,7 @@ const PricingSection = () => {
 
   return (
     <Wrapper>
-      <div id="pricing" className="py-20">
+      <div id="pricing" className="py-10 md:py-20">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             {t("prHeader1")}

@@ -18,25 +18,25 @@ function App() {
           <WhatWeOffer />
         </section>
 
-        <section className="py-16">
+        <section className="py-10 md:py-20">
           <SchoolStats />
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-10 md:py-20 bg-white">
           <Wrapper>
             <CertifiedTeachers />
           </Wrapper>
         </section>
 
-        <section className="py-16 bg-gray-50">
+        <section className="py-10 md:py-20 bg-gray-50">
           <PricingSection />
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-10 md:py-20 bg-white">
           <FaqSection />
         </section>
 
-        <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+        <section className="py-10 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
           <ContactForm />
         </section>
       </main>

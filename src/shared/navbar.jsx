@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: t("nav2"), path: "/admission" },
     { name: t("nav4"), path: "/gallery" },
     { name: t("nav3"), path: "/news" },
-    { name: t("nav6"), path: "/courses" },
+    // { name: t("nav6"), path: "/courses" },
     { name: t("nav7"), path: "/teachers" },
     { name: t("nav8"), path: "/schedule" },
   ];
@@ -69,8 +69,7 @@ const Navbar = () => {
             <nav className="hidden lg:flex flex-1 justify-center space-x-6 text-black font-medium">
               {navLinks
                 .filter(
-                  (link) =>
-                    !["/courses", "/teachers", "/schedule"].includes(link.path)
+                  (link) => !["/teachers", "/schedule"].includes(link.path)
                 )
                 .map((link) => (
                   <Link
@@ -88,14 +87,14 @@ const Navbar = () => {
               <Dropdown
                 menu={{
                   items: [
-                    {
-                      key: "courses",
-                      label: (
-                        <Link to="/courses" className="block px-2 py-1">
-                          {t("nav6")}
-                        </Link>
-                      ),
-                    },
+                    // {
+                    //   key: "courses",
+                    //   label: (
+                    //     <Link to="/courses" className="block px-2 py-1">
+                    //       {t("nav6")}
+                    //     </Link>
+                    //   ),
+                    // },
                     {
                       key: "teachers",
                       label: (

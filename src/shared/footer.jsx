@@ -41,7 +41,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/contact"
+                    href="/news"
                     className="text-gray-300 hover:text-red-600 transition-all"
                   >
                     {t("nav3")}
@@ -55,8 +55,14 @@ const Footer = () => {
                 {t("footer3")}
               </h3>
               <ul className="space-y-3 text-gray-300">
-                <li>+998 77 454 00 50</li>
-                <li>deutschsmartschool@gmail.com</li>
+                <li>
+                  <a href="tel:+998774540050">+998 77 454 00 50</a>
+                </li>
+                <li>
+                  <a href="mailto:deutschsmartschool@gmail.com">
+                    deutschsmartschool@gmail.com
+                  </a>
+                </li>
                 <li>Yashnobod tumani Qadriyat MFY, Elbek ko'chasi, 22/1-uy</li>
               </ul>
             </div>
