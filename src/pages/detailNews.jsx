@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const slugify = (str) =>
   str
@@ -30,6 +31,9 @@ const NewsDetail = () => {
   const bgImage = article.image;
   return (
     <>
+      <Helmet>
+        <title>News | DeutschSmart</title>
+      </Helmet>
       <section
         className="relative pt-20 pb-32 overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: `url('${bgImage}')` }}

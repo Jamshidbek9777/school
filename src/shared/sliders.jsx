@@ -10,10 +10,9 @@ const HeroBanner = () => {
     <div className="relative mt-10 min-h-screen w-full overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/img/bg.jpg"
+          src="/img/bg.webp"
           alt="Education background"
           className="w-full h-full object-cover object-center"
-          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
@@ -66,7 +65,7 @@ const HeroBanner = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
-            className="mt-16 flex items-center gap-8 text-white/80"
+            className="mt-16 hidden md:flex items-center gap-8 text-white/80 "
           >
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">

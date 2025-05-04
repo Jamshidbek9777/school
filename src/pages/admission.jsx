@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import HeroSection from "../shared/hero";
 import { useAdmissions, useInfo } from "../queries/useQueries";
+import { Helmet } from "react-helmet";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -99,105 +100,113 @@ const Admissions = () => {
   ];
 
   return (
-    <Wrapper>
-      <div className="pt-24 pb-16">
-        <HeroSection
-          backgroundImage="/img/header2.JPG"
-          title={t("nav2")}
-          description={t("adm1")}
-        />
+    <>
+      <Helmet>
+        <title>Admissions | DeutschSmart</title>
+      </Helmet>
+      <Wrapper>
+        <div className="pt-24 pb-16">
+          <HeroSection
+            backgroundImage="/img/header2.jpg"
+            title={t("nav2")}
+            description={t("adm1")}
+          />
 
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto my-12"
-        >
-          <motion.div variants={fadeIn} className="relative mb-16">
-            <div className="flex items-center justify-center mb-8">
-              <Calendar className="w-6 h-6 text-yellow-500 mr-2" />
-              <h2 className="text-2xl font-bold text-gray-800">{t("adm2")}</h2>
-            </div>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="max-w-4xl mx-auto my-12"
+          >
+            <motion.div variants={fadeIn} className="relative mb-16">
+              <div className="flex items-center justify-center mb-8">
+                <Calendar className="w-6 h-6 text-yellow-500 mr-2" />
+                <h2 className="text-2xl font-bold text-gray-800">
+                  {t("adm2")}
+                </h2>
+              </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-xl shadow-md p-6 border-l-4 border-yellow-400"
-              >
-                <div className="flex items-start">
-                  <div className="bg-yellow-100 rounded-full p-2 mr-4">
-                    <Calendar className="w-5 h-5 text-yellow-600" />
+              <div className="grid md:grid-cols-2 gap-6">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white rounded-xl shadow-md p-6 border-l-4 border-yellow-400"
+                >
+                  <div className="flex items-start">
+                    <div className="bg-yellow-100 rounded-full p-2 mr-4">
+                      <Calendar className="w-5 h-5 text-yellow-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-1">
+                        {datesData[0]?.dates}
+                      </h3>
+                      <p className="text-gray-600">
+                        Hujjatlar topshirish muddati
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">
-                      {datesData[0]?.dates}
-                    </h3>
-                    <p className="text-gray-600">
-                      Hujjatlar topshirish muddati
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-xl shadow-md p-6 border-l-4 border-yellow-400"
-              >
-                <div className="flex items-start">
-                  <div className="bg-yellow-100 rounded-full p-2 mr-4">
-                    <Calendar className="w-5 h-5 text-yellow-600" />
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white rounded-xl shadow-md p-6 border-l-4 border-yellow-400"
+                >
+                  <div className="flex items-start">
+                    <div className="bg-yellow-100 rounded-full p-2 mr-4">
+                      <Calendar className="w-5 h-5 text-yellow-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-1">
+                        {datesData[0]?.exam}
+                      </h3>
+                      <p className="text-gray-600">
+                        Kirish imtihonlari o'tkaziladi
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">
-                      {datesData[0]?.exam}
-                    </h3>
-                    <p className="text-gray-600">
-                      Kirish imtihonlari o'tkaziladi
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          <motion.div variants={fadeIn} className="mb-16">
-            <div className="flex items-center justify-center mb-8">
-              <Clipboard className="w-6 h-6 text-yellow-500 mr-2" />
-              <h2 className="text-2xl font-bold text-gray-800">{t("adm3")}</h2>
-            </div>
-
-            <motion.div
-              className="bg-white rounded-xl shadow-md p-6"
-              whileHover={{ boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-            >
-              <ul className="space-y-4">
-                {datesData.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center"
-                  >
-                    <span className="text-gray-700">
-                      {item.req.split(/\r?\n/).map((line, i) => (
-                        <div className="flex gap-2 my-2">
-                          <div className="bg-yellow-100 rounded-full p-1.5 mr-3">
-                            <CheckCircle className="w-4 h-4 text-yellow-600" />
-                          </div>
-                          <p key={i} className="text-gray-700">
-                            {line}
-                          </p>
-                        </div>
-                      ))}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
+                </motion.div>
+              </div>
             </motion.div>
-          </motion.div>
 
-          {/* <motion.div variants={fadeIn} className="mb-16">
+            <motion.div variants={fadeIn} className="mb-16">
+              <div className="flex items-center justify-center mb-8">
+                <Clipboard className="w-6 h-6 text-yellow-500 mr-2" />
+                <h2 className="text-2xl font-bold text-gray-800">
+                  {t("adm3")}
+                </h2>
+              </div>
+
+              <motion.div
+                className="bg-white rounded-xl shadow-md p-6"
+                whileHover={{ boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
+              >
+                <ul className="space-y-4">
+                  {datesData.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-center"
+                    >
+                      <span className="text-gray-700">
+                        {item.req.split(/\r?\n/).map((line, i) => (
+                          <div className="flex gap-2 my-2">
+                            <div className="bg-yellow-100 rounded-full p-1.5 mr-3">
+                              <CheckCircle className="w-4 h-4 text-yellow-600" />
+                            </div>
+                            <p key={i} className="text-gray-700">
+                              {line}
+                            </p>
+                          </div>
+                        ))}
+                      </span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            </motion.div>
+
+            {/* <motion.div variants={fadeIn} className="mb-16">
             <div className="flex items-center justify-center mb-8">
               <FileText className="w-6 h-6 text-yellow-500 mr-2" />
               <h2 className="text-2xl font-bold text-gray-800">{t("adm4")}</h2>
@@ -254,241 +263,245 @@ const Admissions = () => {
             </div>
           </motion.div> */}
 
-          {/* Application Form */}
-          <motion.div
-            variants={fadeIn}
-            className="bg-white shadow-lg rounded-2xl overflow-hidden"
-          >
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 p-8">
-              <h2 className="text-2xl font-bold text-white text-center">
-                {t("adm5")}
-              </h2>
-              <p className="text-yellow-100 text-center mt-2">
-                {t("Fill out the form below to start your application process")}
-              </p>
-            </div>
+            {/* Application Form */}
+            <motion.div
+              variants={fadeIn}
+              className="bg-white shadow-lg rounded-2xl overflow-hidden"
+            >
+              <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 p-8">
+                <h2 className="text-2xl font-bold text-white text-center">
+                  {t("adm5")}
+                </h2>
+                <p className="text-yellow-100 text-center mt-2">
+                  {t(
+                    "Fill out the form below to start your application process"
+                  )}
+                </p>
+              </div>
 
-            <div className="p-8">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-10"
-                >
+              <div className="p-8">
+                {submitted ? (
                   <motion.div
-                    animate={{
-                      scale: [0.8, 1.2, 1],
-                      rotate: [0, 10, 0],
-                    }}
-                    transition={{ duration: 0.5 }}
-                    className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-10"
                   >
-                    <CheckCircle className="w-10 h-10 text-green-600" />
+                    <motion.div
+                      animate={{
+                        scale: [0.8, 1.2, 1],
+                        rotate: [0, 10, 0],
+                      }}
+                      transition={{ duration: 0.5 }}
+                      className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                    >
+                      <CheckCircle className="w-10 h-10 text-green-600" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                      {t("Application Submitted!")}
+                    </h3>
+                    <p className="text-gray-600 max-w-md mx-auto">
+                      {t(
+                        "Your application has been successfully submitted. Our admissions team will contact you soon."
+                      )}
+                    </p>
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                    {t("Application Submitted!")}
-                  </h3>
-                  <p className="text-gray-600 max-w-md mx-auto">
-                    {t(
-                      "Your application has been successfully submitted. Our admissions team will contact you soon."
-                    )}
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="flex items-center text-gray-700 mb-2 font-medium">
-                      <User className="w-4 h-4 mr-2 text-yellow-500" />
-                      {t("adm6")}
-                    </label>
-                    <input
-                      type="text"
-                      value={form.fullName}
-                      onChange={(e) =>
-                        setForm({ ...form, fullName: e.target.value })
-                      }
-                      required
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                      placeholder={t("Enter your full name")}
-                    />
-                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label className="flex items-center text-gray-700 mb-2 font-medium">
+                        <User className="w-4 h-4 mr-2 text-yellow-500" />
+                        {t("adm6")}
+                      </label>
+                      <input
+                        type="text"
+                        value={form.fullName}
+                        onChange={(e) =>
+                          setForm({ ...form, fullName: e.target.value })
+                        }
+                        required
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                        placeholder={t("Enter your full name")}
+                      />
+                    </div>
 
-                  <div>
-                    <label className="flex items-center text-gray-700 mb-2 font-medium">
-                      <Phone className="w-4 h-4 mr-2 text-yellow-500" />
-                      {t("adm7")}
-                    </label>
-                    <input
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) =>
-                        setForm({ ...form, phone: e.target.value })
-                      }
-                      required
-                      placeholder="+998 90 123 45 67"
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                    />
-                  </div>
+                    <div>
+                      <label className="flex items-center text-gray-700 mb-2 font-medium">
+                        <Phone className="w-4 h-4 mr-2 text-yellow-500" />
+                        {t("adm7")}
+                      </label>
+                      <input
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) =>
+                          setForm({ ...form, phone: e.target.value })
+                        }
+                        required
+                        placeholder="+998 90 123 45 67"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="flex items-center text-gray-700 mb-2 font-medium">
-                      <School className="w-4 h-4 mr-2 text-yellow-500" />
-                      {t("Grade Level")}
-                    </label>
-                    <select
-                      value={form.grade}
-                      onChange={(e) =>
-                        setForm({ ...form, grade: e.target.value })
-                      }
-                      required
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                    >
-                      <option value="">{t("adm8")}</option>
-                      {[...Array(11)].map((_, i) => (
-                        <option key={i + 1} value={`${i + 1}-sinf`}>
-                          {i + 1}-{t("adm9")}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                    <div>
+                      <label className="flex items-center text-gray-700 mb-2 font-medium">
+                        <School className="w-4 h-4 mr-2 text-yellow-500" />
+                        {t("Grade Level")}
+                      </label>
+                      <select
+                        value={form.grade}
+                        onChange={(e) =>
+                          setForm({ ...form, grade: e.target.value })
+                        }
+                        required
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      >
+                        <option value="">{t("adm8")}</option>
+                        {[...Array(11)].map((_, i) => (
+                          <option key={i + 1} value={`${i + 1}-sinf`}>
+                            {i + 1}-{t("adm9")}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
 
-                  <div>
-                    <label className="flex items-center text-gray-700 mb-2 font-medium">
-                      <MessageSquare className="w-4 h-4 mr-2 text-yellow-500" />
-                      {t("adm10")}
-                    </label>
-                    <textarea
-                      value={form.note}
-                      onChange={(e) =>
-                        setForm({ ...form, note: e.target.value })
-                      }
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                      rows={4}
-                      placeholder={t(
-                        "Any additional information you'd like to share"
-                      )}
-                    ></textarea>
-                  </div>
+                    <div>
+                      <label className="flex items-center text-gray-700 mb-2 font-medium">
+                        <MessageSquare className="w-4 h-4 mr-2 text-yellow-500" />
+                        {t("adm10")}
+                      </label>
+                      <textarea
+                        value={form.note}
+                        onChange={(e) =>
+                          setForm({ ...form, note: e.target.value })
+                        }
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                        rows={4}
+                        placeholder={t(
+                          "Any additional information you'd like to share"
+                        )}
+                      ></textarea>
+                    </div>
 
-                  <div className="text-center pt-4">
-                    <motion.button
-                      type="submit"
-                      disabled={loading}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                      className={`relative bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-8 py-3 rounded-lg font-semibold shadow-md
+                    <div className="text-center pt-4">
+                      <motion.button
+                        aria-label="submit form button"
+                        type="submit"
+                        disabled={loading}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`relative bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-8 py-3 rounded-lg font-semibold shadow-md
                         ${loading ? "opacity-70 cursor-not-allowed" : "hover:shadow-lg"}`}
-                    >
-                      {loading ? (
-                        <span className="flex items-center justify-center">
-                          <svg
-                            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
-                          {t("Processing...")}
-                        </span>
-                      ) : (
-                        t("adm11")
-                      )}
-                    </motion.button>
+                      >
+                        {loading ? (
+                          <span className="flex items-center justify-center">
+                            <svg
+                              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              ></circle>
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              ></path>
+                            </svg>
+                            {t("Processing...")}
+                          </span>
+                        ) : (
+                          t("adm11")
+                        )}
+                      </motion.button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </motion.div>
+
+            {/* Contact Information */}
+            <motion.div
+              variants={fadeIn}
+              className="grid md:grid-cols-2 gap-8 mt-16"
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-white rounded-xl shadow-md p-6"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="bg-yellow-100 p-3 rounded-full mr-4">
+                    <Phone className="w-5 h-5 text-yellow-600" />
                   </div>
-                </form>
-              )}
-            </div>
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div
-            variants={fadeIn}
-            className="grid md:grid-cols-2 gap-8 mt-16"
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-white rounded-xl shadow-md p-6"
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-yellow-100 p-3 rounded-full mr-4">
-                  <Phone className="w-5 h-5 text-yellow-600" />
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {t("adm12")}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  {t("adm12")}
-                </h3>
-              </div>
-              <div className="space-y-3 ml-16">
-                <p className="flex items-center text-gray-700">
-                  <Phone className="w-4 h-4 mr-2 text-gray-500" />
-                  <a
-                    href="tel:+998 77 454 00 50"
-                    className="hover:text-yellow-600 transition-colors"
-                  >
-                    +998 77 454 00 50
-                  </a>
-                </p>
-                <p className="flex items-center text-gray-700">
-                  <Mail className="w-4 h-4 mr-2 text-gray-500" />
-                  <a
-                    href="mailto:deutschsmartschool@gmail.com"
-                    className="hover:text-yellow-600 transition-colors"
-                  >
-                    deutschsmartschool@gmail.com
-                  </a>
-                </p>
-              </div>
+                <div className="space-y-3 ml-16">
+                  <p className="flex items-center text-gray-700">
+                    <Phone className="w-4 h-4 mr-2 text-gray-500" />
+                    <a
+                      href="tel:+998 77 454 00 50"
+                      className="hover:text-yellow-600 transition-colors"
+                    >
+                      +998 77 454 00 50
+                    </a>
+                  </p>
+                  <p className="flex items-center text-gray-700">
+                    <Mail className="w-4 h-4 mr-2 text-gray-500" />
+                    <a
+                      href="mailto:deutschsmartschool@gmail.com"
+                      className="hover:text-yellow-600 transition-colors"
+                    >
+                      deutschsmartschool@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-white rounded-xl shadow-md p-6"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="bg-yellow-100 p-3 rounded-full mr-4">
+                    <Map className="w-5 h-5 text-yellow-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {t("adm13")}
+                  </h3>
+                </div>
+                <div className="space-y-3 ml-16">
+                  <p className="text-gray-700">{info[0]?.address}</p>
+                </div>
+              </motion.div>
             </motion.div>
 
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              variants={fadeIn}
+              className="mt-8 bg-white shadow-lg rounded-xl overflow-hidden"
             >
-              <div className="flex items-center mb-4">
-                <div className="bg-yellow-100 p-3 rounded-full mr-4">
-                  <Map className="w-5 h-5 text-yellow-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  {t("adm13")}
-                </h3>
-              </div>
-              <div className="space-y-3 ml-16">
-                <p className="text-gray-700">{info[0]?.address}</p>
+              <div className="w-full h-[400px] rounded-xl overflow-hidden">
+                <iframe
+                  src={`https://maps.google.com/maps?q=${info[0]?.long},${info[0]?.lat}&z=15&output=embed`}
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy=""
+                  className="border-0"
+                ></iframe>
               </div>
             </motion.div>
           </motion.div>
-
-          <motion.div
-            variants={fadeIn}
-            className="mt-8 bg-white shadow-lg rounded-xl overflow-hidden"
-          >
-            <div className="w-full h-[400px] rounded-xl overflow-hidden">
-              <iframe
-                src={`https://maps.google.com/maps?q=${info[0]?.long},${info[0]?.lat}&z=15&output=embed`}
-                width="100%"
-                height="100%"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy=""
-                className="border-0"
-              ></iframe>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </Wrapper>
+        </div>
+      </Wrapper>
+    </>
   );
 };
 

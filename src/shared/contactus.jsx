@@ -85,7 +85,7 @@ const ContactForm = () => {
 
               <div className="relative z-10 text-white">
                 <img
-                  src="/img/getintouch.png"
+                  src="/img/getintouch.webp"
                   alt="Contact Us"
                   className="mx-auto mb-10 max-w-full h-auto drop-shadow-xl w-64"
                 />
@@ -142,6 +142,7 @@ const ContactForm = () => {
                     possible.
                   </p>
                   <button
+                    aria-label="send message again"
                     onClick={() => setStatus(null)}
                     className="px-6 py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors"
                   >
@@ -257,6 +258,7 @@ const ContactForm = () => {
                   </div>
 
                   <button
+                    aria-label="send message"
                     type="submit"
                     disabled={status === "sending"}
                     className={`w-full bg-gray-900 hover:bg-black text-white py-3.5 rounded-xl font-medium flex items-center justify-center transition-all duration-300 ${

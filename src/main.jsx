@@ -9,7 +9,6 @@ import Footer from "./shared/footer.jsx";
 import About from "./pages/about.jsx";
 import Teachers from "./pages/teachers.jsx";
 import Courses from "./pages/courses.jsx";
-import Pricing from "./pages/pricing.jsx";
 import Gallary from "./pages/gallery.jsx";
 import LessonSchedule from "./pages/schedule.jsx";
 import NewsPage from "./pages/news.jsx";
@@ -33,7 +32,6 @@ const Root = () => {
           <Route path="/about" element={<About />} />
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/pricing" element={<Pricing />} />
           <Route path="/schedule" element={<LessonSchedule />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/gallery" element={<Gallary />} />

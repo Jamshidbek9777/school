@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Wrapper from "./wrapper";
 import { ChevronDown, Languages, X } from "lucide-react";
-import { Dropdown } from "antd";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
@@ -10,6 +9,7 @@ const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const [isSubmenuOpen, setSubmenuOpen] = useState(false);
 
   const navLinks = [
     { name: t("nav1"), path: "/about" },
@@ -58,7 +58,7 @@ const Navbar = () => {
             <div className="flex-1 flex justify-center lg:justify-start lg:static absolute left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-0">
               <a href="/">
                 <img
-                  src="/img/logo.png"
+                  src="/img/logo.webp"
                   alt="DeutschSmart Logo"
                   className="h-[55px] w-auto object-contain rounded-lg"
                   loading="lazy"
@@ -84,70 +84,51 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                 ))}
-              <Dropdown
-                menu={{
-                  items: [
-                    // {
-                    //   key: "courses",
-                    //   label: (
-                    //     <Link to="/courses" className="block px-2 py-1">
-                    //       {t("nav6")}
-                    //     </Link>
-                    //   ),
-                    // },
-                    {
-                      key: "teachers",
-                      label: (
-                        <Link to="/teachers" className="block px-2 py-1">
-                          {t("nav7")}
-                        </Link>
-                      ),
-                    },
-                    {
-                      key: "schedule",
-                      label: (
-                        <Link to="/schedule" className="block px-2 py-1">
-                          {t("nav8")}
-                        </Link>
-                      ),
-                    },
-                  ],
-                }}
-                trigger={["click"]}
-              >
-                <div className="cursor-pointer flex items-center gap-1 hover:text-yellow-400 transition">
+              <div className="relative">
+                <button
+                  onClick={() => setSubmenuOpen((prev) => !prev)}
+                  className="flex items-center gap-1 cursor-pointer hover:text-yellow-400 transition"
+                >
                   <p>{t("nav5")}</p>
                   <ChevronDown size={20} />
-                </div>
-              </Dropdown>
+                </button>
+
+                {isSubmenuOpen && (
+                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-40 z-50">
+                    <Link
+                      to="/teachers"
+                      className="block px-4 py-2 hover:bg-yellow-100 transition"
+                      onClick={() => setSubmenuOpen(false)}
+                    >
+                      {t("nav7")}
+                    </Link>
+                    <Link
+                      to="/schedule"
+                      className="block px-4 py-2 hover:bg-yellow-100 transition"
+                      onClick={() => setSubmenuOpen(false)}
+                    >
+                      {t("nav8")}
+                    </Link>
+                  </div>
+                )}
+              </div>
             </nav>
 
             <div className="flex items-center gap-2 px-4 lg:border-l border-gray-200">
-              <Dropdown
-                menu={{
-                  items: languageOptions.map((lang) => ({
-                    key: lang.key,
-                    label: (
-                      <div
-                        onClick={() => changeLanguage(lang.key)}
-                        className={`px-2 py-1 ${
-                          i18n.language === lang.key
-                            ? "font-bold text-yellow-500"
-                            : ""
-                        }`}
-                      >
-                        {lang.label}
-                      </div>
-                    ),
-                  })),
-                }}
-                trigger={["click"]}
-              >
-                <div className="flex items-center gap-1 cursor-pointer hover:text-yellow-400">
-                  <Languages size={18} />
-                  <span className="uppercase">{i18n.language}</span>
-                </div>
-              </Dropdown>
+              <div className="flex items-center gap-2">
+                <Languages size={18} />
+                <select
+                  value={i18n.language}
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  className="bg-transparent text-black uppercase cursor-pointer focus:outline-none"
+                >
+                  {languageOptions.map((lang) => (
+                    <option key={lang.key} value={lang.key}>
+                      {lang.key}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
         </Wrapper>

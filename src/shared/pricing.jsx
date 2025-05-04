@@ -192,6 +192,7 @@ const PricingSection = () => {
               <div className="bg-white p-8 flex flex-col flex-grow">
                 <a href="/admission" className="mt-auto">
                   <button
+                    aria-label="get"
                     className={clsx(
                       "w-full py-3.5 rounded-xl font-medium text-base transition transform mt-auto",
                       plan.highlight
@@ -209,6 +210,7 @@ const PricingSection = () => {
 
         <div className="text-center mt-12">
           <button
+            aria-label="show all pricing"
             onClick={() => setShowAll(!showAll)}
             className="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-medium transition"
           >

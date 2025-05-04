@@ -5,56 +5,6 @@ import { FaTelegram } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useTeachers } from "../queries/useQueries";
 
-const teachers = [
-  {
-    name: "Anna Müller",
-    subject: "Mathematics",
-    image: "/img/teacher.jpg",
-    description:
-      "Passionate about numbers and logic with 10+ years of experience.",
-    socials: {
-      linkedin: "https://linkedin.com",
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    name: "Lukas Schmidt",
-    subject: "Science",
-    image: "/img/teacher.jpg",
-    description:
-      "Dedicated to making science fun and practical for all students.",
-    socials: {
-      linkedin: "https://linkedin.com",
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    name: "Sophie Becker",
-    subject: "Languages",
-    image: "/img/teacher.jpg",
-    description:
-      "Linguistics expert fluent in 4 languages, loves cultural exchange.",
-    socials: {
-      linkedin: "https://linkedin.com",
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    name: "Klaus Weber",
-    subject: "Arts & Music",
-    image: "/img/teacher.jpg",
-    description: "Creative mind with a passion for inspiring young artists.",
-    socials: {
-      linkedin: "https://linkedin.com",
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-    },
-  },
-];
-
 const CertifiedTeachers = () => {
   const { t, i18n } = useTranslation();
   const { data = [] } = useTeachers(i18n.language);
@@ -88,6 +38,7 @@ const CertifiedTeachers = () => {
                 src={teacher.image}
                 alt={teacher.first}
                 className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">

@@ -52,6 +52,7 @@ const FaqSection = () => {
                 data-aos-delay={index * 50}
               >
                 <button
+                  aria-label="open question"
                   onClick={() => toggle(index)}
                   className={`w-full text-left p-6 flex justify-between items-center rounded-xl transition-all duration-300
                     ${

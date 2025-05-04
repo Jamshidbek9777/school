@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Wrapper from "../shared/wrapper";
 import {
   Linkedin,
   Facebook,
   Twitter,
-  Award,
   GraduationCap,
-  Languages,
   Instagram,
   X,
 } from "lucide-react";
@@ -16,194 +14,200 @@ import { motion } from "framer-motion";
 import ContactForm from "../shared/contactus";
 import { useTeachers } from "../queries/useQueries";
 import { FaTelegram } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Teachers = () => {
   const { t, i18n } = useTranslation();
   const { data = [] } = useTeachers(i18n.language);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <div className="relative pt-20 pb-32 bg-gradient-to-r from-blue-900 to-indigo-800 overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-400 rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl translate-y-1/2 -translate-x-1/3"></div>
-        <div className="absolute inset-0 bg-[url('/img/pattern.svg')] bg-repeat opacity-5"></div>
+    <>
+      <Helmet>
+        <title>Teachers | DeutschSmart</title>
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+        <div className="relative pt-20 pb-32 bg-gradient-to-r from-blue-900 to-indigo-800 overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-400 rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+          <div className="absolute inset-0 bg-[url('/img/pattern.svg')] bg-repeat opacity-5"></div>
+
+          <Wrapper>
+            <div className="relative z-10 pt-20">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-12"
+              >
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  {t("nav7")}
+                </h1>
+                <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+                  {t("teach1")}
+                </p>
+              </motion.div>
+            </div>
+          </Wrapper>
+        </div>
 
         <Wrapper>
-          <div className="relative z-10 pt-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-12"
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                {t("nav7")}
-              </h1>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-                {t("teach1")}
-              </p>
-            </motion.div>
-          </div>
-        </Wrapper>
-      </div>
-
-      <Wrapper>
-        <div className="py-16">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {data.map((teacher, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className={`bg-white rounded-2xl shadow-lg overflow-hidden`}
-              >
-                <div className="relative overflow-hidden h-80">
-                  <img
-                    src={teacher.image}
-                    alt={teacher.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-xl font-bold text-white mb-1 flex items-center">
-                        {teacher.first}
-                      </h3>
-                      <h3 className="text-xl font-bold text-white mb-1 flex items-center">
-                        {teacher.last}
-                      </h3>
-                    </div>
-                    <div className="inline-block px-3 py-1 bg-yellow-600 text-white text-sm font-medium rounded-full mb-2">
-                      {teacher.subject}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  {teacher.edu !== null ? (
-                    <>
-                      <div className="flex items-center text-gray-700 mb-4">
-                        <GraduationCap
-                          size={18}
-                          className="mr-2 flex-shrink-0"
-                        />
-                        <span>{teacher.edu}</span>
-                      </div>
-                    </>
-                  ) : (
-                    <></>
-                  )}
-
-                  {/* <div className="flex items-center text-gray-700 mb-4">
-                    <Award size={18} className="mr-2 flex-shrink-0" />
-                    <span>{teacher.exp} years experience</span>
-                  </div> */}
-
-                  <div className="flex items-center text-gray-700 mb-6">
-                    <MdDriveFileRenameOutline
-                      size={18}
-                      className="mr-2
-                    flex-shrink-0"
+          <div className="py-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {data.map((teacher, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8 }}
+                  className={`bg-white rounded-2xl shadow-lg overflow-hidden`}
+                >
+                  <div className="relative overflow-hidden h-80">
+                    <img
+                      src={teacher.image}
+                      alt={teacher.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
                     />
-                    <span>{teacher.first}</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold text-white mb-1 flex items-center">
+                          {teacher.first}
+                        </h3>
+                        <h3 className="text-xl font-bold text-white mb-1 flex items-center">
+                          {teacher.last}
+                        </h3>
+                      </div>
+                      <div className="inline-block px-3 py-1 bg-yellow-600 text-white text-sm font-medium rounded-full mb-2">
+                        {teacher.subject}
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="border-t border-gray-100 pt-4 flex justify-between items-center">
-                    <div className="flex space-x-3">
-                      {teacher.tg !== null ? (
-                        <>
-                          {" "}
-                          <a
-                            href={teacher?.tg}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
-                          >
-                            <FaTelegram size={16} />
-                          </a>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                      {teacher.linkedin !== null ? (
-                        <>
-                          <a
-                            href={teacher?.tg}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
-                          >
-                            <Linkedin size={16} />
-                          </a>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                      {teacher.insta !== null ? (
-                        <>
-                          <a
-                            href={teacher?.insta}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-red-600 transition-colors"
-                          >
-                            <Instagram size={16} />
-                          </a>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                      {teacher.face !== null ? (
-                        <>
-                          <a
-                            href={teacher?.face}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
-                          >
-                            <Facebook size={16} />
-                          </a>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                      {teacher.x !== null ? (
-                        <>
-                          <a
-                            href={teacher?.x}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
-                          >
-                            <Twitter size={16} />
-                          </a>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                    {teacher.phone !== null ? (
+                  <div className="p-6">
+                    {teacher.edu !== null ? (
                       <>
-                        <p>
-                          Tel:{" "}
-                          <a href={`tel:${teacher.phone}`}>{teacher.phone}</a>
-                        </p>
+                        <div className="flex items-center text-gray-700 mb-4">
+                          <GraduationCap
+                            size={18}
+                            className="mr-2 flex-shrink-0"
+                          />
+                          <span>{teacher.edu}</span>
+                        </div>
                       </>
                     ) : (
                       <></>
                     )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </Wrapper>
 
-      {/* <section className="bg-gray-50 py-24">
+                    {/* <div className="flex items-center text-gray-700 mb-4">
+                    <Award size={18} className="mr-2 flex-shrink-0" />
+                    <span>{teacher.exp} years experience</span>
+                  </div> */}
+
+                    <div className="flex items-center text-gray-700 mb-6">
+                      <MdDriveFileRenameOutline
+                        size={18}
+                        className="mr-2
+                    flex-shrink-0"
+                      />
+                      <span>{teacher.first}</span>
+                    </div>
+
+                    <div className="border-t border-gray-100 pt-4 flex justify-between items-center">
+                      <div className="flex space-x-3">
+                        {teacher.tg !== null ? (
+                          <>
+                            {" "}
+                            <a
+                              href={teacher?.tg}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                            >
+                              <FaTelegram size={16} />
+                            </a>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                        {teacher.linkedin !== null ? (
+                          <>
+                            <a
+                              href={teacher?.tg}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                            >
+                              <Linkedin size={16} />
+                            </a>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                        {teacher.insta !== null ? (
+                          <>
+                            <a
+                              href={teacher?.insta}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-red-600 transition-colors"
+                            >
+                              <Instagram size={16} />
+                            </a>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                        {teacher.face !== null ? (
+                          <>
+                            <a
+                              href={teacher?.face}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                            >
+                              <Facebook size={16} />
+                            </a>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                        {teacher.x !== null ? (
+                          <>
+                            <a
+                              href={teacher?.x}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                            >
+                              <Twitter size={16} />
+                            </a>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                      {teacher.phone !== null ? (
+                        <>
+                          <p>
+                            Tel:{" "}
+                            <a href={`tel:${teacher.phone}`}>{teacher.phone}</a>
+                          </p>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </Wrapper>
+
+        {/* <section className="bg-gray-50 py-24">
         <Wrapper>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -318,8 +322,9 @@ const Teachers = () => {
         </Wrapper>
       </section> */}
 
-      <ContactForm />
-    </div>
+        <ContactForm />
+      </div>
+    </>
   );
 };
 
